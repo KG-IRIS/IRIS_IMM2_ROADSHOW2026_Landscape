@@ -174,20 +174,18 @@ Children:
         Type: BaseVariableType
         DataType: DynamicLinkMode
         Value: 2
-  - Class: Method
-    Name: LogDiagnostics
-  - Class: Method
-    Name: RefreshJob
-  - Class: Method
-    Name: TestRecordProduction
-  - Class: Method
-    Name: TestRecordScrap
-  - Class: Method
-    Name: TestSetStatusIdle
-  - Class: Method
-    Name: TriggerSnapReq
-  - Name: apiKeyString
+  - Name: BarcodeReading
     Type: BaseDataVariableType
     DataType: String
-    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+    Value: "0"
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/Barcode/BC_ReaderType1/bcReceived"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
 - File: Plex/Plex.yaml

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using UAManagedCore;
 using OpcUa = UAManagedCore.OpcUa;
@@ -25,76 +24,38 @@ using FTOptix.CommunicationDriver;
 using FTOptix.OPCUAServer;
 #endregion
 
-// =========================================================================
-//  PlexLogic - Molding2 / Job 9 station
-//
-//  This station runs ONE job (job 9, GOLFBALL on Molding2). There is no
-//  barcode scanner and no job selection: the workcenter and job are fixed
-//  constants. The screen button opens the dialog itself, so this logic never
-//  opens or closes dialogs - it only keeps Model/Plex/PlexJob1 populated so
-//  whatever the dialog is bound to shows current data.
-//
-//  What this logic does:
-//    1. Keeps PlexJob1 refreshed from the Plex job datasource + Connect API.
-//    2. Posts workcenter status (Production / Idle / Off) to the Connect API.
-//    3. Posts good parts to Record_Production on every GoodCount increment.
-//    4. Posts scrap to Scrap_Add on every ScrapCountProgram increment and on
-//       every press of the manual scrap pushbutton.
-// =========================================================================
-
 public class PlexLogic : BaseNetLogic
 {
     // ---- Plex endpoints / auth ----
-    // NOTE: this points at PRODUCTION. Point it at
-    // https://kendall-disc.test.on.plex.com while validating, then switch back.
+    // NOTE: this points at PRODUCTION. All of the scrap payload testing was done
+    // against https://kendall-disc.test.on.plex.com. Point this at the test host
+    // while you validate the scrap flow, then switch back.
     private const string DatasourceURL = "https://kendall-disc.on.plex.com";
     private const string DataSourceId = "10638";
     private const string BasicAuthHeader = "Basic SXJpc0lBRGlzY3JldGVXc0BwbGV4LmNvbTphMDc5NjkyLWIzMTctNA==";
     private const string ConnectURL = "https://connect.plex.com";
 
-    // =====================================================================
-    //  THIS STATION - everything below is fixed to job 9 / Molding2
-    // =====================================================================
-    private const string JobNo = "9";
-    private const int WorkcenterKey = 85954;          // Molding2 (datasource key)
-    private const string WorkcenterName = "Molding2";
-    private const string PartName = "KENDALL ELECTRIC GOLF BALL";
+    // ---- UI / dialog config ----
+    private const string IrisDialogPath = "UI/Dialogs/PlexIrisDialog";
+    private const string KendallDialogPath = "UI/Dialogs/PlexKendallDialog";
+    private const int DialogTimeoutMs = 10000;
 
-    // Connect-API workcenter UUID for Molding2 (workcenterCode "Molding2",
-    // building IRIS). Status updates are skipped if this is ever blanked out.
-    private const string WorkcenterId = "6a8bef3d-1a6b-4b51-bc93-e9e37273df65";
-
-    // ---- Model object the dialog binds to ----
-    // Resolved from the 'PlexJob' NodeId variable on this NetLogic; the path
-    // below is only a fallback if that pointer is empty.
-    private const string PlexJobVariableName = "PlexJob";
-    private const string PlexJobFallbackPath = "Model/Plex/PlexJob1";
-
-    // How often the job row / schedule is re-read from Plex. This also
-    // re-resolves Job_Key, which changes whenever Plex closes the current job
-    // and opens a new one - so don't set it too high or scrap can post against
-    // a closed job for up to one interval.
-    private const int JobRefreshIntervalMs = 60000;
+    // ---- Model object the dialog binds to (single alias) ----
+    private const string PlexJobPath = "Model/Plex/PlexJob1";
 
     // ---- Production recording (driven by the GoodCount PLC tag) ----
+    // Production is NO LONGER posted on a timer. Every increment of GoodCount
+    // posts that delta to Record_Production, so Plex mirrors the shot counter
+    // instead of a made-up "1 every 30 seconds".
     private const string RecordDataSourceId = "20446";
-    // PLC name as registered in Plex for THIS workcenter. The workcenter record
-    // for Molding2 comes back with plcName:"" - it has no PLC name configured -
-    // so "s-2" (which belongs to the Molding1 build) is NOT correct here and is
-    // a likely reason production posts were being refused or landing on the
-    // wrong workcenter. Sending "" matches what Plex holds; Workcenter_Key is
-    // what actually identifies the target.
-    //
-    // If Record_Production still refuses the transaction, set a PLC Name on the
-    // Molding2 workcenter in Plex (Workcenter setup screen) and mirror the exact
-    // value here.
-    private const string RecordPlcName = "";
+    private const string RecordPlcName = "s-2";
 
     // Writes every datasource request body and response to the FactoryTalk log.
     // Leave on while proving the flow out; turn off once it's trusted.
     private const bool LogPlexPayloads = true;
 
     // ---- Scrap recording (Scrap_Add) ----
+    // Verified payload shape:
     //   { "inputs": { "Job_Key", "Workcenter_Key", "Part_Key",
     //                 "Part_Operation_Key", "Quantity",
     //                 "Scrap_Reason", "Scrap_Date" } }
@@ -102,7 +63,8 @@ public class PlexLogic : BaseNetLogic
     private const string ScrapDataSourceId = "10363";
 
     // Must match a row in the "Scrap Reason" setup table (part.dbo.scrap_reason).
-    // This is the varchar name, NOT the Scrap_Reason_Key.
+    // "Cracks" is verified working. Do NOT put the Scrap_Reason_Key (382/386)
+    // here - this field is the varchar name, not the key.
     private const string ScrapReasonProgram = "Cracks";
     private const string ScrapReasonManual = "Cracks";
 
@@ -111,53 +73,28 @@ public class PlexLogic : BaseNetLogic
 
     // ScrapCountManual is a momentary pushbutton: the PLC drives it true while
     // held and false on release, so this logic never writes to it. Mechanical
-    // contacts can bounce, so a second rising edge inside this window is
-    // treated as the same press.
+    // contacts can bounce, though, so a second rising edge inside this window
+    // is treated as the same press.
     private const int ManualScrapDebounceMs = 500;
 
-    // ---- Scrap key fallbacks ----
-    // Only used when the job datasource doesn't hand the keys back. Job_Key is
-    // specific to ONE job instance and goes stale when Plex opens a new job, so
-    // treat these as a last resort - the periodic refresh should normally
-    // supply them. Leave at 0 to disable the fallback entirely.
-    private const int FallbackJobKey = 0;
-    private const int FallbackPartKey = 0;
-    private const int FallbackPartOperationKey = 0;
+    private const string BallRequestCode = "100";
+    private const int BallRequestPulseMs = 60000;
 
     // ---- Controller tag polling ----
     // GoodCount, ScrapCountProgram, ScrapCountManual, Production, Idle and Off
-    // are LOCAL variables on this NetLogic that carry a dynamic link to a tag
-    // on the EtherNet/IP driver. Handing that local alias to a
-    // RemoteVariableSynchronizer does nothing useful - the synchronizer has to
-    // be given the actual remote tag. That is almost certainly why nothing has
-    // been posting: the cached value never refreshes, so VariableChange never
-    // fires and no delta is ever seen.
+    // all live on the EtherNet/IP driver. Nothing on screen is bound to them,
+    // so without a RemoteVariableSynchronizer their cached values never refresh
+    // and VariableChange never fires. One synchronizer covers all six.
     //
-    // Start() now follows each dynamic link to the real tag and synchronizes
-    // and subscribes on THAT.
+    // 500ms is a compromise: fast enough to catch a momentary button press,
+    // slow enough not to hammer the controller with six tags. Raise it if the
+    // driver complains; see the note on ScrapCountManual below.
     private const int TagPollIntervalMs = 500;
-
-    // Belt-and-braces: the counters are also read directly on this interval and
-    // pushed through the same delta logic. If the subscription works, these
-    // reads see no change and do nothing; if it doesn't, parts still get
-    // recorded. A part is never counted twice - both paths compare against the
-    // same baseline under the same lock.
-    private const int CounterPollIntervalMs = 1000;
-
-    // Optional absolute project paths to the source tags. Leave blank to follow
-    // the dynamic link configured on the NetLogic variable (the normal case).
-    // Fill one in only if the link can't be resolved automatically, e.g.
-    // "CommDrivers/RAEtherNet_IPDriver1/RAEtherNet_IPStation1/Tags/Controller Tags/IMM2/Status/ShotCount"
-    private const string GoodCountTagPath = "";
-    private const string ScrapCountProgramTagPath = "";
-    private const string ScrapCountManualTagPath = "";
-    private const string ProductionTagPath = "";
-    private const string IdleTagPath = "";
-    private const string OffTagPath = "";
 
     // Refuse to post a counter jump larger than this in a single update. A jump
     // that big means a bad baseline, a counter reset, or a garbage read - not
-    // that the machine really made 5000 parts between two polls.
+    // that the machine really made 5000 parts between two polls. Posting it
+    // would write junk into Plex that has to be backed out by hand.
     private const int MaxCounterDelta = 500;
 
     // ---- Workcenter status IDs (Connect API) ----
@@ -165,18 +102,92 @@ public class PlexLogic : BaseNetLogic
     private const string StatusProduction = "41f1c708-f393-4dac-a3f8-fa582d42ab9b";
     private const string StatusOff = "0e5b2fee-aeb9-45c4-9e68-e6633605e939";
 
+    // ---- Workcenter UUIDs (Connect API) ----
+    private const string WorkcenterIdMolding1 = "2505052f-24cf-453d-aa1a-8bc661bd105e";
+    // TODO: fill in the Molding2 workcenter UUID when you have it.
+    private const string WorkcenterIdMolding2 = "";
+
+    // ---- Operator clock-in target ----
+    // Badge scans always clock into this workcenter, regardless of the
+    // job that happens to be active.
+    private const string ClockInWorkcenterId = WorkcenterIdMolding1;
+    private const string ClockInWorkcenterName = "Molding1";
+
+    // Required by the clock-in endpoint; Plex returns
+    // REQUEST_VALIDATION_FAILED without it.
+    private const string ClockInCostSubTypeId = "e4b36350-f977-41bc-bcf1-570e7c171795";
+
+    // ---- Operator badge scans -> Plex accountId ----
+    // The scanner keeps digits only, so each operator needs a numeric badge
+    // code. Adjust the badge numbers below to whatever is printed on the
+    // actual badges. Keep them distinct from job numbers ("8", "9") and the
+    // ball-request code ("100").
+    private static readonly Dictionary<string, string> OperatorBadgeToAccountId =
+        new Dictionary<string, string>
+    {
+        { "201", "4e7a7693-fb3b-420b-8ec1-a428f9ecb1c1" }, // Mike Stephens
+        { "202", "bd007967-9fa1-4c48-a19d-2a736886800a" }, // Bob Slawson
+        { "203", "63a47e9f-a208-4fa4-b312-5884a942c660" }, // Michael Lynch
+        { "204", "685a5cd4-2a2f-45dd-89b2-cdbe437d1d9d" }, // Bruce Klumpp
+        { "205", "82a19553-19a4-45b4-8818-741916727fd1" }, // Hayden Hiller
+        { "206", "a0ed7410-0907-49f8-a5c7-13db97395d86" }, // Darren Ash
+    };
+
+    // accountId -> display name, used when Plex doesn't echo the roster back.
+    private static readonly Dictionary<string, string> OperatorAccountToName =
+        new Dictionary<string, string>
+    {
+        { "4e7a7693-fb3b-420b-8ec1-a428f9ecb1c1", "Mike Stephens" },
+        { "bd007967-9fa1-4c48-a19d-2a736886800a", "Bob Slawson" },
+        { "63a47e9f-a208-4fa4-b312-5884a942c660", "Michael Lynch" },
+        { "685a5cd4-2a2f-45dd-89b2-cdbe437d1d9d", "Bruce Klumpp" },
+        { "82a19553-19a4-45b4-8818-741916727fd1", "Hayden Hiller" },
+        { "a0ed7410-0907-49f8-a5c7-13db97395d86", "Darren Ash" },
+    };
+
+    // Optional HMI binding for the clocked-in operator's name.
+    private const string OperatorFolderPath = "Model/Plex/Operator";
+
+    // ---- Scrap key fallbacks per scanned job number ----
+    // These are only used when the job datasource doesn't hand back the keys
+    // (see TryBuildScrapContextFromRow). Job_Key in particular is specific to
+    // ONE job instance - when Plex closes job 8 and opens a new one, this value
+    // goes stale and Scrap_Add will fail on FK_Scrap_Job. Prefer the dynamic
+    // lookup; treat this table as a demo-only fallback.
+    private static readonly Dictionary<string, ScrapContext> JobScrapFallback =
+        new Dictionary<string, ScrapContext>
+    {
+        { "8", new ScrapContext(10694932, 10445858, 65305216, 85866) }, // GOLFBALL-01 / Mold (pcs) / Molding1
+        // TODO: job "9" (Molding2, WC 85954) - need Job_Key, Part_Key and
+        // Part_Operation_Key. Get Part_Operation_Key from the Part Operation
+        // screen URL (PartOperationKey=...), same way job 8 was found.
+    };
+
     // ---- HTTP ----
     private static readonly HttpClient _httpClient = new HttpClient();
 
     // Keeps the controller tags refreshed even with nothing bound on screen.
     private RemoteVariableSynchronizer _tagSynchronizer;
 
-    // Vision recording pulse (still wired to Model/IrisLensPub/snapreq).
+    private IUAVariable _barcodeVariable;
+    private bool _processing = false;
+    private DelayedTask _dialogCloseTask;
+    // Active recording target. -1 means "nothing scanned yet, don't record".
+    private int _activeWorkcenterKey = -1;
+    private string _activeJobNo = null;
+    // Last operator clocked in via badge scan; sent with status updates.
+    private string _activeAccountId = null;
+    private readonly object _recordLock = new object();
+
+    // Vision Recording
     private IUAVariable _snapreqVariable;
     private DelayedTask _snapreqResetTask;
-    private const int SnapReqPulseMs = 10000;
 
-    // Workcenter status booleans from the PLC.
+    private IUAVariable _reqIrisBallVariable;
+    private IUAVariable _reqKendallBallVariable;
+    private DelayedTask _ballResetTask;
+
+    // Workcenter status monitoring (booleans from the PLC / model)
     private IUAVariable _productionVariable;
     private IUAVariable _idleVariable;
     private IUAVariable _offVariable;
@@ -185,68 +196,77 @@ public class PlexLogic : BaseNetLogic
     private IUAVariable _goodCountVariable;           // Int32, cumulative PLC shot counter
     private IUAVariable _scrapCountProgramVariable;   // Int32, cumulative PLC reject counter
     private IUAVariable _scrapCountManualVariable;    // Boolean, operator pushbutton
-    private readonly object _counterLock = new object();
+    private readonly object _scrapLock = new object();
     // Last value seen on the PLC shot counter. -1 = not yet baselined.
     private int _lastGoodCount = -1;
     // Last value seen on the PLC reject counter. -1 = not yet baselined.
     private int _lastScrapCount = -1;
-    // Edge tracking for the momentary scrap button.
+    // Edge tracking for the momentary scrap button: only a false->true
+    // transition counts as a press.
     private bool _lastManualScrapState = false;
+    // When the last accepted press happened, for bounce rejection.
     private DateTime _lastManualScrapUtc = DateTime.MinValue;
-    // Keys used for the next Scrap_Add call; refreshed from Plex.
+    // Keys used for the next Scrap_Add call; set when a job is scanned.
     private ScrapContext _activeScrapContext = null;
-
-    // ---- Job refresh ----
-    private PeriodicTask _jobRefreshTask;
-    private PeriodicTask _counterPollTask;
-    private LongRunningTask _manualRefreshTask;
-    private LongRunningTask _testTask;
-    private int _refreshInFlight = 0;   // Interlocked guard against overlap
-    private bool _loggedJobColumns = false;
-    private bool _loggedScrapContext = false;
 
     public override void Start()
     {
         _httpClient.Timeout = TimeSpan.FromSeconds(30);
 
-        Log.Info("PlexLogic", "Start() called on '" + LogicObject.BrowseName + "' - fixed to job " +
-                              JobNo + " / " + WorkcenterName + " (WC " + WorkcenterKey + ").");
+        Log.Info("PlexLogic", "Start() called on '" + LogicObject.BrowseName + "'.");
 
-        if (string.IsNullOrEmpty(WorkcenterId))
+        // Subscribe to barcode changes so a new scan triggers the flow.
+        _barcodeVariable = LogicObject.GetVariable("BarcodeReading");
+        if (_barcodeVariable == null)
         {
-            Log.Warning("PlexLogic", "WorkcenterId (Connect UUID for " + WorkcenterName +
-                                     ") is not set; workcenter status updates will be skipped.");
+            Log.Error("PlexLogic", "Variable 'BarcodeReading' not found on LogicObject '" + LogicObject.BrowseName + "'.");
+            return;
         }
 
-        Log.Info("PlexLogic", "Config: datasource host " + DatasourceURL +
-                              ", job datasource " + DataSourceId +
-                              ", Record_Production " + RecordDataSourceId +
-                              ", Scrap_Add " + ScrapDataSourceId +
-                              ", PLC_Name '" + RecordPlcName + "'" +
-                              ", Connect WC " + WorkcenterId + ".");
+        string initial = _barcodeVariable.Value != null ? _barcodeVariable.Value.Value.ToString() : "(null)";
+        Log.Info("PlexLogic", "Subscribed to BarcodeReading. Initial value: '" + initial + "'.");
+
+        _barcodeVariable.VariableChange += BarcodeVariable_VariableChange;
+
+        // Production is recorded from the GoodCount tag (subscribed further
+        // down), not on a timer.
 
         _snapreqVariable = LogicObject.GetVariable("snapreq");
         if (_snapreqVariable == null)
-            Log.Warning("PlexLogic", "Variable 'snapreq' not found on LogicObject.");
+            Log.Error("PlexLogic", "Variable 'snapreq' not found on LogicObject.");
+
+        _reqIrisBallVariable = LogicObject.GetVariable("reqIrisBall");
+        if (_reqIrisBallVariable == null)
+            Log.Error("PlexLogic", "Variable 'reqIrisBall' not found on LogicObject.");
+
+        _reqKendallBallVariable = LogicObject.GetVariable("reqKendallBall");
+        if (_reqKendallBallVariable == null)
+            Log.Error("PlexLogic", "Variable 'reqKendallBall' not found on LogicObject.");
 
         // ---- Workcenter status booleans ----
-        _productionVariable = ResolveSourceVariable("Production", ProductionTagPath);
-        if (_productionVariable != null)
+        _productionVariable = LogicObject.GetVariable("Production");
+        if (_productionVariable == null)
+            Log.Error("PlexLogic", "Variable 'Production' not found on LogicObject.");
+        else
             _productionVariable.VariableChange += ProductionVariable_VariableChange;
 
-        _idleVariable = ResolveSourceVariable("Idle", IdleTagPath);
-        if (_idleVariable != null)
+        _idleVariable = LogicObject.GetVariable("Idle");
+        if (_idleVariable == null)
+            Log.Error("PlexLogic", "Variable 'Idle' not found on LogicObject.");
+        else
             _idleVariable.VariableChange += IdleVariable_VariableChange;
 
-        _offVariable = ResolveSourceVariable("Off", OffTagPath);
-        if (_offVariable != null)
+        _offVariable = LogicObject.GetVariable("Off");
+        if (_offVariable == null)
+            Log.Error("PlexLogic", "Variable 'Off' not found on LogicObject.");
+        else
             _offVariable.VariableChange += OffVariable_VariableChange;
 
         // ---- Production source ----
-        _goodCountVariable = ResolveSourceVariable("GoodCount", GoodCountTagPath);
+        _goodCountVariable = LogicObject.GetVariable("GoodCount");
         if (_goodCountVariable == null)
         {
-            Log.Error("PlexLogic", "GoodCount could not be resolved; production will NOT be recorded.");
+            Log.Error("PlexLogic", "Variable 'GoodCount' not found on LogicObject; production will not be recorded.");
         }
         else
         {
@@ -255,12 +275,22 @@ public class PlexLogic : BaseNetLogic
         }
 
         // ---- Scrap sources ----
-        _scrapCountProgramVariable = ResolveSourceVariable("ScrapCountProgram", ScrapCountProgramTagPath);
-        if (_scrapCountProgramVariable != null)
+        _scrapCountProgramVariable = LogicObject.GetVariable("ScrapCountProgram");
+        if (_scrapCountProgramVariable == null)
+        {
+            Log.Error("PlexLogic", "Variable 'ScrapCountProgram' not found on LogicObject.");
+        }
+        else
+        {
             _scrapCountProgramVariable.VariableChange += ScrapCountProgramVariable_VariableChange;
+        }
 
-        _scrapCountManualVariable = ResolveSourceVariable("ScrapCountManual", ScrapCountManualTagPath);
-        if (_scrapCountManualVariable != null)
+        _scrapCountManualVariable = LogicObject.GetVariable("ScrapCountManual");
+        if (_scrapCountManualVariable == null)
+        {
+            Log.Error("PlexLogic", "Variable 'ScrapCountManual' not found on LogicObject.");
+        }
+        else
         {
             // Seed the edge tracker so a button already held at startup doesn't
             // immediately post a scrap record.
@@ -272,89 +302,15 @@ public class PlexLogic : BaseNetLogic
         // here. At this point the tags haven't been polled yet, so the cached
         // value is usually 0 - baselining off that would make the first real
         // read look like a delta of the entire shift total.
-        lock (_counterLock)
+        lock (_scrapLock)
         {
             _lastGoodCount = -1;
             _lastScrapCount = -1;
         }
 
-        // Nothing on screen is bound to the controller tags, so start polling.
+        // Nothing on screen is bound to these tags, so start polling them.
         SetupTagSynchronizer();
-
-        // Direct-read safety net in case the subscription still doesn't fire.
-        _counterPollTask = new PeriodicTask(CounterPoll, CounterPollIntervalMs, LogicObject);
-        _counterPollTask.Start();
-
-        // Pull the job data once now (off the startup thread - the datasource
-        // call is synchronous and would otherwise stall project start), then
-        // keep it refreshed.
-        RefreshJob();
-
-        _jobRefreshTask = new PeriodicTask(JobRefreshPeriodic, JobRefreshIntervalMs, LogicObject);
-        _jobRefreshTask.Start();
     }
-
-    public override void Stop()
-    {
-        // Stop polling first so no change events arrive mid-teardown.
-        if (_tagSynchronizer != null)
-        {
-            _tagSynchronizer.Dispose();
-            _tagSynchronizer = null;
-        }
-
-        if (_jobRefreshTask != null)
-        {
-            _jobRefreshTask.Dispose();
-            _jobRefreshTask = null;
-        }
-
-        if (_counterPollTask != null)
-        {
-            _counterPollTask.Dispose();
-            _counterPollTask = null;
-        }
-
-        if (_manualRefreshTask != null)
-        {
-            _manualRefreshTask.Dispose();
-            _manualRefreshTask = null;
-        }
-
-        if (_testTask != null)
-        {
-            _testTask.Dispose();
-            _testTask = null;
-        }
-
-        if (_productionVariable != null)
-            _productionVariable.VariableChange -= ProductionVariable_VariableChange;
-
-        if (_idleVariable != null)
-            _idleVariable.VariableChange -= IdleVariable_VariableChange;
-
-        if (_offVariable != null)
-            _offVariable.VariableChange -= OffVariable_VariableChange;
-
-        if (_goodCountVariable != null)
-            _goodCountVariable.VariableChange -= GoodCountVariable_VariableChange;
-
-        if (_scrapCountProgramVariable != null)
-            _scrapCountProgramVariable.VariableChange -= ScrapCountProgramVariable_VariableChange;
-
-        if (_scrapCountManualVariable != null)
-            _scrapCountManualVariable.VariableChange -= ScrapCountManualVariable_VariableChange;
-
-        if (_snapreqResetTask != null)
-        {
-            _snapreqResetTask.Dispose();
-            _snapreqResetTask = null;
-        }
-    }
-
-    // =====================================================================
-    //  Tag polling
-    // =====================================================================
 
     // Creates the one synchronizer that keeps the controller tags refreshed.
     // Without this, VariableChange never fires for anything on the EtherNet/IP
@@ -404,458 +360,196 @@ public class PlexLogic : BaseNetLogic
         }
     }
 
+    public override void Stop()
+    {
+        // Stop polling first so no change events arrive mid-teardown.
+        if (_tagSynchronizer != null)
+        {
+            _tagSynchronizer.Dispose();
+            _tagSynchronizer = null;
+        }
+
+        if (_barcodeVariable != null)
+            _barcodeVariable.VariableChange -= BarcodeVariable_VariableChange;
+
+        if (_productionVariable != null)
+            _productionVariable.VariableChange -= ProductionVariable_VariableChange;
+
+        if (_idleVariable != null)
+            _idleVariable.VariableChange -= IdleVariable_VariableChange;
+
+        if (_offVariable != null)
+            _offVariable.VariableChange -= OffVariable_VariableChange;
+
+        if (_goodCountVariable != null)
+            _goodCountVariable.VariableChange -= GoodCountVariable_VariableChange;
+
+        if (_scrapCountProgramVariable != null)
+            _scrapCountProgramVariable.VariableChange -= ScrapCountProgramVariable_VariableChange;
+
+        if (_scrapCountManualVariable != null)
+            _scrapCountManualVariable.VariableChange -= ScrapCountManualVariable_VariableChange;
+
+        if (_dialogCloseTask != null)
+        {
+            _dialogCloseTask.Dispose();
+            _dialogCloseTask = null;
+        }
+
+        if (_snapreqResetTask != null)
+        {
+            _snapreqResetTask.Dispose();
+            _snapreqResetTask = null;
+        }
+
+        if (_ballResetTask != null)
+        {
+            _ballResetTask.Dispose();
+            _ballResetTask = null;
+        }
+    }
+
     // =====================================================================
-    //  Job refresh - keeps PlexJob1 and the scrap keys current
+    //  Barcode handling
     // =====================================================================
 
-    // Callable from the screen (e.g. from the same button that opens the
-    // dialog) to force an immediate re-read before the dialog is shown.
-    [ExportMethod]
-    public void RefreshJob()
+    private void BarcodeVariable_VariableChange(object sender, VariableChangeEventArgs e)
     {
         try
         {
-            if (_manualRefreshTask != null)
-                _manualRefreshTask.Dispose();
+            string raw = e.NewValue != null ? e.NewValue.Value.ToString() : null;
+            Log.Info("PlexLogic", "BarcodeReading changed to: '" + (raw != null ? raw : "(null)") + "'.");
 
-            _manualRefreshTask = new LongRunningTask(RefreshJobLongRunning, LogicObject);
-            _manualRefreshTask.Start();
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "RefreshJob failed to start: " + ex.Message);
-        }
-    }
+            if (string.IsNullOrWhiteSpace(raw))
+                return;
 
-    private void RefreshJobLongRunning(LongRunningTask task)
-    {
-        RefreshJobData();
-    }
-
-    private void JobRefreshPeriodic(PeriodicTask task)
-    {
-        RefreshJobData();
-    }
-
-    // Re-reads the job row and the schedule entry, updates the scrap keys and
-    // repopulates PlexJob1. Never touches the counter baselines - doing that
-    // here would silently drop parts made between refreshes.
-    private void RefreshJobData()
-    {
-        // A slow datasource call must not stack up behind the periodic task.
-        if (Interlocked.CompareExchange(ref _refreshInFlight, 1, 0) != 0)
-            return;
-
-        try
-        {
-            JobRow row = FetchJobRowByWorkcenterKey(WorkcenterKey);
-            SchedulingJobDto sched = FetchSchedulingJob(JobNo);
-
-            UpdateScrapContext(row);
-            PopulatePlexJob(row, sched);
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "RefreshJobData failed: " + ex.Message);
-        }
-        finally
-        {
-            Interlocked.Exchange(ref _refreshInFlight, 0);
-        }
-    }
-
-    // Works out which keys scrap postings should use. Prefers the live
-    // datasource row; falls back to the constants above only if they're set.
-    private void UpdateScrapContext(JobRow row)
-    {
-        ScrapContext ctx = TryBuildScrapContextFromRow(row);
-        string source = "job datasource";
-
-        if (ctx == null && FallbackJobKey > 0 && FallbackPartKey > 0 && FallbackPartOperationKey > 0)
-        {
-            ctx = new ScrapContext(FallbackJobKey, FallbackPartKey, FallbackPartOperationKey, WorkcenterKey);
-            source = "local fallback constants";
-        }
-
-        ScrapContext previous;
-        lock (_counterLock)
-        {
-            previous = _activeScrapContext;
-            _activeScrapContext = ctx;
-        }
-
-        if (ctx == null)
-        {
-            // Log the first time and on any transition back to "no keys", but
-            // not on every 60s refresh.
-            if (previous != null || !_loggedScrapContext)
+            // Scanners often append control chars (CR/LF/etc). Keep digits only.
+            string barcode = KeepDigits(raw);
+            if (string.IsNullOrEmpty(barcode))
             {
-                _loggedScrapContext = true;
-                Log.Warning("PlexLogic", "No scrap keys available for job " + JobNo + " - SCRAP WILL NOT POST. " +
-                                         "The job datasource did not return usable Job_Key / Part_Key / " +
-                                         "Part_Operation_Key. Check the 'Job datasource columns' log line, " +
-                                         "then either add those columns to datasource " + DataSourceId +
-                                         " or fill in FallbackJobKey / FallbackPartKey / FallbackPartOperationKey.");
-            }
-            return;
-        }
-
-        // Only log when something actually changed, so the periodic refresh
-        // doesn't fill the log with identical lines.
-        if (previous == null || !previous.SameAs(ctx))
-        {
-            _loggedScrapContext = true;
-            Log.Info("PlexLogic", "Scrap keys for job " + JobNo + " from " + source +
-                                  ": Job_Key " + ctx.JobKey +
-                                  ", Part_Key " + ctx.PartKey +
-                                  ", Part_Operation_Key " + ctx.PartOperationKey +
-                                  ", Workcenter_Key " + ctx.WorkcenterKey + ".");
-        }
-    }
-
-    // Pulls Job_Key / Part_Key / Part_Operation_Key from the job datasource row
-    // if that datasource returns them. Returns null when any are missing.
-    private static ScrapContext TryBuildScrapContextFromRow(JobRow row)
-    {
-        if (row == null)
-            return null;
-
-        long jobKey, partKey, partOpKey;
-        if (!TryParsePlexInt(row.GetValue("Job_Key"), out jobKey)) return null;
-        if (!TryParsePlexInt(row.GetValue("Part_Key"), out partKey)) return null;
-        if (!TryParsePlexInt(row.GetValue("Part_Operation_Key"), out partOpKey)) return null;
-
-        if (jobKey <= 0 || partKey <= 0 || partOpKey <= 0)
-            return null;
-
-        return new ScrapContext((int)jobKey, (int)partKey, (int)partOpKey, WorkcenterKey);
-    }
-
-    // =====================================================================
-    //  PlexJob object population (the dialog binds to this object)
-    // =====================================================================
-
-    private void PopulatePlexJob(JobRow row, SchedulingJobDto schedule)
-    {
-        try
-        {
-            IUANode plexJob = GetPlexJob();
-            if (plexJob == null) return;
-
-            SetObjectVar(plexJob, "PartName", PartName);
-            SetObjectVar(plexJob, "Job", JobNo);
-            SetObjectVar(plexJob, "Workcenter", WorkcenterName);
-
-            // Job Status from the datasource row; Priority + DueDate from ConnectAPI.
-            string status = row != null ? row.GetValue("Status") : "-";
-            SetObjectVar(plexJob, "JobStatus", !string.IsNullOrEmpty(status) ? status : "-");
-            SetObjectVar(plexJob, "Priority", schedule != null ? schedule.priority : "-");
-            SetObjectVar(plexJob, "DueDate", (schedule != null && !string.IsNullOrEmpty(schedule.dueDate)) ? schedule.dueDate : "-");
-
-            // Part number and quantities come from the datasource row.
-            string partNumber = row != null ? row.GetValue("Simple_Part_No") : "-";
-            string target = row != null ? row.GetValue("Job_Quantity") : null;
-            string completed = row != null ? row.GetValue("Job_Produced") : null;
-
-            SetObjectVar(plexJob, "PartNumber", !string.IsNullOrEmpty(partNumber) ? partNumber : "-");
-            SetObjectVar(plexJob, "TargetQuantity", FormatQuantity(target));
-            SetObjectVar(plexJob, "QuantityCompleted", FormatQuantity(completed));
-            SetObjectVar(plexJob, "Target", FormatQuantity(target));
-
-            string operation = row != null ? row.GetValue("Operation_No") : "-";
-            SetObjectVar(plexJob, "Operation", operation);
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "PopulatePlexJob failed: " + ex.Message);
-        }
-    }
-
-    // Resolves the PlexJob object from the NodeId variable on this NetLogic,
-    // falling back to the fixed project path.
-    private IUANode GetPlexJob()
-    {
-        try
-        {
-            IUAVariable pointer = LogicObject.GetVariable(PlexJobVariableName);
-            if (pointer != null && pointer.Value != null)
-            {
-                NodeId id = pointer.Value.Value as NodeId;
-                if (id != null)
-                {
-                    IUANode node = InformationModel.Get(id);
-                    if (node != null)
-                        return node;
-                }
-            }
-        }
-        catch (Exception ex)
-        {
-            Log.Warning("PlexLogic", "Could not resolve the '" + PlexJobVariableName +
-                                     "' pointer: " + ex.Message);
-        }
-
-        IUANode fallback = Project.Current.Get(PlexJobFallbackPath);
-        if (fallback == null)
-        {
-            Log.Warning("PlexLogic", "Could not find the PlexJob object via the '" + PlexJobVariableName +
-                                     "' pointer or at '" + PlexJobFallbackPath + "'.");
-        }
-        return fallback;
-    }
-
-    private void SetObjectVar(IUANode plexJob, string variableName, string value)
-    {
-        try
-        {
-            if (plexJob == null) return;
-
-            IUAVariable variable = plexJob.GetVariable(variableName);
-            if (variable == null)
-            {
-                Log.Warning("PlexLogic", "Property '" + variableName + "' not found on the PlexJob object.");
+                Log.Warning("PlexLogic", "Scan '" + raw + "' contained no digits; ignored.");
                 return;
             }
-            variable.Value = value != null ? value : string.Empty;
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "SetObjectVar(" + variableName + ") failed: " + ex.Message);
-        }
-    }
 
-    // =====================================================================
-    //  Tag resolution and polling
-    // =====================================================================
-
-    // Returns the variable that should actually be synchronized and subscribed
-    // to for a given NetLogic variable name.
-    //
-    // Order of preference:
-    //   1. The absolute path override, if one is configured.
-    //   2. The target of the dynamic link on the NetLogic variable - this is
-    //      the real driver tag, and it is what the synchronizer needs.
-    //   3. The local variable itself, as a last resort.
-    private IUAVariable ResolveSourceVariable(string localName, string overridePath)
-    {
-        IUAVariable local = LogicObject.GetVariable(localName);
-        if (local == null)
-        {
-            Log.Error("PlexLogic", "Variable '" + localName + "' not found on LogicObject.");
-            return null;
-        }
-
-        // 1. Explicit path override.
-        if (!string.IsNullOrEmpty(overridePath))
-        {
+            if (_processing)
+                return;
+            _processing = true;
             try
             {
-                IUAVariable target = Project.Current.Get(overridePath) as IUAVariable;
-                if (target != null)
-                {
-                    Log.Info("PlexLogic", localName + " -> tag at configured path '" + overridePath + "'.");
-                    return target;
-                }
-                Log.Warning("PlexLogic", localName + ": configured path '" + overridePath +
-                                         "' did not resolve to a variable.");
+                HandleScan(raw, barcode);
             }
-            catch (Exception ex)
+            finally
             {
-                Log.Warning("PlexLogic", localName + ": configured path lookup failed: " + ex.Message);
-            }
-        }
-
-        // 2. Follow the dynamic link.
-        try
-        {
-            IUAVariable link = local.GetVariable("DynamicLink");
-            if (link != null && link.Value != null && link.Value.Value != null)
-            {
-                string path = link.Value.Value.ToString();
-                if (!string.IsNullOrEmpty(path))
-                {
-                    var resolved = LogicObject.Context.ResolvePath(local, path);
-                    IUAVariable target = (resolved != null) ? resolved.ResolvedNode as IUAVariable : null;
-                    if (target != null)
-                    {
-                        Log.Info("PlexLogic", localName + " -> resolved through its dynamic link to '" +
-                                              target.BrowseName + "'.");
-                        return target;
-                    }
-
-                    Log.Warning("PlexLogic", localName + ": dynamic link '" + path +
-                                             "' did not resolve to a variable.");
-                }
-            }
-            else
-            {
-                Log.Warning("PlexLogic", localName + " has no dynamic link; using the local variable.");
+                _processing = false;
+                // Reset the source so scanning the SAME code again is a real change.
+                ResetBarcodeVariable();
             }
         }
         catch (Exception ex)
         {
-            Log.Warning("PlexLogic", localName + ": could not follow the dynamic link (" + ex.Message +
-                                     "). Falling back to the local variable - if this tag never updates, " +
-                                     "set its absolute path in the *TagPath constants.");
+            Log.Error("PlexLogic", "BarcodeVariable_VariableChange failed: " + ex.Message);
         }
-
-        // 3. Local variable.
-        return local;
     }
 
-    // Reads the counters directly and pushes them through the same delta logic
-    // the change events use. Idempotent: an unchanged value does nothing.
-    private void CounterPoll(PeriodicTask task)
+    // Keeps only 0-9 from the scanned string.
+    private static string KeepDigits(string s)
+    {
+        if (s == null) return null;
+        StringBuilder sb = new StringBuilder();
+        foreach (char c in s)
+            if (c >= '0' && c <= '9')
+                sb.Append(c);
+        return sb.ToString();
+    }
+
+    // Clears BarcodeReading so an identical next scan raises VariableChange.
+    private void ResetBarcodeVariable()
     {
         try
         {
-            int value;
-
-            if (TryReadInt(_goodCountVariable, out value))
-                ProcessGoodCount(value);
-
-            if (TryReadInt(_scrapCountProgramVariable, out value))
-                ProcessScrapCount(value);
-
-            if (_scrapCountManualVariable != null)
-                ProcessManualScrap(ReadBool(_scrapCountManualVariable));
+            if (_barcodeVariable != null)
+                _barcodeVariable.Value = string.Empty;
         }
         catch (Exception ex)
         {
-            Log.Error("PlexLogic", "CounterPoll failed: " + ex.Message);
+            Log.Error("PlexLogic", "ResetBarcodeVariable failed: " + ex.Message);
         }
     }
 
-    // =====================================================================
-    //  Commissioning helpers - wire these to temporary screen buttons
-    // =====================================================================
-
-    // Posts a single good part to Plex right now, bypassing the PLC counter.
-    // Proves the Record_Production leg on its own.
-    [ExportMethod]
-    public void TestRecordProduction()
-    {
-        RunInBackground(delegate
-        {
-            Log.Info("PlexLogic", "TEST: posting 1 good part to " + WorkcenterName + ".");
-            RecordProduction(1);
-        });
-    }
-
-    // Posts a single scrap part right now, bypassing the PLC counter/button.
-    [ExportMethod]
-    public void TestRecordScrap()
-    {
-        RunInBackground(delegate
-        {
-            Log.Info("PlexLogic", "TEST: posting 1 scrap part to " + WorkcenterName + ".");
-            RecordScrap(1, ScrapReasonManual, "test button");
-        });
-    }
-
-    // Forces an Idle status post, proving the Connect API leg on its own.
-    [ExportMethod]
-    public void TestSetStatusIdle()
-    {
-        RunInBackground(delegate
-        {
-            Log.Info("PlexLogic", "TEST: setting " + WorkcenterName + " status to Idle.");
-            SetWorkcenterStatus(StatusIdle, "Idle");
-        });
-    }
-
-    // Dumps everything needed to work out why nothing is posting: whether the
-    // tags are actually reading, where the baselines sit, and whether the scrap
-    // keys resolved.
-    [ExportMethod]
-    public void LogDiagnostics()
+    private void HandleScan(string rawScan, string jobNo)
     {
         try
         {
-            int good, scrapCount;
-            bool haveGood = TryReadInt(_goodCountVariable, out good);
-            bool haveScrap = TryReadInt(_scrapCountProgramVariable, out scrapCount);
+            Log.Info("PlexLogic", "HandleScan started for '" + jobNo + "'.");
 
-            int lastGood, lastScrap;
-            ScrapContext ctx;
-            lock (_counterLock)
+            // ---- Operator badge scan (checked before the digit-only paths) ----
+            // A QR holding a raw accountId UUID survives here because we look at
+            // the untouched scan text, not the digits-only version.
+            string scannedUuid = rawScan != null ? rawScan.Trim() : null;
+            if (LooksLikeUuid(scannedUuid) && IsKnownAccountId(scannedUuid))
             {
-                lastGood = _lastGoodCount;
-                lastScrap = _lastScrapCount;
-                ctx = _activeScrapContext;
+                HandleOperatorScan(scannedUuid, scannedUuid);
+                return;
             }
 
-            Log.Info("PlexLogic", "DIAG tags: GoodCount=" + (haveGood ? good.ToString() : "(no read)") +
-                                  " baseline=" + lastGood +
-                                  " | ScrapCountProgram=" + (haveScrap ? scrapCount.ToString() : "(no read)") +
-                                  " baseline=" + lastScrap +
-                                  " | ScrapCountManual=" + ReadBool(_scrapCountManualVariable) +
-                                  " | Production=" + ReadBool(_productionVariable) +
-                                  " Idle=" + ReadBool(_idleVariable) +
-                                  " Off=" + ReadBool(_offVariable));
-
-            Log.Info("PlexLogic", "DIAG synchronizer: " + (_tagSynchronizer != null ? "running" : "NOT RUNNING") +
-                                  " | apiKey " + (string.IsNullOrWhiteSpace(GetConnectApiKey()) ? "EMPTY" : "present") +
-                                  " | PlexJob object " + (GetPlexJob() != null ? "resolved" : "NOT FOUND"));
-
-            if (ctx == null)
-                Log.Warning("PlexLogic", "DIAG scrap keys: none resolved - scrap cannot post.");
-            else
-                Log.Info("PlexLogic", "DIAG scrap keys: Job_Key " + ctx.JobKey +
-                                      ", Part_Key " + ctx.PartKey +
-                                      ", Part_Operation_Key " + ctx.PartOperationKey +
-                                      ", Workcenter_Key " + ctx.WorkcenterKey + ".");
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "LogDiagnostics failed: " + ex.Message);
-        }
-    }
-
-    // Runs a blocking Plex call off the UI thread.
-    private void RunInBackground(Action work)
-    {
-        try
-        {
-            if (_testTask != null)
-                _testTask.Dispose();
-
-            _testTask = new LongRunningTask(delegate (LongRunningTask task)
+            // Numeric badge code (201-206) mapped to an accountId.
+            string accountId;
+            if (OperatorBadgeToAccountId.TryGetValue(jobNo, out accountId))
             {
-                try { work(); }
-                catch (Exception inner) { Log.Error("PlexLogic", "Background task failed: " + inner.Message); }
-            }, LogicObject);
-            _testTask.Start();
+                HandleOperatorScan(accountId, jobNo);
+                return;
+            }
+
+            // Ball-request scan: don't change the job, just pick a ball for the active job.
+            if (jobNo == BallRequestCode)
+            {
+                HandleBallRequest();
+                return;
+            }
+
+            if (jobNo == "8" || jobNo == "9")
+                TriggerSnapReq();
+
+            List<SchedulingJobDto> scheduleJobs = FetchSchedulingJobs();
+            SchedulingJobDto sched = scheduleJobs.FirstOrDefault(s => s.jobNumber == jobNo);
+            if (sched == null)
+                Log.Warning("PlexLogic", "No scheduling job matched job number '" + jobNo + "'.");
+
+            int workcenterKey = GetWorkcenterKeyForJob(jobNo);
+            JobRow row = null;
+            if (workcenterKey > 0)
+                row = FetchJobRowByWorkcenterKey(workcenterKey, jobNo);
+
+            SetActiveRecording(workcenterKey, jobNo);
+            SetActiveScrapContext(jobNo, workcenterKey, row);
+
+            IUANode plexJob = PopulatePlexJob(row, sched, jobNo);
+
+            NodeId aliasNode = plexJob != null ? plexJob.NodeId : null;
+            OpenDialog(aliasNode, jobNo);
         }
         catch (Exception ex)
         {
-            Log.Error("PlexLogic", "RunInBackground failed: " + ex.Message);
+            Log.Error("PlexLogic", "HandleScan(" + jobNo + ") failed: " + ex.Message);
         }
     }
 
-    // Safe int read from an IUAVariable.
-    private static bool TryReadInt(IUAVariable variable, out int value)
+    private void HandleBallRequest()
     {
-        value = 0;
-        try
+        string jobNo;
+        lock (_recordLock)
         {
-            if (variable == null || variable.Value == null || variable.Value.Value == null)
-                return false;
-            value = Convert.ToInt32(variable.Value.Value);
-            return true;
+            jobNo = _activeJobNo;
         }
-        catch
-        {
-            return false;
-        }
+
+        string ball = GetPartNameForJob(jobNo);
+        Log.Info("PlexLogic", "Ball request on job '" + jobNo + "' -> '" + ball + "'.");
+
+        // Pulse the matching ball-request flag for the active job.
+        TriggerBallRequest(jobNo);
     }
 
-    // =====================================================================
-    //  Vision snapshot request (optional; call from a screen button)
-    // =====================================================================
-
-    [ExportMethod]
-    public void TriggerSnapReq()
+    private void TriggerSnapReq()
     {
         try
         {
@@ -863,17 +557,73 @@ public class PlexLogic : BaseNetLogic
                 return;
 
             _snapreqVariable.Value = true;
-            Log.Info("PlexLogic", "snapreq set true; will reset in " + (SnapReqPulseMs / 1000) + "s.");
+            Log.Info("PlexLogic", "snapreq set true; will reset in 10s.");
 
             if (_snapreqResetTask != null)
                 _snapreqResetTask.Dispose();
 
-            _snapreqResetTask = new DelayedTask(ResetSnapReq, SnapReqPulseMs, LogicObject);
+            _snapreqResetTask = new DelayedTask(ResetSnapReq, 10000, LogicObject);
             _snapreqResetTask.Start();
         }
         catch (Exception ex)
         {
             Log.Error("PlexLogic", "TriggerSnapReq failed: " + ex.Message);
+        }
+    }
+
+    private void TriggerBallRequest(string jobNo)
+    {
+        try
+        {
+            string j = jobNo != null ? jobNo.Trim() : null;
+
+            IUAVariable target = null;
+            if (j == "8") target = _reqIrisBallVariable;
+            else if (j == "9") target = _reqKendallBallVariable;
+
+            if (target == null)
+            {
+                Log.Warning("PlexLogic", "No ball-request variable for job '" + jobNo + "'.");
+                return;
+            }
+
+            // Clear both first so only one flag is ever high at a time.
+            ResetBallRequestVars();
+
+            target.Value = true;
+            Log.Info("PlexLogic", "Ball request flag set for job '" + jobNo + "'; will reset in " +
+                      (BallRequestPulseMs / 1000) + "s.");
+
+            if (_ballResetTask != null)
+                _ballResetTask.Dispose();
+
+            _ballResetTask = new DelayedTask(ResetBallRequest, BallRequestPulseMs, LogicObject);
+            _ballResetTask.Start();
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "TriggerBallRequest failed: " + ex.Message);
+        }
+    }
+
+    private void ResetBallRequest(DelayedTask task)
+    {
+        ResetBallRequestVars();
+        Log.Info("PlexLogic", "Ball request flags reset to false.");
+    }
+
+    private void ResetBallRequestVars()
+    {
+        try
+        {
+            if (_reqIrisBallVariable != null)
+                _reqIrisBallVariable.Value = false;
+            if (_reqKendallBallVariable != null)
+                _reqKendallBallVariable.Value = false;
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "ResetBallRequestVars failed: " + ex.Message);
         }
     }
 
@@ -888,6 +638,247 @@ public class PlexLogic : BaseNetLogic
         catch (Exception ex)
         {
             Log.Error("PlexLogic", "ResetSnapReq failed: " + ex.Message);
+        }
+    }
+
+    private static int GetWorkcenterKeyForJob(string jobNo)
+    {
+        string j = jobNo != null ? jobNo.Trim() : null;
+        if (j == "8") return 85866;
+        if (j == "9") return 85954;
+
+        Log.Warning("PlexLogic", "No workcenter key mapping for job '" + jobNo + "'.");
+        return -1;
+    }
+
+    private static string GetWorkcenterNameForJob(string jobNo)
+    {
+        string j = jobNo != null ? jobNo.Trim() : null;
+        if (j == "8") return "Molding1";
+        if (j == "9") return "Molding2";
+        return "Unknown";
+    }
+
+    // Connect-API workcenter UUID for a scanned job. Falls back to the
+    // clock-in workcenter when the mapping isn't filled in yet.
+    private static string GetWorkcenterIdForJob(string jobNo)
+    {
+        string j = jobNo != null ? jobNo.Trim() : null;
+        if (j == "8" && !string.IsNullOrEmpty(WorkcenterIdMolding1)) return WorkcenterIdMolding1;
+        if (j == "9" && !string.IsNullOrEmpty(WorkcenterIdMolding2)) return WorkcenterIdMolding2;
+        return ClockInWorkcenterId;
+    }
+
+    // =====================================================================
+    //  Operator clock-in / clock-out (Connect API)
+    // =====================================================================
+
+    // True if the text has the 8-4-4-4-12 hex shape of a UUID.
+    private static bool LooksLikeUuid(string s)
+    {
+        if (string.IsNullOrEmpty(s) || s.Length != 36) return false;
+
+        for (int i = 0; i < s.Length; i++)
+        {
+            char c = s[i];
+            if (i == 8 || i == 13 || i == 18 || i == 23)
+            {
+                if (c != '-') return false;
+            }
+            else if (!((c >= '0' && c <= '9') ||
+                       (c >= 'a' && c <= 'f') ||
+                       (c >= 'A' && c <= 'F')))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Only clock in accountIds we recognise, so a stray UUID scan is ignored.
+    private static bool IsKnownAccountId(string accountId)
+    {
+        foreach (KeyValuePair<string, string> kv in OperatorBadgeToAccountId)
+        {
+            if (string.Equals(kv.Value, accountId, StringComparison.OrdinalIgnoreCase))
+                return true;
+        }
+        return false;
+    }
+
+    // Entry point for any operator scan. Re-scanning the operator who is
+    // already clocked in badges them out; any other scan swaps the operator.
+    private void HandleOperatorScan(string accountId, string badge)
+    {
+        string current;
+        lock (_recordLock)
+        {
+            current = _activeAccountId;
+        }
+
+        if (!string.IsNullOrEmpty(current) &&
+            string.Equals(current, accountId, StringComparison.OrdinalIgnoreCase))
+        {
+            ClockOutOperator(badge);
+            return;
+        }
+
+        ClockInOperator(accountId, badge);
+    }
+
+    // Clocks out whoever is on the workcenter, then clocks the scanned
+    // operator in. Always targets ClockInWorkcenterId.
+    private void ClockInOperator(string accountId, string badge)
+    {
+        try
+        {
+            string apiKey = GetConnectApiKey();
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                Log.Warning("PlexLogic", "apiKey is empty; cannot clock in operator.");
+                return;
+            }
+
+            // Clear the station first so only one operator is ever clocked in.
+            string previous;
+            lock (_recordLock) { previous = _activeAccountId; }
+            ClockOutAccount(apiKey, previous);
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("{");
+            sb.Append("\"accountId\":").Append(JsonString(accountId));
+            sb.Append(",\"costSubTypeId\":").Append(JsonString(ClockInCostSubTypeId));
+            sb.Append("}");
+
+            string endpoint = "/production/v1/control/workcenters/" + ClockInWorkcenterId + "/operators/clockin";
+
+            string clockInResponse = ConnectPost(apiKey, endpoint, sb.ToString());
+            if (clockInResponse == null)
+            {
+                Log.Warning("PlexLogic", "Clock-in failed for badge '" + badge + "' on " + ClockInWorkcenterName + ".");
+                lock (_recordLock) { _activeAccountId = null; }
+                return;
+            }
+
+            lock (_recordLock) { _activeAccountId = accountId; }
+
+            // The clock-in response carries the workcenter's operator roster;
+            // show the first entry's name on the HMI.
+            string name = ParseFirstOperatorName(clockInResponse);
+            SetOperatorDisplay(!string.IsNullOrEmpty(name) ? name : GetOperatorNameForAccount(accountId));
+
+            Log.Info("PlexLogic", "Operator '" + badge + "' clocked in to " + ClockInWorkcenterName + ".");
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "ClockInOperator failed: " + ex.Message);
+        }
+    }
+
+    // Badges the current operator out and leaves the workcenter unmanned.
+    private void ClockOutOperator(string badge)
+    {
+        try
+        {
+            string apiKey = GetConnectApiKey();
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                Log.Warning("PlexLogic", "apiKey is empty; cannot clock out operator.");
+                return;
+            }
+
+            string current;
+            lock (_recordLock) { current = _activeAccountId; }
+
+            if (ClockOutAccount(apiKey, current))
+            {
+                lock (_recordLock) { _activeAccountId = null; }
+                SetOperatorDisplay("-");
+                Log.Info("PlexLogic", "Operator '" + badge + "' clocked out of " + ClockInWorkcenterName + ".");
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "ClockOutOperator failed: " + ex.Message);
+        }
+    }
+
+    // Clocks one specific operator off the workcenter. An empty body makes
+    // Plex return a 500, so the accountId always goes in the body.
+    private bool ClockOutAccount(string apiKey, string accountId)
+    {
+        if (string.IsNullOrEmpty(accountId))
+            return true; // nobody recorded as clocked in; nothing to do
+
+        string endpoint = "/production/v1/control/workcenters/" + ClockInWorkcenterId + "/operators/clockout";
+        string body = "{\"accountId\":" + JsonString(accountId) + "}";
+
+        if (ConnectPost(apiKey, endpoint, body) == null)
+        {
+            Log.Warning("PlexLogic", "Clock-out request failed on " + ClockInWorkcenterName + ".");
+            return false;
+        }
+
+        Log.Info("PlexLogic", "Cleared operator from " + ClockInWorkcenterName + ".");
+        return true;
+    }
+
+    // Pulls operators[0].employeeName out of a clock-in response.
+    private static string ParseFirstOperatorName(string json)
+    {
+        try
+        {
+            JsonValue root = JsonValue.Parse(json);
+            if (root == null || !root.IsObject) return null;
+
+            JsonValue operators = root.GetProperty("operators");
+            if (operators == null || !operators.IsArray || operators.Items.Count == 0)
+                return null;
+
+            JsonValue first = operators.Items[0];
+            if (!first.IsObject) return null;
+
+            JsonValue name = first.GetProperty("employeeName");
+            return name != null ? name.AsString() : null;
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    // Fallback name from the local badge table if Plex doesn't echo one back.
+    private static string GetOperatorNameForAccount(string accountId)
+    {
+        foreach (KeyValuePair<string, string> kv in OperatorAccountToName)
+        {
+            if (string.Equals(kv.Key, accountId, StringComparison.OrdinalIgnoreCase))
+                return kv.Value;
+        }
+        return "-";
+    }
+
+    // Writes the current operator name to Model/Plex/Operator.User if present.
+    private void SetOperatorDisplay(string name)
+    {
+        try
+        {
+            IUANode folder = Project.Current.Get(OperatorFolderPath);
+            if (folder == null)
+                return; // optional UI binding; ignore if the folder isn't there
+
+            IUAVariable variable = folder.GetVariable("User");
+            if (variable == null)
+            {
+                Log.Warning("PlexLogic", "Variable 'User' not found in '" + OperatorFolderPath + "'.");
+                return;
+            }
+
+            variable.Value = name != null ? name : "-";
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "SetOperatorDisplay failed: " + ex.Message);
         }
     }
 
@@ -913,7 +904,7 @@ public class PlexLogic : BaseNetLogic
             SetWorkcenterStatus(StatusOff, "Off");
     }
 
-    // True only when the new value is true.
+    // True only on a rising edge (value changed to true).
     private static bool IsTrue(VariableChangeEventArgs e)
     {
         try
@@ -928,17 +919,23 @@ public class PlexLogic : BaseNetLogic
         }
     }
 
-    // Posts a status update for this workcenter.
+    // Posts a status update for the currently active workcenter.
     private void SetWorkcenterStatus(string statusId, string statusName)
     {
         try
         {
-            if (string.IsNullOrEmpty(WorkcenterId))
+            string accountId;
+            string jobNo;
+            lock (_recordLock)
             {
-                Log.Warning("PlexLogic", "Status '" + statusName + "' not sent: the Connect UUID for " +
-                                         WorkcenterName + " is not configured.");
-                return;
+                accountId = _activeAccountId;
+                jobNo = _activeJobNo;
             }
+
+            // Route the status to the workcenter for the job that's actually
+            // running. Falls back to the clock-in workcenter when the UUID for
+            // that job isn't mapped yet (e.g. Molding2).
+            string workcenterId = GetWorkcenterIdForJob(jobNo);
 
             string apiKey = GetConnectApiKey();
             if (string.IsNullOrWhiteSpace(apiKey))
@@ -947,172 +944,27 @@ public class PlexLogic : BaseNetLogic
                 return;
             }
 
-            string body = "{\"workcenterStatusId\":" + JsonString(statusId) + "}";
-            string endpoint = "/production/v1/control/workcenters/" + WorkcenterId + "/status";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("{");
+            sb.Append("\"workcenterStatusId\":").Append(JsonString(statusId));
+            if (!string.IsNullOrEmpty(accountId))
+                sb.Append(",\"accountId\":").Append(JsonString(accountId));
+            sb.Append("}");
 
-            if (LogPlexPayloads)
-                Log.Info("PlexLogic", "Status REQUEST -> POST " + ConnectURL + endpoint + " " + body);
+            string endpoint = "/production/v1/control/workcenters/" + workcenterId + "/status";
 
-            string response = ConnectPost(apiKey, endpoint, body);
+            string response = ConnectPost(apiKey, endpoint, sb.ToString());
             if (response == null)
             {
-                Log.Warning("PlexLogic", "Status '" + statusName + "' update failed for " + WorkcenterName + ".");
+                Log.Warning("PlexLogic", "Status '" + statusName + "' update failed for workcenter '" + workcenterId + "'.");
                 return;
             }
 
-            Log.Info("PlexLogic", WorkcenterName + " status set to '" + statusName + "'." +
-                                  (LogPlexPayloads ? " Response: " + Truncate(response, 400) : ""));
+            Log.Info("PlexLogic", "Workcenter '" + workcenterId + "' status set to '" + statusName + "'.");
         }
         catch (Exception ex)
         {
             Log.Error("PlexLogic", "SetWorkcenterStatus(" + statusName + ") failed: " + ex.Message);
-        }
-    }
-
-    // =====================================================================
-    //  Production recording  (Record_Production / datasource 20446)
-    // =====================================================================
-
-    // PLC shot counter. The tag is cumulative, so post the delta only.
-    private void GoodCountVariable_VariableChange(object sender, VariableChangeEventArgs e)
-    {
-        try
-        {
-            if (e.NewValue == null || e.NewValue.Value == null)
-                return;
-
-            int newCount;
-            try { newCount = Convert.ToInt32(e.NewValue.Value); }
-            catch { return; }
-
-            ProcessGoodCount(newCount);
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "GoodCountVariable_VariableChange failed: " + ex.Message);
-        }
-    }
-
-    // Turns a new cumulative shot count into a production post. Called from
-    // both the change event and the poll; safe to call with the same value
-    // repeatedly.
-    private void ProcessGoodCount(int newCount)
-    {
-        try
-        {
-            int delta;
-            lock (_counterLock)
-            {
-                if (_lastGoodCount < 0)
-                {
-                    _lastGoodCount = newCount;
-                    Log.Info("PlexLogic", "Good counter baselined at " + newCount + " (first read).");
-                    return;
-                }
-
-                if (newCount == _lastGoodCount)
-                    return;
-
-                if (newCount < _lastGoodCount)
-                {
-                    // Counter reset (shift/job change) or rollover. Rebase and
-                    // post nothing rather than inventing production.
-                    Log.Info("PlexLogic", "Good counter went backwards (" + _lastGoodCount +
-                                          " -> " + newCount + "); rebaselined, no production posted.");
-                    _lastGoodCount = newCount;
-                    return;
-                }
-
-                delta = newCount - _lastGoodCount;
-                _lastGoodCount = newCount;
-            }
-
-            if (delta > MaxCounterDelta)
-            {
-                Log.Error("PlexLogic", "GoodCount jumped +" + delta + " in one update, over the " +
-                                       MaxCounterDelta + " sanity limit. Nothing posted; baseline moved to " +
-                                       newCount + ". Check the tag if the machine really ran that much.");
-                return;
-            }
-
-            RecordProduction(delta);
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "ProcessGoodCount failed: " + ex.Message);
-        }
-    }
-
-    // Posts one production record for this workcenter.
-    // Scrap_Quantity stays 0 here on purpose: scrap goes through Scrap_Add
-    // (10363) instead, so sending it on both paths would double-count.
-    private void RecordProduction(int quantity)
-    {
-        if (quantity <= 0)
-            return;
-
-        StringBuilder sb = new StringBuilder();
-        sb.Append("{\"inputs\":{");
-        sb.Append("\"Workcenter_Key\":").Append(WorkcenterKey).Append(",");
-        sb.Append("\"PLC_Name\":").Append(JsonString(RecordPlcName)).Append(",");
-        sb.Append("\"Quantity\":").Append(quantity).Append(",");
-        sb.Append("\"Container_Full\":false,");
-        sb.Append("\"Container_Status\":\"OK\",");
-        sb.Append("\"Container_Note\":\"\",");
-        sb.Append("\"Scrap_Quantity\":0,");
-        sb.Append("\"Scrap_Reason\":\"\",");
-        sb.Append("\"Add_To_Master\":0,");
-        sb.Append("\"Master_Unit_No\":\"NEW\",");
-        sb.Append("\"Validate_Only\":false");
-        sb.Append("}}");
-
-        string response = DatasourcePost("/api/datasources/" + RecordDataSourceId + "/execute",
-                                         sb.ToString(), "Record_Production");
-        if (response == null)
-        {
-            Log.Warning("PlexLogic", "Production post FAILED: qty " + quantity +
-                                     ", job " + JobNo + ", " + WorkcenterName + ".");
-            return;
-        }
-
-        // Record_Production answers 200 even when it refuses the transaction,
-        // so the real outcome is in outputs.Result_Error / Result_Message.
-        string resultMessage;
-        if (IsProductionResultError(response, out resultMessage))
-        {
-            Log.Warning("PlexLogic", "Production post REJECTED by Plex: qty " + quantity +
-                                     ", job " + JobNo + ", " + WorkcenterName +
-                                     " - " + (resultMessage ?? "(no message)"));
-            return;
-        }
-
-        Log.Info("PlexLogic", "Production recorded: qty " + quantity +
-                              ", job " + JobNo + ", " + WorkcenterName + ".");
-    }
-
-    // True when Record_Production came back with Result_Error set.
-    private static bool IsProductionResultError(string json, out string message)
-    {
-        message = null;
-        try
-        {
-            JsonValue root = JsonValue.Parse(json);
-            if (root == null || !root.IsObject) return false;
-
-            JsonValue outputs = root.GetProperty("outputs");
-            if (outputs == null || !outputs.IsObject) return false;
-
-            JsonValue msg = outputs.GetProperty("Result_Message");
-            if (msg != null) message = msg.AsString();
-
-            JsonValue err = outputs.GetProperty("Result_Error");
-            if (err == null) return false;
-
-            return string.Equals(err.AsString(), "true", StringComparison.OrdinalIgnoreCase);
-        }
-        catch
-        {
-            return false;
         }
     }
 
@@ -1125,33 +977,20 @@ public class PlexLogic : BaseNetLogic
     {
         try
         {
+            int newCount;
             if (e.NewValue == null || e.NewValue.Value == null)
                 return;
 
-            int newCount;
             try { newCount = Convert.ToInt32(e.NewValue.Value); }
             catch { return; }
 
-            ProcessScrapCount(newCount);
-        }
-        catch (Exception ex)
-        {
-            Log.Error("PlexLogic", "ScrapCountProgramVariable_VariableChange failed: " + ex.Message);
-        }
-    }
-
-    // Turns a new cumulative reject count into a scrap post.
-    private void ProcessScrapCount(int newCount)
-    {
-        try
-        {
             int delta;
-            lock (_counterLock)
+            lock (_scrapLock)
             {
                 if (_lastScrapCount < 0)
                 {
                     _lastScrapCount = newCount;
-                    Log.Info("PlexLogic", "Scrap counter baselined at " + newCount + " (first read).");
+                    Log.Info("PlexLogic", "Scrap counter baselined at " + newCount + " (first change).");
                     return;
                 }
 
@@ -1185,7 +1024,7 @@ public class PlexLogic : BaseNetLogic
         }
         catch (Exception ex)
         {
-            Log.Error("PlexLogic", "ProcessScrapCount failed: " + ex.Message);
+            Log.Error("PlexLogic", "ScrapCountProgramVariable_VariableChange failed: " + ex.Message);
         }
     }
 
@@ -1195,17 +1034,13 @@ public class PlexLogic : BaseNetLogic
     // however long it's held down.
     private void ScrapCountManualVariable_VariableChange(object sender, VariableChangeEventArgs e)
     {
-        ProcessManualScrap(IsTrue(e));
-    }
-
-    private void ProcessManualScrap(bool now)
-    {
         try
         {
+            bool now = IsTrue(e);
             bool pressed;
             bool bounced = false;
 
-            lock (_counterLock)
+            lock (_scrapLock)
             {
                 if (now == _lastManualScrapState)
                     return;                      // no edge; nothing to do
@@ -1241,24 +1076,23 @@ public class PlexLogic : BaseNetLogic
         }
         catch (Exception ex)
         {
-            Log.Error("PlexLogic", "ProcessManualScrap failed: " + ex.Message);
+            Log.Error("PlexLogic", "ScrapCountManualVariable_VariableChange failed: " + ex.Message);
         }
     }
 
-    // Posts one Scrap_Add transaction against the active job.
+    // Posts one Scrap_Add transaction for the active job.
     private void RecordScrap(int quantity, string scrapReason, string source)
     {
         if (quantity <= 0)
             return;
 
         ScrapContext ctx;
-        lock (_counterLock) { ctx = _activeScrapContext; }
+        lock (_scrapLock) { ctx = _activeScrapContext; }
 
         if (ctx == null)
         {
             Log.Warning("PlexLogic", "Scrap from " + source + " (qty " + quantity +
-                                     ") ignored: no Job_Key / Part_Key / Part_Operation_Key available " +
-                                     "for job " + JobNo + ".");
+                                     ") ignored: no job scanned, so no keys to post against.");
             return;
         }
 
@@ -1278,7 +1112,7 @@ public class PlexLogic : BaseNetLogic
         if (response == null)
         {
             Log.Warning("PlexLogic", "Scrap post FAILED (" + source + ", qty " + quantity +
-                                     ", reason '" + scrapReason + "', " + WorkcenterName + ").");
+                                     ", reason '" + scrapReason + "', WC " + ctx.WorkcenterKey + ").");
             return;
         }
 
@@ -1324,9 +1158,83 @@ public class PlexLogic : BaseNetLogic
         }
     }
 
-    // =====================================================================
-    //  Value helpers
-    // =====================================================================
+    // Works out which keys future scrap postings should use for this job, and
+    // rebaselines the PLC counter so scrap from the previous job isn't carried
+    // over onto the new one.
+    private void SetActiveScrapContext(string jobNo, int workcenterKey, JobRow row)
+    {
+        ScrapContext ctx = TryBuildScrapContextFromRow(row, workcenterKey);
+
+        if (ctx == null)
+        {
+            ScrapContext fallback;
+            if (jobNo != null && JobScrapFallback.TryGetValue(jobNo.Trim(), out fallback))
+            {
+                ctx = fallback;
+                Log.Info("PlexLogic", "Scrap keys for job '" + jobNo + "' taken from the local fallback table.");
+            }
+        }
+        else
+        {
+            Log.Info("PlexLogic", "Scrap keys for job '" + jobNo + "' resolved from the job datasource.");
+        }
+
+        if (ctx == null)
+        {
+            Log.Warning("PlexLogic", "No scrap keys available for job '" + jobNo +
+                                     "'; scrap will not be recorded until they're configured.");
+        }
+
+        int currentScrap;
+        bool haveScrap = TryReadInt(_scrapCountProgramVariable, out currentScrap);
+        int currentGood;
+        bool haveGood = TryReadInt(_goodCountVariable, out currentGood);
+
+        lock (_scrapLock)
+        {
+            _activeScrapContext = ctx;
+            // Rebaseline on job change so the first delta after a scan isn't
+            // whatever the counters accumulated under the previous job.
+            _lastScrapCount = haveScrap ? currentScrap : -1;
+            _lastGoodCount = haveGood ? currentGood : -1;
+        }
+    }
+
+    // Pulls Job_Key / Part_Key / Part_Operation_Key from the job datasource row
+    // if that datasource returns them. Returns null when any are missing, so the
+    // caller can fall back to the static table.
+    private static ScrapContext TryBuildScrapContextFromRow(JobRow row, int workcenterKey)
+    {
+        if (row == null || workcenterKey <= 0)
+            return null;
+
+        long jobKey, partKey, partOpKey;
+        if (!TryParsePlexInt(row.GetValue("Job_Key"), out jobKey)) return null;
+        if (!TryParsePlexInt(row.GetValue("Part_Key"), out partKey)) return null;
+        if (!TryParsePlexInt(row.GetValue("Part_Operation_Key"), out partOpKey)) return null;
+
+        if (jobKey <= 0 || partKey <= 0 || partOpKey <= 0)
+            return null;
+
+        return new ScrapContext((int)jobKey, (int)partKey, (int)partOpKey, workcenterKey);
+    }
+
+    // Safe int read from an IUAVariable.
+    private static bool TryReadInt(IUAVariable variable, out int value)
+    {
+        value = 0;
+        try
+        {
+            if (variable == null || variable.Value == null || variable.Value.Value == null)
+                return false;
+            value = Convert.ToInt32(variable.Value.Value);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 
     // Safe bool read from an IUAVariable.
     private static bool ReadBool(IUAVariable variable)
@@ -1343,6 +1251,202 @@ public class PlexLogic : BaseNetLogic
         }
     }
 
+    // =====================================================================
+    //  Background production recording
+    // =====================================================================
+    private void SetActiveRecording(int workcenterKey, string jobNo)
+    {
+        lock (_recordLock)
+        {
+            if (workcenterKey <= 0)
+            {
+                Log.Warning("PlexLogic", "Scan '" + jobNo + "' has no workcenter; recording unchanged.");
+                return;
+            }
+
+            if (_activeWorkcenterKey == workcenterKey)
+            {
+                Log.Info("PlexLogic", "Recording already active for job '" + jobNo + "' (WC " + workcenterKey + ").");
+                return;
+            }
+
+            _activeWorkcenterKey = workcenterKey;
+            _activeJobNo = jobNo;
+            Log.Info("PlexLogic", "Now recording production for job '" + jobNo + "' (WC " + workcenterKey + ").");
+        }
+    }
+
+    // PLC shot counter. The tag is cumulative, so post the delta only.
+    private void GoodCountVariable_VariableChange(object sender, VariableChangeEventArgs e)
+    {
+        try
+        {
+            if (e.NewValue == null || e.NewValue.Value == null)
+                return;
+
+            int newCount;
+            try { newCount = Convert.ToInt32(e.NewValue.Value); }
+            catch { return; }
+
+            int delta;
+            lock (_scrapLock)
+            {
+                if (_lastGoodCount < 0)
+                {
+                    _lastGoodCount = newCount;
+                    Log.Info("PlexLogic", "Good counter baselined at " + newCount + " (first change).");
+                    return;
+                }
+
+                if (newCount == _lastGoodCount)
+                    return;
+
+                if (newCount < _lastGoodCount)
+                {
+                    // Counter reset (shift/job change) or rollover. Rebase and
+                    // post nothing rather than inventing production.
+                    Log.Info("PlexLogic", "Good counter went backwards (" + _lastGoodCount +
+                                          " -> " + newCount + "); rebaselined, no production posted.");
+                    _lastGoodCount = newCount;
+                    return;
+                }
+
+                delta = newCount - _lastGoodCount;
+                _lastGoodCount = newCount;
+            }
+
+            if (delta > MaxCounterDelta)
+            {
+                Log.Error("PlexLogic", "GoodCount jumped +" + delta + " in one update, over the " +
+                                       MaxCounterDelta + " sanity limit. Nothing posted; baseline moved to " +
+                                       newCount + ". Check the tag if the machine really ran that much.");
+                return;
+            }
+
+            int wcKey;
+            string jobNo;
+            lock (_recordLock)
+            {
+                wcKey = _activeWorkcenterKey;
+                jobNo = _activeJobNo;
+            }
+
+            if (wcKey <= 0)
+            {
+                Log.Warning("PlexLogic", "GoodCount +" + delta +
+                                         " ignored: no job scanned, so there's no workcenter to record against.");
+                return;
+            }
+
+            RecordProduction(wcKey, jobNo, delta);
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "GoodCountVariable_VariableChange failed: " + ex.Message);
+        }
+    }
+
+    // Posts one production record to Plex for the given workcenter.
+    // Scrap_Quantity stays 0 here on purpose: scrap goes through Scrap_Add
+    // (10363) instead, so sending it on both paths would double-count.
+    private void RecordProduction(int workcenterKey, string jobNo, int quantity)
+    {
+        if (quantity <= 0)
+            return;
+
+        // Build body by hand (no serializer dependency):
+        // {"inputs":{"Workcenter_Key":N,"PLC_Name":"s-2","Quantity":N, ...}}
+        StringBuilder sb = new StringBuilder();
+        sb.Append("{\"inputs\":{");
+        sb.Append("\"Workcenter_Key\":").Append(workcenterKey).Append(",");
+        sb.Append("\"PLC_Name\":").Append(JsonString(RecordPlcName)).Append(",");
+        sb.Append("\"Quantity\":").Append(quantity).Append(",");
+        sb.Append("\"Container_Full\":false,");
+        sb.Append("\"Container_Status\":\"OK\",");
+        sb.Append("\"Container_Note\":\"\",");
+        sb.Append("\"Scrap_Quantity\":0,");
+        sb.Append("\"Scrap_Reason\":\"\",");
+        sb.Append("\"Add_To_Master\":0,");
+        sb.Append("\"Master_Unit_No\":\"NEW\",");
+        sb.Append("\"Validate_Only\":false");
+        sb.Append("}}");
+
+        string response = DatasourcePost("/api/datasources/" + RecordDataSourceId + "/execute",
+                                         sb.ToString(), "Record_Production");
+        if (response == null)
+        {
+            Log.Warning("PlexLogic", "Production post FAILED: qty " + quantity +
+                                     ", job '" + jobNo + "', WC " + workcenterKey + ".");
+            return;
+        }
+
+        // Record_Production answers 200 even when it refuses the transaction,
+        // so the real outcome is in outputs.Result_Error / Result_Message.
+        string resultMessage;
+        if (IsProductionResultError(response, out resultMessage))
+        {
+            Log.Warning("PlexLogic", "Production post REJECTED by Plex: qty " + quantity +
+                                     ", job '" + jobNo + "', WC " + workcenterKey +
+                                     " - " + (resultMessage ?? "(no message)"));
+            return;
+        }
+
+        Log.Info("PlexLogic", "Production recorded: qty " + quantity +
+                              ", job '" + jobNo + "', WC " + workcenterKey + ".");
+    }
+
+    // True when Record_Production came back with Result_Error set.
+    private static bool IsProductionResultError(string json, out string message)
+    {
+        message = null;
+        try
+        {
+            JsonValue root = JsonValue.Parse(json);
+            if (root == null || !root.IsObject) return false;
+
+            JsonValue outputs = root.GetProperty("outputs");
+            if (outputs == null || !outputs.IsObject) return false;
+
+            JsonValue msg = outputs.GetProperty("Result_Message");
+            if (msg != null) message = msg.AsString();
+
+            JsonValue err = outputs.GetProperty("Result_Error");
+            if (err == null) return false;
+
+            return string.Equals(err.AsString(), "true", StringComparison.OrdinalIgnoreCase);
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    // =====================================================================
+    //  PlexJob object population (dialog binds to this object via one alias)
+    // =====================================================================
+
+    // Maps a scanned job number to the golf ball / part name.
+    private static string GetPartNameForJob(string jobNo)
+    {
+        string j = jobNo != null ? jobNo.Trim() : null;
+        if (j == "8") return "IRIS GOLF BALL";
+        if (j == "9") return "KENDALL ELECTRIC GOLF BALL";
+
+        Log.Warning("PlexLogic", "No PartName mapping for job '" + jobNo + "'.");
+        return "-";
+    }
+
+    // Maps a scanned job number to its dialog type path.
+    private static string GetDialogPathForJob(string jobNo)
+    {
+        string j = jobNo != null ? jobNo.Trim() : null;
+        if (j == "8") return IrisDialogPath;
+        if (j == "9") return KendallDialogPath;
+
+        Log.Warning("PlexLogic", "No dialog mapping for job '" + jobNo + "'.");
+        return null;
+    }
+
     private static bool TryParsePlexInt(string raw, out long value)
     {
         value = 0;
@@ -1356,6 +1460,7 @@ public class PlexLogic : BaseNetLogic
         if (dot >= 0)
             s = s.Substring(0, dot);
 
+        // Try direct integer parse first.
         long parsed;
         if (long.TryParse(s, System.Globalization.NumberStyles.Integer,
                           System.Globalization.CultureInfo.InvariantCulture, out parsed))
@@ -1385,11 +1490,194 @@ public class PlexLogic : BaseNetLogic
         return v.ToString();
     }
 
+    // Fills the PlexJob object's properties and returns the object node.
+    private IUANode PopulatePlexJob(JobRow row, SchedulingJobDto schedule, string jobNo)
+    {
+        try
+        {
+            IUANode plexJob = GetPlexJob();
+            if (plexJob == null) return null;
+
+            // PartName comes from the job-number mapping, not Plex.
+            SetObjectVar(plexJob, "PartName", GetPartNameForJob(jobNo));
+
+            SetObjectVar(plexJob, "Job", jobNo);
+            SetObjectVar(plexJob, "Workcenter", GetWorkcenterNameForJob(jobNo));
+
+            // Job Status from the datasource row; Priority + DueDate from ConnectAPI.
+            string status = row != null ? row.GetValue("Status") : "-";
+            SetObjectVar(plexJob, "JobStatus", !string.IsNullOrEmpty(status) ? status : "-");
+            SetObjectVar(plexJob, "Priority", schedule != null ? schedule.priority : "-");
+            SetObjectVar(plexJob, "DueDate", (schedule != null && !string.IsNullOrEmpty(schedule.dueDate)) ? schedule.dueDate : "-");
+
+            // Part number and quantities come from the datasource row.
+            string partNumber = row != null ? row.GetValue("Simple_Part_No") : "-";
+            string target = row != null ? row.GetValue("Job_Quantity") : null;
+            string completed = row != null ? row.GetValue("Job_Produced") : null;
+
+            SetObjectVar(plexJob, "PartNumber", !string.IsNullOrEmpty(partNumber) ? partNumber : "-");
+            SetObjectVar(plexJob, "TargetQuantity", FormatQuantity(target));
+            SetObjectVar(plexJob, "QuantityCompleted", FormatQuantity(completed));
+            SetObjectVar(plexJob, "Target", FormatQuantity(target));
+
+            // Operation also from the datasource row.
+            string operation = row != null ? row.GetValue("Operation_No") : "-";
+            SetObjectVar(plexJob, "Operation", operation);
+
+            return plexJob;
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "PopulatePlexJob failed: " + ex.Message);
+            return null;
+        }
+    }
+
+    private IUANode GetPlexJob()
+    {
+        IUANode node = Project.Current.Get(PlexJobPath);
+        if (node == null)
+            Log.Warning("PlexLogic", "Could not find PlexJob object at '" + PlexJobPath + "'.");
+        return node;
+    }
+
+    private void SetObjectVar(IUANode plexJob, string variableName, string value)
+    {
+        try
+        {
+            if (plexJob == null) return;
+
+            IUAVariable variable = plexJob.GetVariable(variableName);
+            if (variable == null)
+            {
+                Log.Warning("PlexLogic", "Property '" + variableName + "' not found on '" + PlexJobPath + "'.");
+                return;
+            }
+            variable.Value = value != null ? value : string.Empty;
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "SetObjectVar(" + variableName + ") failed: " + ex.Message);
+        }
+    }
+
+    // =====================================================================
+    //  Dialog handling (all native + web sessions)
+    // =====================================================================
+
+    public void OpenDialog(NodeId aliasNode = null, string jobNo = null)
+    {
+        try
+        {
+            string dialogPath = GetDialogPathForJob(jobNo);
+            if (dialogPath == null)
+                return;
+
+            DialogType dialogType = Project.Current.Get(dialogPath) as DialogType;
+            if (dialogType == null)
+            {
+                Log.Error("PlexLogic", "Could not find dialog type '" + dialogPath + "'.");
+                return;
+            }
+
+            // UICommands.OpenDialog takes a NodeId[]; wrap the single alias.
+            NodeId[] aliasArray = null;
+            if (aliasNode != null)
+                aliasArray = new NodeId[] { aliasNode };
+
+            // Close any dialog still open from a previous scan (all sessions).
+            CloseDialog();
+
+            // ---- Native Presentation Engine (single session) ----
+            IUANode nativePE = Project.Current.Get("UI/NativePresentationEngine");
+            if (nativePE != null)
+            {
+                IUANode nativeSessions = nativePE.Get("Sessions");
+                if (nativeSessions != null && nativeSessions.Children.Count > 0)
+                {
+                    IUANode nativeWindow = nativeSessions.Children[0].Get("UIRoot");
+                    if (nativeWindow != null)
+                        UICommands.OpenDialog(nativeWindow, dialogType, aliasArray);
+                }
+            }
+
+            // ---- Web Presentation Engine (may have multiple sessions) ----
+            IUANode webPE = Project.Current.Get("UI/WebPresentationEngine");
+            if (webPE != null)
+            {
+                IUANode webSessions = webPE.Get("Sessions");
+                if (webSessions != null)
+                {
+                    foreach (IUANode webSession in webSessions.Children)
+                    {
+                        IUANode webWindow = webSession.Get("UIRoot");
+                        if (webWindow != null)
+                            UICommands.OpenDialog(webWindow, dialogType, aliasArray);
+                    }
+                }
+            }
+
+            // Schedule an auto-close after the timeout.
+            if (_dialogCloseTask != null)
+                _dialogCloseTask.Dispose();
+            _dialogCloseTask = new DelayedTask(AutoCloseDialog, DialogTimeoutMs, LogicObject);
+            _dialogCloseTask.Start();
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "OpenDialog failed: " + ex.Message);
+        }
+    }
+
+    private void AutoCloseDialog(DelayedTask task)
+    {
+        CloseDialog();
+    }
+
+    public void CloseDialog()
+    {
+        try
+        {
+            // Native PE (single session).
+            IUANode nativePE = Project.Current.Get("UI/NativePresentationEngine");
+            if (nativePE != null)
+            {
+                IUANode nativeSessions = nativePE.Get("Sessions");
+                if (nativeSessions != null && nativeSessions.Children.Count > 0)
+                    CloseDialogsOnWindow(nativeSessions.Children[0].Get("UIRoot"));
+            }
+
+            // Web PE (multiple sessions).
+            IUANode webPE = Project.Current.Get("UI/WebPresentationEngine");
+            if (webPE != null)
+            {
+                IUANode webSessions = webPE.Get("Sessions");
+                if (webSessions != null)
+                {
+                    foreach (IUANode webSession in webSessions.Children)
+                        CloseDialogsOnWindow(webSession.Get("UIRoot"));
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Error("PlexLogic", "CloseDialog failed: " + ex.Message);
+        }
+    }
+
+    private void CloseDialogsOnWindow(IUANode uiRoot)
+    {
+        if (uiRoot == null) return;
+
+        foreach (Dialog dialog in uiRoot.Children.OfType<Dialog>().ToList())
+            dialog.Close();
+    }
+
     // =====================================================================
     //  Plex datasource / connect fetch  (manual JSON parsing, no external deps)
     // =====================================================================
 
-    private JobRow FetchJobRowByWorkcenterKey(int workcenterKey)
+    private JobRow FetchJobRowByWorkcenterKey(int workcenterKey, string jobNo)
     {
         try
         {
@@ -1398,7 +1686,7 @@ public class PlexLogic : BaseNetLogic
             string response = DatasourcePost("/api/datasources/" + DataSourceId + "/execute", jsonBody);
             if (string.IsNullOrEmpty(response))
             {
-                Log.Warning("PlexLogic", "WC " + workcenterKey + ": empty datasource response.");
+                Log.Warning("PlexLogic", "Job '" + jobNo + "' (WC " + workcenterKey + "): empty datasource response.");
                 return null;
             }
 
@@ -1407,19 +1695,14 @@ public class PlexLogic : BaseNetLogic
             List<string> firstRow;
             if (!TryParseFirstTableRow(response, out columns, out firstRow))
             {
-                Log.Warning("PlexLogic", "WC " + workcenterKey + ": no rows returned. " +
-                                         "Nothing will populate PlexJob1 and scrap has no keys to post against.");
+                Log.Warning("PlexLogic", "Job '" + jobNo + "' (WC " + workcenterKey + "): no rows returned.");
                 return null;
             }
 
-            // One-time visibility into what this datasource actually returns.
-            // If Job_Key / Part_Key / Part_Operation_Key are NOT in this list,
-            // scrap can never post without the fallback constants being filled.
-            if (!_loggedJobColumns)
-            {
-                _loggedJobColumns = true;
-                Log.Info("PlexLogic", "Job datasource columns: " + string.Join(", ", columns));
-            }
+            // One-time visibility into what this datasource actually returns -
+            // if Job_Key / Part_Key / Part_Operation_Key show up here, scrap can
+            // stop relying on the hardcoded fallback table.
+            Log.Info("PlexLogic", "Job datasource columns: " + string.Join(", ", columns));
 
             return new JobRow(columns, firstRow);
         }
@@ -1430,7 +1713,7 @@ public class PlexLogic : BaseNetLogic
         }
     }
 
-    private SchedulingJobDto FetchSchedulingJob(string jobNo)
+    private List<SchedulingJobDto> FetchSchedulingJobs()
     {
         try
         {
@@ -1438,27 +1721,22 @@ public class PlexLogic : BaseNetLogic
             if (string.IsNullOrWhiteSpace(apiKey))
             {
                 Log.Warning("PlexLogic", "apiKey is empty; skipping scheduling fetch.");
-                return null;
+                return new List<SchedulingJobDto>();
             }
 
             string response = ConnectGet(apiKey, "/scheduling/v1/jobs");
             if (string.IsNullOrEmpty(response))
             {
                 Log.Warning("PlexLogic", "Empty scheduling response.");
-                return null;
+                return new List<SchedulingJobDto>();
             }
 
-            List<SchedulingJobDto> jobs = ParseSchedulingJobs(response);
-            SchedulingJobDto match = jobs.FirstOrDefault(s => s.jobNumber == jobNo);
-            if (match == null)
-                Log.Warning("PlexLogic", "No scheduling entry matched job number '" + jobNo + "'.");
-
-            return match;
+            return ParseSchedulingJobs(response);
         }
         catch (Exception ex)
         {
-            Log.Error("PlexLogic", "FetchSchedulingJob failed: " + ex.Message);
-            return null;
+            Log.Error("PlexLogic", "FetchSchedulingJobs failed: " + ex.Message);
+            return new List<SchedulingJobDto>();
         }
     }
 
@@ -1476,7 +1754,7 @@ public class PlexLogic : BaseNetLogic
     }
 
     // =====================================================================
-    //  Minimal JSON helpers (no System.Text.Json / Newtonsoft)
+    //  Minimal JSON parsing helpers (no System.Text.Json / Newtonsoft)
     // =====================================================================
 
     // Escapes a string for embedding in a JSON body.
@@ -1509,7 +1787,8 @@ public class PlexLogic : BaseNetLogic
     }
 
     // Parses the datasource response and extracts the column names and the
-    // first data row. Returns false if the structure isn't found.
+    // first data row using a lightweight tokenizer. Returns false if the
+    // structure isn't found.
     private static bool TryParseFirstTableRow(string json, out List<string> columns, out List<string> firstRow)
     {
         columns = null;
@@ -1651,7 +1930,7 @@ public class PlexLogic : BaseNetLogic
         }
     }
 
-    // POST to the Connect API with the API-key header (status updates).
+    // POST to the Connect API with the API-key header (clock-in, status, etc).
     private string ConnectPost(string apiKey, string endpoint, string jsonBody)
     {
         try
@@ -1721,15 +2000,6 @@ public class PlexLogic : BaseNetLogic
         public int PartKey { get; private set; }
         public int PartOperationKey { get; private set; }
         public int WorkcenterKey { get; private set; }
-
-        public bool SameAs(ScrapContext other)
-        {
-            if (other == null) return false;
-            return JobKey == other.JobKey
-                && PartKey == other.PartKey
-                && PartOperationKey == other.PartOperationKey
-                && WorkcenterKey == other.WorkcenterKey;
-        }
     }
 
     // Holds one datasource row plus its column headers, with name-based lookup.
@@ -1768,7 +2038,7 @@ public class PlexLogic : BaseNetLogic
 
     // ---------------------------------------------------------------------
     //  Tiny recursive-descent JSON parser (objects, arrays, strings,
-    //  numbers, bool, null). Enough for the Plex response shapes.
+    //  numbers, bool, null). Enough for the two Plex response shapes.
     // ---------------------------------------------------------------------
     private sealed class JsonValue
     {

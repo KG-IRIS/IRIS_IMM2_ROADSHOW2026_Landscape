@@ -1,21 +1,25 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.106
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36518.9 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRIS_IMM2_ROADSHOW2026_Landscape", "IRIS_IMM2_ROADSHOW2026_Landscape.csproj", "{53B41280-8889-0E22-3D0F-C9F1050BE2CF}"
 EndProject
 Global
-    GlobalSection(SolutionConfigurationPlatforms) = preSolution
-        Debug|Any CPU = Debug|Any CPU
-        Release|Any CPU = Release|Any CPU
-    EndGlobalSection
-    GlobalSection(ProjectConfigurationPlatforms) = postSolution
-        {53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-        {53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-        {53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-        {53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Release|Any CPU.Build.0 = Release|Any CPU
-    EndGlobalSection
-    GlobalSection(SolutionProperties) = preSolution
-        HideSolutionNode = FALSE
-    EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B41280-8889-0E22-3D0F-C9F1050BE2CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2D4FD1A4-0C91-49C8-8F89-D2649E9F8C01}
+	EndGlobalSection
 EndGlobal
