@@ -1,0 +1,43 @@
+Name: Workcenters
+Type: FolderType
+Children:
+- Name: Name
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: PartNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: OperationNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Crew Size
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Operation Code
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Standard Rate
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Setup Time
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Ideal Rate
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Target Rate
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Status
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

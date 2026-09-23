@@ -1,0 +1,12 @@
+Name: Alarm Test Bits
+Type: FolderType
+Children:
+- Name: AlarmVariable1
+  Type: BaseDataVariableType
+  DataType: Boolean
+- Name: AlarmVariable2
+  Type: BaseDataVariableType
+  DataType: Boolean
+- Name: AlarmVariable3
+  Type: BaseDataVariableType
+  DataType: Boolean

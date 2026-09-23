@@ -1,0 +1,19 @@
+Name: 'Program:Doosan'
+Type: FolderType
+Children:
+- Name: Oneshot
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Doosan.Oneshot"
+- Name: xxx
+  Type: RAEtherNetIPTag
+  DataType: Boolean
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Doosan.xxx"

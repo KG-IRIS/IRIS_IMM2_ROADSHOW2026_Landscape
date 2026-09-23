@@ -1,0 +1,23 @@
+
+
+
+
+
+
+API Application key:
+macmmsackp384a6c2c6932015d3cb546eea56c8a759bacd5abb7ff7ac553a05
+Application Signature:
+Description of Application:
+Iris Demo (Portrait)
+Redirect URL:
+The key above is used to identify your application. Please use the following authentication access key and API secret combination to sign your API requests. Copy the secret key for safe keeping, as it cannot be retrieved at a later time! By default, this key is set to expire after 365 days.
+
+Access key:
+macmmsaakp3844411b8df0b169168221fe006ce5b661f1456350564ebdb3cd9b7
+API Secret:
+macmmsaskp3843e19cb426dfe229e8b34166119e94f07b46bff20fe325cd7b74c1a2d7b802e2d
+
+
+
+https://kendallelectricptu.macmms.com
+

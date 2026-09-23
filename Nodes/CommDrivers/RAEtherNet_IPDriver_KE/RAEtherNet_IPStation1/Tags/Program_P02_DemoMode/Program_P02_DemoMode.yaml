@@ -1,0 +1,1274 @@
+Name: 'Program:P02_DemoMode'
+Type: FolderType
+Children:
+- Name: ArmorKinetix_DFE_DemoMode
+  Type: MESSAGE
+  DataType: MESSAGE
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Flags
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Flags"
+  - Name: EW
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.EW"
+  - Name: ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.ER"
+  - Name: DN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.DN"
+  - Name: ST
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.ST"
+  - Name: EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.EN"
+  - Name: TO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.TO"
+  - Name: EN_CC
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.EN_CC"
+  - Name: ERR
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.ERR"
+  - Name: EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.EXERR"
+  - Name: ERR_SRC
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.ERR_SRC"
+  - Name: DN_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.DN_LEN"
+  - Name: REQ_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.REQ_LEN"
+  - Name: DestinationLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.DestinationLink"
+  - Name: DestinationNode
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.DestinationNode"
+  - Name: SourceLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.SourceLink"
+  - Name: Class
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Class"
+  - Name: Attribute
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Attribute"
+  - Name: Instance
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Instance"
+  - Name: LocalIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.LocalIndex"
+  - Name: Channel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Channel"
+  - Name: Rack
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Rack"
+  - Name: Group
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Group"
+  - Name: Slot
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Slot"
+  - Name: Path
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.Path"
+  - Name: RemoteIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.RemoteIndex"
+  - Name: RemoteElement
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.RemoteElement"
+  - Name: UnconnectedTimeout
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.UnconnectedTimeout"
+  - Name: ConnectionRate
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.ConnectionRate"
+  - Name: TimeoutMultiplier
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.ArmorKinetix_DFE_DemoMode.TimeoutMultiplier"
+- Name: KinetixDemoMode
+  Type: RAEtherNetIPTag
+  DataType: SByte
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.KinetixDemoMode"
+- Name: ONS
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.ONS"
+- Name: PIM070_DemoMode
+  Type: MESSAGE
+  DataType: MESSAGE
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.PIM070_DemoMode"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Flags
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Flags"
+  - Name: EW
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.EW"
+  - Name: ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.ER"
+  - Name: DN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.DN"
+  - Name: ST
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.ST"
+  - Name: EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.EN"
+  - Name: TO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.TO"
+  - Name: EN_CC
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.EN_CC"
+  - Name: ERR
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.ERR"
+  - Name: EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.EXERR"
+  - Name: ERR_SRC
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.ERR_SRC"
+  - Name: DN_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.DN_LEN"
+  - Name: REQ_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.REQ_LEN"
+  - Name: DestinationLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.DestinationLink"
+  - Name: DestinationNode
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.DestinationNode"
+  - Name: SourceLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.SourceLink"
+  - Name: Class
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Class"
+  - Name: Attribute
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Attribute"
+  - Name: Instance
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Instance"
+  - Name: LocalIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.LocalIndex"
+  - Name: Channel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Channel"
+  - Name: Rack
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Rack"
+  - Name: Group
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Group"
+  - Name: Slot
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Slot"
+  - Name: Path
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.Path"
+  - Name: RemoteIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.RemoteIndex"
+  - Name: RemoteElement
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.RemoteElement"
+  - Name: UnconnectedTimeout
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.UnconnectedTimeout"
+  - Name: ConnectionRate
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.ConnectionRate"
+  - Name: TimeoutMultiplier
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.PIM070_DemoMode.TimeoutMultiplier"
+- Name: X_Axis_DemoMode
+  Type: MESSAGE
+  DataType: MESSAGE
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.X_Axis_DemoMode"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Flags
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Flags"
+  - Name: EW
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.EW"
+  - Name: ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.ER"
+  - Name: DN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.DN"
+  - Name: ST
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.ST"
+  - Name: EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.EN"
+  - Name: TO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.TO"
+  - Name: EN_CC
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.EN_CC"
+  - Name: ERR
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.ERR"
+  - Name: EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.EXERR"
+  - Name: ERR_SRC
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.ERR_SRC"
+  - Name: DN_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.DN_LEN"
+  - Name: REQ_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.REQ_LEN"
+  - Name: DestinationLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.DestinationLink"
+  - Name: DestinationNode
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.DestinationNode"
+  - Name: SourceLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.SourceLink"
+  - Name: Class
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Class"
+  - Name: Attribute
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Attribute"
+  - Name: Instance
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Instance"
+  - Name: LocalIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.LocalIndex"
+  - Name: Channel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Channel"
+  - Name: Rack
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Rack"
+  - Name: Group
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Group"
+  - Name: Slot
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Slot"
+  - Name: Path
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.Path"
+  - Name: RemoteIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.RemoteIndex"
+  - Name: RemoteElement
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.RemoteElement"
+  - Name: UnconnectedTimeout
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.UnconnectedTimeout"
+  - Name: ConnectionRate
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.ConnectionRate"
+  - Name: TimeoutMultiplier
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.X_Axis_DemoMode.TimeoutMultiplier"
+- Name: Y_Axis_DemoMode
+  Type: MESSAGE
+  DataType: MESSAGE
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.Y_Axis_DemoMode"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Flags
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Flags"
+  - Name: EW
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.EW"
+  - Name: ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.ER"
+  - Name: DN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.DN"
+  - Name: ST
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.ST"
+  - Name: EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.EN"
+  - Name: TO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.TO"
+  - Name: EN_CC
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.EN_CC"
+  - Name: ERR
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.ERR"
+  - Name: EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.EXERR"
+  - Name: ERR_SRC
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.ERR_SRC"
+  - Name: DN_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.DN_LEN"
+  - Name: REQ_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.REQ_LEN"
+  - Name: DestinationLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.DestinationLink"
+  - Name: DestinationNode
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.DestinationNode"
+  - Name: SourceLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.SourceLink"
+  - Name: Class
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Class"
+  - Name: Attribute
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Attribute"
+  - Name: Instance
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Instance"
+  - Name: LocalIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.LocalIndex"
+  - Name: Channel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Channel"
+  - Name: Rack
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Rack"
+  - Name: Group
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Group"
+  - Name: Slot
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Slot"
+  - Name: Path
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.Path"
+  - Name: RemoteIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.RemoteIndex"
+  - Name: RemoteElement
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.RemoteElement"
+  - Name: UnconnectedTimeout
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.UnconnectedTimeout"
+  - Name: ConnectionRate
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.ConnectionRate"
+  - Name: TimeoutMultiplier
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Y_Axis_DemoMode.TimeoutMultiplier"
+- Name: Z_Axis_DemoMode
+  Type: MESSAGE
+  DataType: MESSAGE
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:P02_DemoMode.Z_Axis_DemoMode"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Flags
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Flags"
+  - Name: EW
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.EW"
+  - Name: ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.ER"
+  - Name: DN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.DN"
+  - Name: ST
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.ST"
+  - Name: EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.EN"
+  - Name: TO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.TO"
+  - Name: EN_CC
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.EN_CC"
+  - Name: ERR
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.ERR"
+  - Name: EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.EXERR"
+  - Name: ERR_SRC
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.ERR_SRC"
+  - Name: DN_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.DN_LEN"
+  - Name: REQ_LEN
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.REQ_LEN"
+  - Name: DestinationLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.DestinationLink"
+  - Name: DestinationNode
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.DestinationNode"
+  - Name: SourceLink
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.SourceLink"
+  - Name: Class
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Class"
+  - Name: Attribute
+    Type: RAEtherNetIPTag
+    DataType: Int16
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Attribute"
+  - Name: Instance
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Instance"
+  - Name: LocalIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.LocalIndex"
+  - Name: Channel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Channel"
+  - Name: Rack
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Rack"
+  - Name: Group
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Group"
+  - Name: Slot
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Slot"
+  - Name: Path
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.Path"
+  - Name: RemoteIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.RemoteIndex"
+  - Name: RemoteElement
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.RemoteElement"
+  - Name: UnconnectedTimeout
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.UnconnectedTimeout"
+  - Name: ConnectionRate
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.ConnectionRate"
+  - Name: TimeoutMultiplier
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:P02_DemoMode.Z_Axis_DemoMode.TimeoutMultiplier"

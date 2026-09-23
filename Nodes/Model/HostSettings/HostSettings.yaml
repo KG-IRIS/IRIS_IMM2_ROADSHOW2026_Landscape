@@ -1,0 +1,23 @@
+Name: HostSettings
+Type: FolderType
+Children:
+- Name: Hostname
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "Laptop"
+- Name: PlexWorkcenter
+  Id: g=8c1524f7503ef733de6d3fc745ac5b12
+  Type: BaseObjectType
+  Children:
+  - Name: PlexWorkcenter
+    Type: Alias
+    DataType: NodeId
+    Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/Plex/Settings/Molding2"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/PlexWorkcenter"
+- Name: ScreenSelector
+  Type: BaseDataVariableType
+  DataType: Int32

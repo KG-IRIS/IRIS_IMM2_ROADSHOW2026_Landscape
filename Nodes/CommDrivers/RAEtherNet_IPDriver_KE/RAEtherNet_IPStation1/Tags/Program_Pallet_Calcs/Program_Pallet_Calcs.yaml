@@ -1,0 +1,195 @@
+Name: 'Program:Pallet_Calcs'
+Type: FolderType
+Children:
+- Name: Pallet_Pos_Req
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pallet_Pos_Req"
+- Name: Approach_Z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Approach_Z"
+- Name: Retrach_Z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Retrach_Z"
+- Name: Select_Pallet_Position
+  Type: RAEtherNetIPTag
+  DataType: Boolean
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Select_Pallet_Position"
+- Name: Pick_Approach_x
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Approach_x"
+- Name: Pick_Approach_y
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Approach_y"
+- Name: Pick_Approach_z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Approach_z"
+- Name: Pick_Position_x
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Position_x"
+- Name: Pick_Position_y
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Position_y"
+- Name: Pick_Position_z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Position_z"
+- Name: Pick_Retract_x
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Retract_x"
+- Name: Pick_Retract_y
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Retract_y"
+- Name: Pick_Retract_z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Retract_z"
+- Name: Pick_Position
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Pick_Position"
+- Name: Place_Position
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Position"
+- Name: Place_Approach_x
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Approach_x"
+- Name: Place_Approach_y
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Approach_y"
+- Name: Place_Approach_z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Approach_z"
+- Name: Place_Position_x
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Position_x"
+- Name: Place_Position_y
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Position_y"
+- Name: Place_Position_z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Position_z"
+- Name: Place_Retract_x
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Retract_x"
+- Name: Place_Retract_y
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Retract_y"
+- Name: Place_Retract_z
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Pallet_Calcs.Place_Retract_z"

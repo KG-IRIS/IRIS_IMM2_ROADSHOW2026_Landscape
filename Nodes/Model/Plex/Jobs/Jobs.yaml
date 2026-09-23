@@ -1,0 +1,31 @@
+Name: Jobs
+Type: FolderType
+Children:
+- Name: Name
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Quantity
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Due Date
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Job Type
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Job Status
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Priority
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Quantity Completed
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

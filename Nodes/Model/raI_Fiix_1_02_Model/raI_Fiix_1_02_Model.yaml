@@ -1,0 +1,167 @@
+Name: raI_Fiix_1_02_Model
+Type: FolderType
+Children:
+- File: Assets/Assets.yaml
+- File: AssetCategories/AssetCategories.yaml
+- File: AssetEventTypes/AssetEventTypes.yaml
+- File: AssetOfflineReasons/AssetOfflineReasons.yaml
+- File: AssetOnlineReasons/AssetOnlineReasons.yaml
+- File: Priorities/Priorities.yaml
+- File: WorkOrderStatus/WorkOrderStatus.yaml
+- File: MaintenanceTypes/MaintenanceTypes.yaml
+- File: Template/Template.yaml
+- Name: MeterReadingDataLogger
+  Id: g=187c2ab07aa4a715ca81561f21168a4a
+  Type: DataLogger
+  Children:
+  - Name: SamplingMode
+    Type: PropertyType
+    DataType: ns=11;SamplingModeEnum
+    Value: 2
+  - Name: Store
+    Type: NodePointer
+    DataType: NodeId
+    Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/raI_Fiix_1_02_Model/MeterReadingDataStore"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Types/ObjectTypes/BaseObjectType/Store"
+  - Name: VariablesToLog
+    Type: BaseObjectType
+  - Class: Reference
+    Target: ns=11;i=21
+    Direction: Forward
+  - Name: LogLocalTime
+    Type: PropertyType
+    DataType: Boolean
+    Value: true
+  - Name: SamplingPeriod
+    Type: PropertyType
+    DataType: Duration
+    Value: "0:00:00:10.0000000"
+  - Name: PollingPeriod
+    Type: PropertyType
+    DataType: Duration
+    Value: "0:00:00:01.0000000"
+  - Name: DefaultDeadBandValue
+    Type: PropertyType
+    DataType: Double
+- Name: MeterReadingDataStore
+  Id: g=ad7b2ea8aa0dbe3cf288b19d13efa854
+  Type: SQLiteStore
+  Children:
+  - Name: Tables
+    Type: BaseObjectType
+    Children:
+    - Name: MeterReadingDataLogger
+      Type: SQLiteStoreTable
+      Children:
+      - Class: Reference
+        Target: ns=15;i=12
+        Direction: Forward
+      - Class: Reference
+        Target: ns=15;i=15
+        Direction: Forward
+      - Class: Reference
+        Target: ns=15;i=21
+        Direction: Forward
+      - Class: Reference
+        Target: ns=15;i=20
+        Direction: Forward
+      - Name: Columns
+        Type: BaseObjectType
+        Children:
+        - Name: Timestamp
+          Type: StoreColumn
+          DataType: UtcTime
+        - Name: LocalTimestamp
+          Type: StoreColumn
+          DataType: DateTime
+  - Class: Reference
+    Target: ns=37;i=30
+    Direction: Forward
+  - Class: Reference
+    Target: ns=37;i=33
+    Direction: Forward
+  - Name: MaxColumnNameLength
+    Type: BaseDataVariableType
+    DataType: UInt32
+    AccessLevel: Read
+  - Name: MaxColumnCount
+    Type: BaseDataVariableType
+    DataType: UInt32
+    AccessLevel: Read
+  - Name: DataTypeCompatibilityMap
+    Type: BaseDataVariableType
+    DataType: NodeId
+    AccessLevel: Read
+    ValueRank: OneOrMoreDimensions
+    ArrayDimensions: [0,0]
+  - Name: Status
+    Type: PropertyType
+    DataType: StoreStatus
+    AccessLevel: Read
+    Value: 2
+  - Class: Reference
+    Target: ns=15;i=22
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=6
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=8
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=25
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=38
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=41
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=44
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=53
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=55
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=57
+    Direction: Forward
+  - Class: Reference
+    Target: ns=15;i=59
+    Direction: Forward
+  - Name: Filename
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "MeterReadingDataStore"
+  - Class: Reference
+    Target: ns=15;i=67
+    Direction: Forward
+- Name: MeterReadingUnits
+  Type: EngineeringUnitDictionary
+  DataType: EngineeringUnitDictionaryItem
+  ValueRank: OneDimension
+  ArrayDimensions: [0]
+  Value: [{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":856386,"DisplayName":{"LocaleId":"en-US","Text":"°"},"Description":{"LocaleId":"en-US","Text":"Fiix_F"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754031,"DisplayName":{"LocaleId":"en-US","Text":"h"},"Description":{"LocaleId":"en-US","Text":"Fiix_Hours"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754041,"DisplayName":{"LocaleId":"en-US","Text":"km"},"Description":{"LocaleId":"en-US","Text":"Fiix_Kilometers"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754040,"DisplayName":{"LocaleId":"en-US","Text":"cycles"},"Description":{"LocaleId":"en-US","Text":"Fiix_Cycles"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754035,"DisplayName":{"LocaleId":"en-US","Text":"g"},"Description":{"LocaleId":"en-US","Text":"Fiix_Gallons"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754034,"DisplayName":{"LocaleId":"en-US","Text":"l"},"Description":{"LocaleId":"en-US","Text":"Fiix_Litres"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754033,"DisplayName":{"LocaleId":"en-US","Text":"rev"},"Description":{"LocaleId":"en-US","Text":"Fiix_Revolutions"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754032,"DisplayName":{"LocaleId":"en-US","Text":"ph"},"Description":{"LocaleId":"en-US","Text":"Fiix_ProductionHours"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754039,"DisplayName":{"LocaleId":"en-US","Text":"PSI"},"Description":{"LocaleId":"en-US","Text":"Fiix_Pounds per square inch"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754038,"DisplayName":{"LocaleId":"en-US","Text":"kPa"},"Description":{"LocaleId":"en-US","Text":"Fiix_Kilopascals"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754037,"DisplayName":{"LocaleId":"en-US","Text":"mi"},"Description":{"LocaleId":"en-US","Text":"Fiix_Miles"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}},{"TypeId":{"Id":239,"Namespace":1},"Body":{"UnitId":754036,"DisplayName":{"LocaleId":"en-US","Text":"m"},"Description":{"LocaleId":"en-US","Text":"Fiix_Meters"},"PhysicalDimension":0,"Slope":0.0,"Intercept":0.0}}]
+- Name: ns=25;LibraryReference
+  Type: ObjectLibraryReference
+  DataType: ObjectLibraryReferenceDataType
+  Value: 
+   {
+    "TypeId": {
+     "Id": 72,
+     "Namespace": 25
+    },
+    "Body": {
+     "libraryGuid": "c9a17124246a04307d29a9bf3a4d5b98",
+     "objectGuid": "897beca76243ef91acebf42725110d00",
+     "objectVersion": 1,
+     "highestIgnoredVersion": 0
+    }
+   }

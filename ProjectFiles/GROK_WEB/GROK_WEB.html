@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Injection Molding Control</title>
+    <script src="mqttws31.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; text-align: center; }
+        h1 { color: #333; }
+        table { width: 90%; max-width: 1000px; margin: 20px auto; border-collapse: collapse; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        th, td { padding: 14px; border: 1px solid #ddd; text-align: left; }
+        th { background: #007acc; color: white; }
+        .value { font-size: 24px; font-weight: bold; text-align: center; min-width: 120px; }
+        input { font-size: 20px; padding: 8px; width: 120px; text-align: center; }
+        button { font-size: 18px; padding: 8px 16px; background: #007acc; color: white; border: none; cursor: pointer; border-radius: 4px; }
+        button:hover { background: #005f99; }
+        #status { font-size: 20px; font-weight: bold; margin: 20px; }
+        .connected { color: green; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>Injection Molding Machine Control</h1>
+    <div id="status">Connecting to broker...</div>
+    <script src="GROK_WEB.js"></script>
+    <table>
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Current Value</th>
+                <th>Set New Value</th>
+                <th>Unit</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Clamping Force</td><td class="value" id="ClampingForce">--</td><td><input type="number" step="0.1" id="set_ClampingForce"></td><td>kN</td><td><button onclick="send('ClampingForce')">Send</button></td></tr>
+            <tr><td>Injection Pressure</td><td class="value" id="InjectionPressure">--</td><td><input type="number" step="0.1" id="set_InjectionPressure"></td><td>bar</td><td><button onclick="send('InjectionPressure')">Send</button></td></tr>
+            <tr><td>Injection Speed</td><td class="value" id="InjectionSpeed">--</td><td><input type="number" step="0.1" id="set_InjectionSpeed"></td><td>mm/s</td><td><button onclick="send('InjectionSpeed')">Send</button></td></tr>
+            <tr><td>Hold Pressure</td><td class="value" id="HoldPressure">--</td><td><input type="number" step="0.1" id="set_HoldPressure"></td><td>bar</td><td><button onclick="send('HoldPressure')">Send</button></td></tr>
+            <tr><td>Barrel Temp Zone 1</td><td class="value" id="BarrelTemperatureZone1">--</td><td><input type="number" step="0.1" id="set_BarrelTemperatureZone1"></td><td>°C</td><td><button onclick="send('BarrelTemperatureZone1')">Send</button></td></tr>
+            <tr><td>Barrel Temp Zone 2</td><td class="value" id="BarrelTemperatureZone2">--</td><td><input type="number" step="0.1" id="set_BarrelTemperatureZone2"></td><td>°C</td><td><button onclick="send('BarrelTemperatureZone2')">Send</button></td></tr>
+            <tr><td>Barrel Temp Zone 3</td><td class="value" id="BarrelTemperatureZone3">--</td><td><input type="number" step="0.1" id="set_BarrelTemperatureZone3"></td><td>°C</td><td><button onclick="send('BarrelTemperatureZone3')">Send</button></td></tr>
+            <tr><td>Mold Temperature</td><td class="value" id="MoldTemperature">--</td><td><input type="number" step="0.1" id="set_MoldTemperature"></td><td>°C</td><td><button onclick="send('MoldTemperature')">Send</button></td></tr>
+            <tr><td>Cycle Time</td><td class="value" id="CycleTime">--</td><td colspan="3">(Read-only)</td></tr>
+            <tr><td>Machine Status</td><td class="value" id="MachineStatus">--</td><td colspan="3">(Read-only)</td></tr>
+        </tbody>
+    </table>
+
+
+</body>
+</html>

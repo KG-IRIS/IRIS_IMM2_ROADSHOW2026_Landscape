@@ -1,0 +1,193 @@
+Name: NetLogic
+Type: NetLogicCategoryFolder
+Children:
+- Name: ClockLogic
+  Type: NetLogic
+  WriteMask: BrowseName|DataType|Description|DisplayName|MinimumSamplingInterval|UserAccessLevel
+  Children:
+  - Name: Time
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Children:
+    - Name: Year
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Month
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Day
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Hour
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Minute
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Second
+      Type: BaseDataVariableType
+      DataType: Int32
+  - Name: UTCTime
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Children:
+    - Name: Year
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Month
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Day
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Hour
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Minute
+      Type: BaseDataVariableType
+      DataType: Int32
+    - Name: Second
+      Type: BaseDataVariableType
+      DataType: Int32
+  - Name: ns=25;LibraryReference
+    Type: ObjectLibraryReference
+    DataType: ObjectLibraryReferenceDataType
+    Value: 
+     {
+      "TypeId": {
+       "Id": 72,
+       "Namespace": 25
+      },
+      "Body": {
+       "libraryGuid": "f0701375ee41467993d632db6a8fdaa5",
+       "objectGuid": "9996e8e9dc11a5c3e3631c6fb9425d2d",
+       "objectVersion": 1,
+       "highestIgnoredVersion": 0
+      }
+     }
+- Name: FiixLoginManager
+  Type: NetLogic
+- Name: PlexLogic
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+  - Name: PlexJob
+    Type: Alias
+    DataType: NodeId
+    Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/Plex/PlexJob1"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/Plex/PlexJob"
+  - Name: snapreq
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/IrisLensPub/snapreq"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: GoodCount
+    Type: BaseDataVariableType
+    DataType: Int32
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../CommDrivers/RAEtherNet_IPDriver1/RAEtherNet_IPStation1/Tags/Controller Tags/IMM2/Status/ShotCount"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: ScrapCountProgram
+    Type: BaseDataVariableType
+    DataType: Int32
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../CommDrivers/RAEtherNet_IPDriver1/RAEtherNet_IPStation1/Tags/Controller Tags/IMM2/Status/RejectCount"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: Production
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/InjectionMolding/IMM2/Status/Running"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: Idle
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/InjectionMolding/IMM2/Status/Idle"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: Off
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/InjectionMolding/IMM2/Status/EStopped"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: ScrapCountManual
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Children:
+    - Name: DynamicLink
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/InjectionMolding/IMM2/Cmd_EStop"
+      Children:
+      - Name: Mode
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Class: Method
+    Name: LogDiagnostics
+  - Class: Method
+    Name: RefreshJob
+  - Class: Method
+    Name: TestRecordProduction
+  - Class: Method
+    Name: TestRecordScrap
+  - Class: Method
+    Name: TestSetStatusIdle
+  - Class: Method
+    Name: TriggerSnapReq
+  - Name: apiKeyString
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+- File: Plex/Plex.yaml

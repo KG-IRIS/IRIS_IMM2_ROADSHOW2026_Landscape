@@ -1,0 +1,47 @@
+Name: Inventory2
+Type: FolderType
+Children:
+- Name: SerialNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: PartNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Part Name
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Operation Code
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Location
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Quantity
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Units
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Net Weight
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Container Type
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: LotNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Inventory Type
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

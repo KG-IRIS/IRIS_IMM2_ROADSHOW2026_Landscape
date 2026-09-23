@@ -1,0 +1,7 @@
+Name: Operator
+Type: FolderType
+Children:
+- Name: User
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

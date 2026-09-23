@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IRIS Power Monitor</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+<style>
+  :root {
+    --iris-navy: #0d1b2a;
+    --iris-blue: #1a6faf;
+    --iris-light-blue: #2a9fd6;
+    --iris-accent: #00c8ff;
+    --iris-mid: #132233;
+    --iris-border: #1e3a52;
+    --iris-text: #cce4f6;
+    --iris-muted: #5a8aaa;
+    --utility-color: #f0c040;
+    --gen-color: #48d597;
+    --panel-bg: #0f2236;
+    --connected: #48d597;
+    --disconnected: #f05050;
+    --font-mono: 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--iris-navy);
+    color: var(--iris-text);
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    padding: 0 0 40px 0;
+  }
+
+  header {
+    background: var(--iris-mid);
+    border-bottom: 1px solid var(--iris-border);
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .header-left { display: flex; align-items: center; gap: 16px; }
+  .iris-badge {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--iris-accent);
+    text-transform: uppercase;
+    border: 1px solid var(--iris-accent);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+  header h1 { font-size: 15px; font-weight: 600; color: #fff; letter-spacing: 0.04em; }
+  header p  { font-size: 11px; color: var(--iris-muted); margin-top: 1px; }
+
+  .status-bar {
+    background: var(--panel-bg);
+    border-bottom: 1px solid var(--iris-border);
+    padding: 7px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .status-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--disconnected);
+    box-shadow: 0 0 6px var(--disconnected);
+    flex-shrink: 0;
+    transition: background 0.3s, box-shadow 0.3s;
+  }
+  .status-dot.on { background: var(--connected); box-shadow: 0 0 8px var(--connected); }
+  .status-label { font-size: 11px; color: var(--iris-muted); font-family: var(--font-mono); }
+
+  /* ── Grid ── */
+  .machines-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 24px 28px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .machine-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--iris-border);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .machine-header {
+    background: var(--iris-mid);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--iris-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .machine-id { font-size: 13px; font-weight: 700; color: #fff; letter-spacing: 0.06em; }
+  .dept-tag   { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; color: var(--iris-accent); text-transform: uppercase; }
+
+  .topic-display {
+    font-size: 10px;
+    color: var(--iris-muted);
+    font-family: var(--font-mono);
+    padding: 6px 16px;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid var(--iris-border);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .topic-display span { color: var(--iris-light-blue); }
+
+  .machine-body { padding: 16px; display: flex; flex-direction: column; gap: 16px; }
+
+  .kw-block {
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--iris-border);
+    border-radius: 5px;
+    padding: 12px 14px;
+  }
+  .kw-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .kw-type-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; }
+  .kw-type-label.utility   { color: var(--utility-color); }
+  .kw-type-label.generator { color: var(--gen-color); }
+
+  .kw-value-display { font-size: 22px; font-weight: 700; font-family: var(--font-mono); min-width: 80px; text-align: right; }
+  .kw-value-display.utility   { color: var(--utility-color); }
+  .kw-value-display.generator { color: var(--gen-color); }
+  .kw-unit { font-size: 12px; color: var(--iris-muted); margin-left: 4px; font-weight: 400; }
+
+  .kw-slider-row { display: flex; align-items: center; gap: 10px; }
+  input[type=range] {
+    -webkit-appearance: none;
+    flex: 1;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  input[type=range].utility {
+    background: linear-gradient(to right, var(--utility-color) 0%, var(--utility-color) var(--pct,50%), #1e3a52 var(--pct,50%));
+  }
+  input[type=range].generator {
+    background: linear-gradient(to right, var(--gen-color) 0%, var(--gen-color) var(--pct,50%), #1e3a52 var(--pct,50%));
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    cursor: pointer;
+  }
+  input[type=range].utility::-webkit-slider-thumb   { background: var(--utility-color); }
+  input[type=range].generator::-webkit-slider-thumb { background: var(--gen-color); }
+
+  .kw-number-input {
+    background: var(--iris-mid);
+    border: 1px solid var(--iris-border);
+    color: var(--iris-text);
+    font-size: 12px;
+    font-family: var(--font-mono);
+    padding: 4px 7px;
+    border-radius: 4px;
+    width: 62px;
+    text-align: right;
+  }
+  .kw-number-input:focus { outline: 1px solid var(--iris-accent); }
+  .kw-range-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: var(--iris-muted);
+    margin-top: 3px;
+    padding: 0 2px;
+  }
+
+  .machine-footer {
+    border-top: 1px solid var(--iris-border);
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .last-pub { font-size: 10px; color: var(--iris-muted); font-family: var(--font-mono); }
+  .pub-flash {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--iris-border);
+    flex-shrink: 0;
+    transition: background 0.1s, box-shadow 0.1s;
+  }
+  .pub-flash.on { background: var(--iris-accent); box-shadow: 0 0 8px var(--iris-accent); }
+
+  /* Log */
+  .log-panel { max-width: 1400px; margin: 0 auto; padding: 0 28px; }
+  .log-panel h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--iris-muted); margin-bottom: 8px; }
+  #log {
+    background: #040d14;
+    border: 1px solid var(--iris-border);
+    border-radius: 5px;
+    padding: 10px 14px;
+    font-size: 11px;
+    font-family: var(--font-mono);
+    color: var(--iris-text);
+    height: 120px;
+    overflow-y: auto;
+    line-height: 1.7;
+  }
+  #log .ts   { color: var(--iris-muted); }
+  #log .pub  { color: var(--iris-accent); }
+  #log .conn { color: var(--gen-color); }
+  #log .err  { color: #f05050; }
+
+  @media (max-width: 1000px) { .machines-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 640px)  { .machines-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <span class="iris-badge">IRIS-IA</span>
+    <div>
+      <h1>Power Monitor</h1>
+      <p>Utility &amp; Generator KW · Auto-publishing to iriscommand.com · 2 s interval</p>
+    </div>
+  </div>
+</header>
+
+<div class="status-bar">
+  <span class="status-dot" id="statusDot"></span>
+  <span class="status-label" id="statusLabel">Connecting…</span>
+</div>
+
+<div class="machines-grid" id="machinesGrid"></div>
+
+<div class="log-panel">
+  <h3>Publish Log</h3>
+  <div id="log"></div>
+</div>
+
+<script>
+/* ── Config ── */
+const BROKER   = 'iriscommand.com';
+const PORT     = 9001;
+const INTERVAL = 2000; // ms
+const MACHINES = [
+  { id: 'IMM1', dept: 'Dept1', site: 'IMMDemo' },
+  { id: 'IMM2', dept: 'Dept2', site: 'IMMDemo' },
+  { id: 'IMM3', dept: 'Dept3', site: 'IMMDemo' },
+];
+
+/* ── State ── */
+let mqttClient  = null;
+let isConnected = false;
+let autoTimer   = null;
+
+const machineState = {};
+MACHINES.forEach(m => { machineState[m.id] = { utility: 120, generator: 0 }; });
+
+/* ── Build UI ── */
+function buildCards() {
+  const grid = document.getElementById('machinesGrid');
+  MACHINES.forEach(m => {
+    const baseTopic = `IRIS/${m.site}/${m.dept}/${m.id}/Power`;
+    const card = document.createElement('div');
+    card.className = 'machine-card';
+    card.innerHTML = `
+      <div class="machine-header">
+        <span class="machine-id">${m.id}</span>
+        <span class="dept-tag">${m.dept}</span>
+      </div>
+      <div class="topic-display">Topic: <span>${baseTopic}</span></div>
+      <div class="machine-body">
+        ${kwBlock(m.id, 'utility',   'Utility_KW',   0, 500, 120)}
+        ${kwBlock(m.id, 'generator', 'Generator_KW', 0, 300,   0)}
+      </div>
+      <div class="machine-footer">
+        <span class="last-pub" id="lastpub_${m.id}">— pending —</span>
+        <span class="pub-flash" id="flash_${m.id}"></span>
+      </div>`;
+    grid.appendChild(card);
+
+    ['utility', 'generator'].forEach(type => {
+      const slider   = document.getElementById(`slider_${m.id}_${type}`);
+      const numInput = document.getElementById(`num_${m.id}_${type}`);
+      const display  = document.getElementById(`display_${m.id}_${type}`);
+
+      slider.addEventListener('input', () => {
+        const v = parseFloat(slider.value);
+        machineState[m.id][type] = v;
+        numInput.value = v;
+        display.textContent = v.toFixed(1);
+        updateFill(slider);
+      });
+      numInput.addEventListener('change', () => {
+        let v = Math.min(parseFloat(slider.max), Math.max(parseFloat(slider.min), parseFloat(numInput.value) || 0));
+        machineState[m.id][type] = v;
+        numInput.value = v;
+        slider.value  = v;
+        display.textContent = v.toFixed(1);
+        updateFill(slider);
+      });
+      updateFill(slider);
+    });
+  });
+}
+
+function kwBlock(machineId, type, label, min, max, def) {
+  return `
+    <div class="kw-block">
+      <div class="kw-label-row">
+        <span class="kw-type-label ${type}">${label}</span>
+        <span>
+          <span class="kw-value-display ${type}" id="display_${machineId}_${type}">${def.toFixed(1)}</span>
+          <span class="kw-unit">kW</span>
+        </span>
+      </div>
+      <div class="kw-slider-row">
+        <input type="range"  class="${type}" id="slider_${machineId}_${type}" min="${min}" max="${max}" step="0.5" value="${def}">
+        <input type="number" class="kw-number-input" id="num_${machineId}_${type}" min="${min}" max="${max}" step="0.5" value="${def}">
+      </div>
+      <div class="kw-range-labels"><span>${min} kW</span><span>${max} kW</span></div>
+    </div>`;
+}
+
+function updateFill(slider) {
+  const pct = ((parseFloat(slider.value) - parseFloat(slider.min)) /
+               (parseFloat(slider.max)  - parseFloat(slider.min))) * 100;
+  slider.style.setProperty('--pct', pct + '%');
+}
+
+/* ── MQTT ── */
+function connect() {
+  const clientId = 'PowerMonitor_' + Math.random().toString(16).slice(2, 8);
+  mqttClient = new Paho.MQTT.Client(BROKER, PORT, clientId);
+
+  mqttClient.onConnectionLost = (r) => {
+    isConnected = false;
+    setStatus(false, 'Disconnected — retrying…');
+    log(`Connection lost: ${r.errorMessage}`, 'err');
+    if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    setTimeout(connect, 3000);
+  };
+
+  mqttClient.connect({
+    useSSL: false,
+    timeout: 10,
+    onSuccess: () => {
+      isConnected = true;
+      setStatus(true, `Connected · ${BROKER}:${PORT} · publishing every ${INTERVAL/1000}s`);
+      log(`Connected to ${BROKER}:${PORT} (anonymous)`, 'conn');
+      startAuto();
+    },
+    onFailure: (e) => {
+      isConnected = false;
+      setStatus(false, `Connect failed — retrying… (${e.errorMessage})`);
+      log(`Connect failed: ${e.errorMessage}`, 'err');
+      setTimeout(connect, 5000);
+    }
+  });
+}
+
+function setStatus(on, text) {
+  document.getElementById('statusDot').className   = 'status-dot' + (on ? ' on' : '');
+  document.getElementById('statusLabel').textContent = text;
+}
+
+/* ── Publish ── */
+function publishAll() {
+  if (!isConnected) return;
+  MACHINES.forEach(m => {
+    const topic   = `IRIS/${m.site}/${m.dept}/${m.id}/Power`;
+    const state   = machineState[m.id];
+    const payload = JSON.stringify({ Utility_KW: state.utility, Generator_KW: state.generator });
+    const msg = new Paho.MQTT.Message(payload);
+    msg.destinationName = topic;
+    msg.qos = 0;
+    msg.retained = false;
+    mqttClient.send(msg);
+
+    const ts = new Date().toLocaleTimeString('en-US', { hour12: false });
+    document.getElementById(`lastpub_${m.id}`).textContent =
+      `${ts} · U=${state.utility.toFixed(1)} kW · G=${state.generator.toFixed(1)} kW`;
+
+    const dot = document.getElementById(`flash_${m.id}`);
+    dot.classList.add('on');
+    setTimeout(() => dot.classList.remove('on'), 250);
+  });
+  log(`PUB all 3 machines · IMM1 U=${machineState.IMM1.utility} G=${machineState.IMM1.generator} · IMM2 U=${machineState.IMM2.utility} G=${machineState.IMM2.generator} · IMM3 U=${machineState.IMM3.utility} G=${machineState.IMM3.generator}`, 'pub');
+}
+
+function startAuto() {
+  if (autoTimer) clearInterval(autoTimer);
+  publishAll();
+  autoTimer = setInterval(publishAll, INTERVAL);
+}
+
+/* ── Log ── */
+function log(msg, type) {
+  const el = document.getElementById('log');
+  const ts = new Date().toLocaleTimeString('en-US', { hour12: false });
+  const line = document.createElement('div');
+  line.innerHTML = `<span class="ts">[${ts}]</span> <span class="${type}">${msg.replace(/</g,'&lt;')}</span>`;
+  el.appendChild(line);
+  el.scrollTop = el.scrollHeight;
+  while (el.children.length > 200) el.removeChild(el.firstChild);
+}
+
+/* ── Init ── */
+buildCards();
+connect();
+</script>
+</body>
+</html>

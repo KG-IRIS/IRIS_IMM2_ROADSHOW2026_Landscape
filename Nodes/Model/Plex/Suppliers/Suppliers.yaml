@@ -1,0 +1,23 @@
+Name: Suppliers
+Type: FolderType
+Children:
+- Name: Name
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Status
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Type
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Web Address
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Notes
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

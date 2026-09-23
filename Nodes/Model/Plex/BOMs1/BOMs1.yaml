@@ -1,0 +1,39 @@
+Name: BOMs1
+Type: FolderType
+Children:
+- Name: PartNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Component
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Operation Code
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: OperationNo
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Operation Type
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Units
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Quantity
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Active
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"
+- Name: Transfer Heat
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "0"

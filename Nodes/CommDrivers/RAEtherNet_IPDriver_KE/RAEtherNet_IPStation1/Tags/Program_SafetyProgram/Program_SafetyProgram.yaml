@@ -1,0 +1,719 @@
+Name: 'Program:SafetyProgram'
+Type: FolderType
+Children:
+- Name: Robot_1_SafeTorqueOff
+  Type: raM_Opr_SafeTrqOff_CD
+  DataType: raM_Opr_SafeTrqOff_CD
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: EnableIn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.EnableIn"
+  - Name: EnableOut
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.EnableOut"
+  - Name: raM_Opr_SafeTrqOff_CD
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.raM_Opr_SafeTrqOff_CD"
+  - Name: Sts_EO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_EO"
+  - Name: Sts_EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_EN"
+  - Name: Sts_ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_ER"
+  - Name: Sts_ERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_ERR"
+  - Name: Sts_EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_EXERR"
+  - Name: Inp_SafetyInterlockOK
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Inp_SafetyInterlockOK"
+  - Name: Inp_AxsSI_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Inp_AxsSI_TorqueDisabled"
+  - Name: Inp_AxsSI_ResetRequired
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Inp_AxsSI_ResetRequired"
+  - Name: Inp_AxsSI_ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Inp_AxsSI_ConnectionFaulted"
+  - Name: Inp_AxsSI_SafetyFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Inp_AxsSI_SafetyFault"
+  - Name: Cfg_StopCategory
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Cfg_StopCategory"
+  - Name: Cfg_StopTime
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Cfg_StopTime"
+  - Name: Cfg_AutoReset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Cfg_AutoReset"
+  - Name: Cmd_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Cmd_Reset"
+  - Name: Out_AxsSO_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Out_AxsSO_Reset"
+  - Name: Out_AxsSO_SafeTorqueOff
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Out_AxsSO_SafeTorqueOff"
+  - Name: Sts_MotionStop
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_MotionStop"
+  - Name: Sts_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram.Robot_1_SafeTorqueOff.Sts_TorqueDisabled"
+- Name: _Robot_1_SafeTorqueOff_M1
+  Type: raM_Opr_SafeTrqOff_CD
+  DataType: raM_Opr_SafeTrqOff_CD
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: EnableIn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.EnableIn"
+  - Name: EnableOut
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.EnableOut"
+  - Name: raM_Opr_SafeTrqOff_CD
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.raM_Opr_SafeTrqOff_CD"
+  - Name: Sts_EO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_EO"
+  - Name: Sts_EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_EN"
+  - Name: Sts_ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_ER"
+  - Name: Sts_ERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_ERR"
+  - Name: Sts_EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_EXERR"
+  - Name: Inp_SafetyInterlockOK
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Inp_SafetyInterlockOK"
+  - Name: Inp_AxsSI_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Inp_AxsSI_TorqueDisabled"
+  - Name: Inp_AxsSI_ResetRequired
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Inp_AxsSI_ResetRequired"
+  - Name: Inp_AxsSI_ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Inp_AxsSI_ConnectionFaulted"
+  - Name: Inp_AxsSI_SafetyFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Inp_AxsSI_SafetyFault"
+  - Name: Cfg_StopCategory
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Cfg_StopCategory"
+  - Name: Cfg_StopTime
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Cfg_StopTime"
+  - Name: Cfg_AutoReset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Cfg_AutoReset"
+  - Name: Cmd_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Cmd_Reset"
+  - Name: Out_AxsSO_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Out_AxsSO_Reset"
+  - Name: Out_AxsSO_SafeTorqueOff
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Out_AxsSO_SafeTorqueOff"
+  - Name: Sts_MotionStop
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_MotionStop"
+  - Name: Sts_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M1.Sts_TorqueDisabled"
+- Name: _Robot_1_SafeTorqueOff_M2
+  Type: raM_Opr_SafeTrqOff_CD
+  DataType: raM_Opr_SafeTrqOff_CD
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: EnableIn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.EnableIn"
+  - Name: EnableOut
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.EnableOut"
+  - Name: raM_Opr_SafeTrqOff_CD
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.raM_Opr_SafeTrqOff_CD"
+  - Name: Sts_EO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_EO"
+  - Name: Sts_EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_EN"
+  - Name: Sts_ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_ER"
+  - Name: Sts_ERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_ERR"
+  - Name: Sts_EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_EXERR"
+  - Name: Inp_SafetyInterlockOK
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Inp_SafetyInterlockOK"
+  - Name: Inp_AxsSI_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Inp_AxsSI_TorqueDisabled"
+  - Name: Inp_AxsSI_ResetRequired
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Inp_AxsSI_ResetRequired"
+  - Name: Inp_AxsSI_ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Inp_AxsSI_ConnectionFaulted"
+  - Name: Inp_AxsSI_SafetyFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Inp_AxsSI_SafetyFault"
+  - Name: Cfg_StopCategory
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Cfg_StopCategory"
+  - Name: Cfg_StopTime
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Cfg_StopTime"
+  - Name: Cfg_AutoReset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Cfg_AutoReset"
+  - Name: Cmd_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Cmd_Reset"
+  - Name: Out_AxsSO_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Out_AxsSO_Reset"
+  - Name: Out_AxsSO_SafeTorqueOff
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Out_AxsSO_SafeTorqueOff"
+  - Name: Sts_MotionStop
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_MotionStop"
+  - Name: Sts_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M2.Sts_TorqueDisabled"
+- Name: _Robot_1_SafeTorqueOff_M3
+  Type: raM_Opr_SafeTrqOff_CD
+  DataType: raM_Opr_SafeTrqOff_CD
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: EnableIn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.EnableIn"
+  - Name: EnableOut
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.EnableOut"
+  - Name: raM_Opr_SafeTrqOff_CD
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.raM_Opr_SafeTrqOff_CD"
+  - Name: Sts_EO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_EO"
+  - Name: Sts_EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_EN"
+  - Name: Sts_ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_ER"
+  - Name: Sts_ERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_ERR"
+  - Name: Sts_EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_EXERR"
+  - Name: Inp_SafetyInterlockOK
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Inp_SafetyInterlockOK"
+  - Name: Inp_AxsSI_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Inp_AxsSI_TorqueDisabled"
+  - Name: Inp_AxsSI_ResetRequired
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Inp_AxsSI_ResetRequired"
+  - Name: Inp_AxsSI_ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Inp_AxsSI_ConnectionFaulted"
+  - Name: Inp_AxsSI_SafetyFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Inp_AxsSI_SafetyFault"
+  - Name: Cfg_StopCategory
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Cfg_StopCategory"
+  - Name: Cfg_StopTime
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Cfg_StopTime"
+  - Name: Cfg_AutoReset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Cfg_AutoReset"
+  - Name: Cmd_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Cmd_Reset"
+  - Name: Out_AxsSO_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Out_AxsSO_Reset"
+  - Name: Out_AxsSO_SafeTorqueOff
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Out_AxsSO_SafeTorqueOff"
+  - Name: Sts_MotionStop
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_MotionStop"
+  - Name: Sts_TorqueDisabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:SafetyProgram._Robot_1_SafeTorqueOff_M3.Sts_TorqueDisabled"

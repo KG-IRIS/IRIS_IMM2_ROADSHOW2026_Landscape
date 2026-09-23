@@ -1,0 +1,458 @@
+Name: MQTT
+Type: MQTTCategoryFolder
+Children:
+- Name: MQTTClient1
+  Type: MQTTClient
+  Children:
+  - Name: BrokerAddress
+    Type: PropertyType
+    DataType: String
+    Value: "192.168.1.54"
+  - Name: BrokerPort
+    Type: PropertyType
+    DataType: UInt16
+    Value: 1883
+  - Name: ClientId
+    Type: PropertyType
+    DataType: String
+  - Name: Status
+    Type: BaseDataVariableType
+    DataType: StatusEnum
+    ReferenceType: HasProperty
+    AccessLevel: Read
+  - Name: UserIdentityType
+    Type: BaseDataVariableType
+    DataType: ns=23;UserIdentityTypeEnum
+  - Name: SSLTLSEnabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: ValidateBrokerCertificate
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: WillMessageEnabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: WillTopic
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: WillPayload
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: WillQoS
+    Type: BaseDataVariableType
+    DataType: QoSLevelEnum
+  - Name: WillRetain
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: WillDelayInterval
+    Type: BaseDataVariableType
+    DataType: Duration
+  - Class: Reference
+    Target: ns=23;i=12
+    Direction: Forward
+  - Class: Reference
+    Target: ns=23;i=44
+    Direction: Forward
+  - Name: MQTTPublisher1
+    Type: MQTTPublisher
+    Children:
+    - Name: SamplingMode
+      Type: PropertyType
+      DataType: ns=23;SamplingModeEnum
+      Value: 2
+    - Name: DataSource
+      Type: BaseDataVariableType
+      DataType: DataSourceEnum
+    - Name: Folder
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/IrisLensPub"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/FolderType"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/IrisLensPub/loginreq"
+    - Name: DataLogger
+      Type: NodePointer
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/DataLogger"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/VariableTypes/BaseVariableType/BaseDataVariableType/VariableToLog"
+    - Name: Topic
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "irislens/reqs"
+    - Name: QoS
+      Type: BaseDataVariableType
+      DataType: QoSLevelEnum
+      Value: 2
+    - Name: Retain
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: PFEnabled
+      Type: PropertyType
+      DataType: Boolean
+    - Name: PayloadUpdateTimestamp
+      Type: BaseDataVariableType
+      DataType: DateTime
+      ReferenceType: HasProperty
+      AccessLevel: Read
+    - Name: SFEnabled
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: SFBufferMaxSize
+      Type: BaseDataVariableType
+      DataType: UInt32
+      Value: 1000
+    - Name: SFBufferUsage
+      Type: BaseDataVariableType
+      DataType: UInt32
+      AccessLevel: Read
+    - Name: SFBufferOverflow
+      Type: BaseDataVariableType
+      DataType: Boolean
+      AccessLevel: Read
+    - Name: SFBufferOverwrite
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: Item
+      Type: Alias
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/IrisLensPub/loginreq"
+  - Name: MQTTSubscriber1
+    Type: MQTTSubscriber
+    Children:
+    - Name: Subscriptions
+      Type: BaseObjectType
+      Children:
+      - Name: DefaultJSONSubscription1
+        Type: Subscription
+        ReferenceType: HasOrderedComponent
+        Children:
+        - Name: Folder
+          Type: NodePointer
+          DataType: NodeId
+          Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/IrisLensSub"
+          Children:
+          - Name: Kind
+            Type: PropertyType
+            DataType: NodeId
+            Value: "/Types/ObjectTypes/BaseObjectType/FolderType"
+        - Name: Topic
+          Type: BaseDataVariableType
+          DataType: String
+          Value: "irislens/response"
+        - Name: QoS
+          Type: BaseDataVariableType
+          DataType: QoSLevelEnum
+          Value: 2
+    - Class: Reference
+      Target: ns=23;i=47
+      Direction: Forward
+  - Name: MQTTSubscriber2
+    Type: MQTTSubscriber
+    Children:
+    - Name: Subscriptions
+      Type: BaseObjectType
+      Children:
+      - Name: DefaultJSONSubscription1
+        Type: Subscription
+        ReferenceType: HasOrderedComponent
+        Children:
+        - Name: Folder
+          Type: NodePointer
+          DataType: NodeId
+          Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/WebIn"
+          Children:
+          - Name: Kind
+            Type: PropertyType
+            DataType: NodeId
+            Value: "/Types/ObjectTypes/BaseObjectType/FolderType"
+        - Name: Topic
+          Type: BaseDataVariableType
+          DataType: String
+          Value: "IRIS/IMMDemo/Dept2/IMM2/WebIn"
+        - Name: QoS
+          Type: BaseDataVariableType
+          DataType: QoSLevelEnum
+    - Class: Reference
+      Target: ns=23;i=47
+      Direction: Forward
+  - Name: MQTTPublisher2
+    Type: MQTTPublisher
+    Children:
+    - Name: SamplingMode
+      Type: PropertyType
+      DataType: ns=23;SamplingModeEnum
+      Value: 1
+    - Name: DataSource
+      Type: BaseDataVariableType
+      DataType: DataSourceEnum
+    - Name: Folder
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Status"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/FolderType"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Status/Running"
+    - Name: DataLogger
+      Type: NodePointer
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/DataLogger"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/VariableTypes/BaseVariableType/BaseDataVariableType/VariableToLog"
+    - Name: Topic
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "IRIS/IMMDemo/Dept2/IMM2/status"
+    - Name: QoS
+      Type: BaseDataVariableType
+      DataType: QoSLevelEnum
+      Value: 1
+    - Name: Retain
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: PFEnabled
+      Type: PropertyType
+      DataType: Boolean
+    - Name: PayloadUpdateTimestamp
+      Type: BaseDataVariableType
+      DataType: DateTime
+      ReferenceType: HasProperty
+      AccessLevel: Read
+    - Name: SFEnabled
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: SFBufferMaxSize
+      Type: BaseDataVariableType
+      DataType: UInt32
+      Value: 1000
+    - Name: SFBufferUsage
+      Type: BaseDataVariableType
+      DataType: UInt32
+      AccessLevel: Read
+    - Name: SFBufferOverflow
+      Type: BaseDataVariableType
+      DataType: Boolean
+      AccessLevel: Read
+    - Name: SFBufferOverwrite
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: Item
+      Type: Alias
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Status/Running"
+    - Name: SamplingPeriod
+      Type: PropertyType
+      DataType: Duration
+      Value: "0:00:00:00.5000000"
+    - Name: PollingPeriod
+      Type: PropertyType
+      DataType: Duration
+      Value: "0:00:00:00.5000000"
+  - Name: MQTTPublisher3
+    Type: MQTTPublisher
+    Children:
+    - Name: SamplingMode
+      Type: PropertyType
+      DataType: ns=23;SamplingModeEnum
+      Value: 1
+    - Name: DataSource
+      Type: BaseDataVariableType
+      DataType: DataSourceEnum
+    - Name: Folder
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Setpoints"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/FolderType"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Setpoints/Z1Temp"
+    - Name: DataLogger
+      Type: NodePointer
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/DataLogger"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/VariableTypes/BaseVariableType/BaseDataVariableType/VariableToLog"
+    - Name: Topic
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "IRIS/IMMDemo/Dept2/IMM2/setpoints"
+    - Name: QoS
+      Type: BaseDataVariableType
+      DataType: QoSLevelEnum
+      Value: 1
+    - Name: Retain
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: PFEnabled
+      Type: PropertyType
+      DataType: Boolean
+    - Name: PayloadUpdateTimestamp
+      Type: BaseDataVariableType
+      DataType: DateTime
+      ReferenceType: HasProperty
+      AccessLevel: Read
+    - Name: SFEnabled
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: SFBufferMaxSize
+      Type: BaseDataVariableType
+      DataType: UInt32
+      Value: 1000
+    - Name: SFBufferUsage
+      Type: BaseDataVariableType
+      DataType: UInt32
+      AccessLevel: Read
+    - Name: SFBufferOverflow
+      Type: BaseDataVariableType
+      DataType: Boolean
+      AccessLevel: Read
+    - Name: SFBufferOverwrite
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: Item
+      Type: Alias
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Setpoints/Z1Temp"
+    - Name: SamplingPeriod
+      Type: PropertyType
+      DataType: Duration
+      Value: "0:00:00:00.5000000"
+    - Name: PollingPeriod
+      Type: PropertyType
+      DataType: Duration
+      Value: "0:00:00:00.5000000"
+  - Name: MQTTPublisher4
+    Type: MQTTPublisher
+    Children:
+    - Name: SamplingMode
+      Type: PropertyType
+      DataType: ns=23;SamplingModeEnum
+      Value: 1
+    - Name: DataSource
+      Type: BaseDataVariableType
+      DataType: DataSourceEnum
+    - Name: Folder
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Actuals"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/FolderType"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Actuals/Z1TempActual"
+    - Name: DataLogger
+      Type: NodePointer
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/ObjectTypes/BaseObjectType/DataLogger"
+      - Name: ItemKind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/VariableTypes/BaseVariableType/BaseDataVariableType/VariableToLog"
+    - Name: Topic
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "IRIS/IMMDemo/Dept2/IMM2/actuals"
+    - Name: QoS
+      Type: BaseDataVariableType
+      DataType: QoSLevelEnum
+      Value: 1
+    - Name: Retain
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: PFEnabled
+      Type: PropertyType
+      DataType: Boolean
+    - Name: PayloadUpdateTimestamp
+      Type: BaseDataVariableType
+      DataType: DateTime
+      ReferenceType: HasProperty
+      AccessLevel: Read
+    - Name: SFEnabled
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: SFBufferMaxSize
+      Type: BaseDataVariableType
+      DataType: UInt32
+      Value: 1000
+    - Name: SFBufferUsage
+      Type: BaseDataVariableType
+      DataType: UInt32
+      AccessLevel: Read
+    - Name: SFBufferOverflow
+      Type: BaseDataVariableType
+      DataType: Boolean
+      AccessLevel: Read
+    - Name: SFBufferOverwrite
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: Item
+      Type: Alias
+      DataType: NodeId
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/MQTT/IMM2/Actuals/Z1TempActual"
+    - Name: SamplingPeriod
+      Type: PropertyType
+      DataType: Duration
+      Value: "0:00:00:00.5000000"
+    - Name: PollingPeriod
+      Type: PropertyType
+      DataType: Duration
+      Value: "0:00:00:00.5000000"

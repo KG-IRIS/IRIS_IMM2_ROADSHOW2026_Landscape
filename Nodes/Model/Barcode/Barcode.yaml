@@ -1,0 +1,430 @@
+Name: Barcode
+Type: FolderType
+Children:
+- Name: BC_ReaderType
+  Id: g=c1c407035fc2aed86e28c88ce74be9e5
+  Supertype: BaseObjectType
+  Children:
+  - Name: IP_Address
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "192.168.1.179"
+  - Name: bcReceived
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: bcConnected
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: bcBatteryInfo
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: battVoltage
+    Type: AnalogItemType
+    DataType: Int32
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+    - Name: EngineeringUnits
+      Type: EUInformationType
+      DataType: EUInformation
+      Children:
+      - Name: UnitId
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 12890
+      - Name: DisplayName
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+  - Name: battCharge
+    Type: AnalogItemType
+    DataType: Int32
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+        Value: 100.0
+    - Name: EngineeringUnits
+      Type: EUInformationType
+      DataType: EUInformation
+      Children:
+      - Name: UnitId
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 1
+      - Name: DisplayName
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: NamespaceIndex
+        Type: BaseDataVariableType
+        DataType: NamespaceIndex
+        ModellingRule: Optional
+        Value: 42
+  - Name: battTemp
+    Type: AnalogItemType
+    DataType: Int32
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+    - Name: EngineeringUnits
+      Type: EUInformationType
+      DataType: EUInformation
+      Children:
+      - Name: UnitId
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 4408652
+      - Name: DisplayName
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+  - Name: mfgDate
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Value: "2022-01-01T00:00:00.0000000"
+  - Name: bcLogic
+    Type: NetLogic
+    Children:
+    - Class: Method
+      Name: reqConnection
+      Id: g=0facf09e84dba2ed900a347039e24bac
+  - Name: bcReceivedChanged
+    Type: VariableChangedEventDispatcher
+    Children:
+    - Name: VariableNodePath
+      Type: BaseVariableType
+      DataType: NodePath
+      Value: "../bcReceived"
+    - Name: VariableValueChangedEventHandler1
+      Type: EventHandler
+      Children:
+      - Name: ListenEventType
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/EventTypes/BaseEventType/VariableConditionEvent/VariableValueChangedEvent"
+      - Name: MethodsToCall
+        Type: BaseObjectType
+        Children:
+        - Name: MethodContainer1
+          Type: BaseObjectType
+          Children:
+          - Name: ns=7;ObjectPointer
+            Type: NodePointer
+            DataType: NodeId
+            Value: {"IdType":2,"Id":"2d3af1248b14a9d53a458d3c1dacd75e","Namespace":42}
+            Children:
+            - Name: Kind
+              Type: PropertyType
+              DataType: NodeId
+              Value: "/Types/ObjectTypes/BaseObjectType"
+          - Name: ns=7;Method
+            Type: BaseDataVariableType
+            DataType: String
+            Value: "Process2D"
+          - Name: InputArguments
+            Type: BaseObjectType
+            Children:
+            - Name: input
+              Type: BaseDataVariableType
+              DataType: String
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../../../bcReceived"
+        - Name: MethodContainer2
+          Type: BaseObjectType
+          Children:
+          - Name: ns=7;ObjectPointer
+            Type: NodePointer
+            DataType: NodeId
+            Value: {"IdType":2,"Id":"0f5cfb7f57e37aab4d34cd6edf6fa394","Namespace":42}
+            Children:
+            - Name: Kind
+              Type: PropertyType
+              DataType: NodeId
+              Value: "/Types/ObjectTypes/BaseObjectType"
+          - Name: ns=7;Method
+            Type: BaseDataVariableType
+            DataType: String
+            Value: "InsertScanData"
+      - Name: EventArguments
+        Type: VariableValueChangedEvent
+        Children:
+        - Name: VariableNodeId
+          Type: BaseVariableType
+          DataType: NodeId
+        - Name: NewValue
+          Type: BaseVariableType
+          DataType: BaseDataType
+        - Name: OldValue
+          Type: BaseVariableType
+          DataType: BaseDataType
+        - Name: EventId
+          Type: PropertyType
+          DataType: ByteString
+        - Name: EventType
+          Type: PropertyType
+          DataType: NodeId
+        - Name: SourceNode
+          Type: PropertyType
+          DataType: NodeId
+        - Name: SourceName
+          Type: PropertyType
+          DataType: String
+        - Name: Time
+          Type: PropertyType
+          DataType: UtcTime
+        - Name: ReceiveTime
+          Type: PropertyType
+          DataType: UtcTime
+        - Name: Message
+          Type: PropertyType
+          DataType: LocalizedText
+        - Name: Severity
+          Type: PropertyType
+          DataType: UInt16
+  - Name: disableBC
+    Type: BaseDataVariableType
+    DataType: Boolean
+- Name: BC_ReaderType1
+  Id: g=0c59fc2f9bf1bc6e18befd69eabf4fcd
+  Type: BC_ReaderType
+  Children:
+  - Name: IP_Address
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "192.168.173.15"
+  - Name: bcReceived
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: bcConnected
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: bcBatteryInfo
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: battVoltage
+    Type: AnalogItemType
+    DataType: Int32
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+    - Name: EngineeringUnits
+      Type: EUInformationType
+      DataType: EUInformation
+      Children:
+      - Name: UnitId
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 12890
+      - Name: DisplayName
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+  - Name: battCharge
+    Type: AnalogItemType
+    DataType: Int32
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+        Value: 100.0
+    - Name: EngineeringUnits
+      Type: EUInformationType
+      DataType: EUInformation
+      Children:
+      - Name: UnitId
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 1
+      - Name: DisplayName
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+  - Name: battTemp
+    Type: AnalogItemType
+    DataType: Int32
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+    - Name: EngineeringUnits
+      Type: EUInformationType
+      DataType: EUInformation
+      Children:
+      - Name: UnitId
+        Type: BaseDataVariableType
+        DataType: Int32
+        Value: 4408652
+      - Name: DisplayName
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+      - Name: Description
+        Type: BaseDataVariableType
+        DataType: LocalizedText
+  - Name: mfgDate
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Value: "2022-01-01T00:00:00.0000000"
+  - Name: bcLogic
+    Type: NetLogic
+    Children:
+    - Class: Reference
+      Target: g=0facf09e84dba2ed900a347039e24bac
+      Direction: Forward
+  - Name: bcReceivedChanged
+    Type: VariableChangedEventDispatcher
+    Children:
+    - Name: VariableNodePath
+      Type: BaseVariableType
+      DataType: NodePath
+      Value: "../bcReceived"
+    - Name: VariableValueChangedEventHandler1
+      Type: EventHandler
+      Children:
+      - Name: ListenEventType
+        Type: PropertyType
+        DataType: NodeId
+        Value: "/Types/EventTypes/BaseEventType/VariableConditionEvent/VariableValueChangedEvent"
+      - Name: MethodsToCall
+        Type: BaseObjectType
+        Children:
+        - Name: MethodContainer1
+          Type: BaseObjectType
+          Children:
+          - Name: ObjectPointer
+            Type: NodePointer
+            DataType: NodeId
+            Value: {"IdType":2,"Id":"2d3af1248b14a9d53a458d3c1dacd75e","Namespace":42}
+            Children:
+            - Name: Kind
+              Type: PropertyType
+              DataType: NodeId
+              Value: "/Types/ObjectTypes/BaseObjectType"
+          - Name: Method
+            Type: BaseDataVariableType
+            DataType: String
+            Value: "Process2D"
+          - Name: InputArguments
+            Type: BaseObjectType
+            Children:
+            - Name: input
+              Type: BaseDataVariableType
+              DataType: String
+              Children:
+              - Name: DynamicLink
+                Type: DynamicLink
+                DataType: NodePath
+                Value: "../../../../../../bcReceived"
+        - Name: MethodContainer2
+          Type: BaseObjectType
+          Children:
+          - Name: ObjectPointer
+            Type: NodePointer
+            DataType: NodeId
+            Value: {"IdType":2,"Id":"0f5cfb7f57e37aab4d34cd6edf6fa394","Namespace":42}
+            Children:
+            - Name: Kind
+              Type: PropertyType
+              DataType: NodeId
+              Value: "/Types/ObjectTypes/BaseObjectType"
+          - Name: Method
+            Type: BaseDataVariableType
+            DataType: String
+            Value: "InsertScanData"
+      - Name: EventArguments
+        Type: VariableValueChangedEvent
+        Children:
+        - Name: VariableNodeId
+          Type: BaseVariableType
+          DataType: NodeId
+        - Name: NewValue
+          Type: BaseVariableType
+          DataType: BaseDataType
+        - Name: OldValue
+          Type: BaseVariableType
+          DataType: BaseDataType
+        - Name: EventId
+          Type: PropertyType
+          DataType: ByteString
+        - Name: EventType
+          Type: PropertyType
+          DataType: NodeId
+        - Name: SourceNode
+          Type: PropertyType
+          DataType: NodeId
+        - Name: SourceName
+          Type: PropertyType
+          DataType: String
+        - Name: Time
+          Type: PropertyType
+          DataType: UtcTime
+        - Name: ReceiveTime
+          Type: PropertyType
+          DataType: UtcTime
+        - Name: Message
+          Type: PropertyType
+          DataType: LocalizedText
+        - Name: Severity
+          Type: PropertyType
+          DataType: UInt16
+  - Name: disableBC
+    Type: BaseDataVariableType
+    DataType: Boolean

@@ -1,0 +1,174 @@
+Name: Alarms
+Id: g=3293e7cd8de0bb06cc725e017a984470
+Type: AlarmsCategoryFolder
+Children:
+- Name: Test Alarm
+  Id: g=e06e7bf5ccc4e48a51614ce727ccc4ba
+  Type: OffNormalAlarmController
+  Children:
+  - Name: NormalStateValue
+    Id: g=1160263f412233416d2cccd37283181a
+    Type: BaseDataVariableType
+    DataType: Double
+  - Name: InputValue
+    Id: g=61b0e0d6c03e8683ba45c3485faff180
+    Type: BaseDataVariableType
+    DataType: Double
+    Children:
+    - Name: DynamicLink
+      Id: g=08de179a6ddb891b5f16acdf6b3ab4a5
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../Model/Alarm Test Bits/AlarmVariable1"
+      Children:
+      - Name: Mode
+        Id: g=10ce986050b44cf25d4e721c00f7ba62
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: LastEvent
+    Id: g=af0dd5e5896e26ce804139a9b539e1fa
+    Type: BaseDataVariableType
+    DataType: BaseDataType
+    ValueRank: OneDimension
+    ArrayDimensions: [0]
+  - Class: Reference
+    Target: ns=33;i=81
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=82
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=83
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=130
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=135
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=132
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=146
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=148
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=150
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=152
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=154
+    Direction: Forward
+  - Name: Message
+    Id: g=eabf5db6afa65ce6a4e635f60aabfb26
+    Type: BaseDataVariableType
+    DataType: LocalizedText
+    Value: {"LocaleId":"en-US","Text":"Alarm triggered!"}
+  - Name: Severity
+    Id: g=210aa2ecf8f4f3b853ed978c2f9fc6a1
+    Type: BaseDataVariableType
+    DataType: UInt16
+    Value: 1000
+  - Name: AutoAcknowledge
+    Id: g=2715c4c0aa4bd74123db21414418afb1
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: AutoConfirm
+    Id: g=7c3bf63334731a2d2c006f6f31c0a30b
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: LatchingEnabled
+    Id: g=4df5472cf16056d4dfd490af9f2ffc38
+    Type: BaseDataVariableType
+    DataType: Boolean
+- Name: Estop_Pushed
+  Id: g=07bf828c4a5275a3dd2762dbf05e0169
+  Type: OffNormalAlarmController
+  Children:
+  - Name: NormalStateValue
+    Id: g=6d75e834139a367e4a1655b34741d2dc
+    Type: BaseDataVariableType
+    DataType: Double
+  - Name: InputValue
+    Id: g=d95f37d523fe1f577edac7f521546b25
+    Type: BaseDataVariableType
+    DataType: Double
+    Children:
+    - Name: DynamicLink
+      Id: g=8bfbf04dc810d57cbb3e00837d918006
+      Type: DynamicLink
+      DataType: NodePath
+      Value: "../../../CommDrivers/RAEtherNet_IPDriver1/RAEtherNet_IPStation1/Tags/Controller Tags/E_Stop"
+      Children:
+      - Name: Mode
+        Id: g=6c2fc78be7da73ac47ffa29c1654d3e1
+        Type: BaseVariableType
+        DataType: DynamicLinkMode
+        Value: 2
+  - Name: LastEvent
+    Id: g=2bc942418dc11a0051c5e53e7897a908
+    Type: BaseDataVariableType
+    DataType: BaseDataType
+    ValueRank: OneDimension
+    ArrayDimensions: [0]
+  - Class: Reference
+    Target: ns=33;i=81
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=82
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=83
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=130
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=135
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=132
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=146
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=148
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=150
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=152
+    Direction: Forward
+  - Class: Reference
+    Target: ns=33;i=154
+    Direction: Forward
+  - Name: Message
+    Id: g=da8e933aae80719cb41aee6f15ded375
+    Type: BaseDataVariableType
+    DataType: LocalizedText
+    Value: {"LocaleId":"en-US","Text":"E-Stop pushed. "}
+  - Name: AutoAcknowledge
+    Id: g=2e12e84c0b5b96fa13dadc394912aeae
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: AutoConfirm
+    Id: g=a2aadc8789233973456c224b7267ade4
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: Severity
+    Id: g=dbb7e9327641d2bd5643ead3e1cb9129
+    Type: BaseDataVariableType
+    DataType: UInt16
+    Value: 950

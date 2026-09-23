@@ -1,0 +1,118 @@
+Name: Priorities
+Type: FolderType
+Children:
+- Name: Lowest
+  Type: Priority
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 374341
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Lowest"
+  - Name: intOrder
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 5
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 5
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "8b460b04-014f-4279-836e-940c936722c6"
+- Name: Low
+  Type: Priority
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 374340
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Low"
+  - Name: intOrder
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 4
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 4
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "fddd678a-773d-4e9a-9a45-0197fb187dda"
+- Name: Highest
+  Type: Priority
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 374337
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Highest"
+  - Name: intOrder
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 1
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 1
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "ab480216-faae-4330-bf84-14cac5e76f62"
+- Name: Medium
+  Type: Priority
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 374339
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Medium"
+  - Name: intOrder
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 3
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 3
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "4372902a-583c-4c54-a3ec-6cb8d4929c0a"
+- Name: High
+  Type: Priority
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 374338
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "High"
+  - Name: intOrder
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 2
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 2
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "e1d51532-3e48-4669-899b-f6ca80e7ec33"

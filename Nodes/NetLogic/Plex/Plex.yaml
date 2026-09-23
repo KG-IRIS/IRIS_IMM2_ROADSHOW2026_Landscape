@@ -1,0 +1,78 @@
+Name: Plex
+Type: FolderType
+Children:
+- Name: WorkcenterManager
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+  - Name: PlexWorkcenter
+    Type: Alias
+    DataType: NodeId
+    Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/HostSettings/PlexWorkcenter"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/HostSettings/PlexWorkcenter"
+- Name: PlexRecordParts
+  Type: NetLogic
+  Children:
+  - Name: PlexWorkcenter
+    Type: Alias
+    DataType: NodeId
+    Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/HostSettings/PlexWorkcenter"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/HostSettings/PlexWorkcenter"
+- Name: SuppliersLogic
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+- Name: OperatorLogic
+  Id: g=84deb5839f22752f39050d2dc4d77e27
+  Type: NetLogic
+  Children:
+  - Class: Method
+    Name: ClockIn
+  - Class: Method
+    Name: ClockOut
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+- Name: BOMsLogic
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+- Name: JobLogic
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+- Name: InventoryLogic
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"
+- Name: WorkcenterLogic
+  Type: NetLogic
+  Children:
+  - Name: apiKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Value: "ugKOMrnHAEoUEIwokkBuN8zoxMPtI9Zq"

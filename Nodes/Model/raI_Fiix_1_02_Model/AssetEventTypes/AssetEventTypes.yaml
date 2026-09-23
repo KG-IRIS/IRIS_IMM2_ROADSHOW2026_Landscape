@@ -1,0 +1,141 @@
+Name: AssetEventTypes
+Type: FolderType
+Children:
+- Name: 'EV1 - Overheating'
+  Type: AssetEventType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 244676
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Overheating"
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV1"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV1"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Fault indicated due to over temperature setpoint\n"
+- Name: 'EV2 - Over Current '
+  Type: AssetEventType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 244677
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Over Current "
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV2"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV2"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Current load outside of normal operating range.  Work order will be triggered"
+- Name: 'EV3 - Door Open Stop'
+  Type: AssetEventType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 244678
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Door Open Stop"
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV3"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV3"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Door opened while machine was running.  "
+- Name: 'EV4 - Tooling Check'
+  Type: AssetEventType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 244679
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Tooling Check"
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV4"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV4"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Machine stop for a tooling inspection by operator."
+- Name: 'EV5 - Quality Alert'
+  Type: AssetEventType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 244680
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Quality Alert"
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV5"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV5"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Several pieces failed for poor quality.  "
+- Name: 'EV6 - Forced Power Down Power Up'
+  Type: AssetEventType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 244685
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Forced Power Down Power Up"
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV6"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "EV6"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Machine was in an unrecoverable state.  Work order triggered"

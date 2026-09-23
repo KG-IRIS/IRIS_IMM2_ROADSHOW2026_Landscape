@@ -1,0 +1,3111 @@
+Name: 'Program:Linmot_FGuide'
+Type: FolderType
+Children:
+- Name: bInitDone
+  Type: RAEtherNetIPTag
+  DataType: Boolean
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.bInitDone"
+- Name: Linmot_Accel
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Accel"
+- Name: Linmot_Decel
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Decel"
+- Name: Linmot_Jerk
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Jerk"
+- Name: Linmot_Move_Type
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Move_Type"
+- Name: Linmot_Pos
+  Type: RAEtherNetIPTag
+  DataType: Float
+  ValueRank: OneDimension
+  ArrayDimensions: [10]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Pos"
+- Name: Linmot_Profile
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Profile"
+- Name: Linmot_Speed
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.Linmot_Speed"
+- Name: LMAxis
+  Type: RAEtherNetIPTagStructure
+  DataType: tstLM_Axis
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: 0
+    Type: tstLM_Axis
+    DataType: tstLM_Axis
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+    - Name: ControlWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].ControlWord"
+    - Name: MCHeader
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCHeader"
+    - Name: MCParaWord0
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord0"
+    - Name: MCParaWord1
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord1"
+    - Name: MCParaWord2
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord2"
+    - Name: MCParaWord3
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord3"
+    - Name: MCParaWord4
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord4"
+    - Name: MCParaWord5
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord5"
+    - Name: MCParaWord6
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord6"
+    - Name: MCParaWord7
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord7"
+    - Name: MCParaWord8
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord8"
+    - Name: MCParaWord9
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord9"
+    - Name: MCParaWord10
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord10"
+    - Name: MCParaWord11
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord11"
+    - Name: MCParaWord12
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord12"
+    - Name: MCParaWord13
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord13"
+    - Name: MCParaWord14
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord14"
+    - Name: MCParaWord15
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MCParaWord15"
+    - Name: StatusWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].StatusWord"
+    - Name: StateVar
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].StateVar"
+    - Name: WarnWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].WarnWord"
+    - Name: CfgControl
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgControl"
+    - Name: CfgIndexOut
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgIndexOut"
+    - Name: CfgValueOut
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgValueOut"
+    - Name: CfgStatus
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgStatus"
+    - Name: CfgIndexIn
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgIndexIn"
+    - Name: CfgValueIn
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgValueIn"
+    - Name: DriveConnectionFaulted
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].DriveConnectionFaulted"
+    - Name: AxisFault
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].AxisFault"
+    - Name: PhysicalAxisFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].PhysicalAxisFault"
+    - Name: AxisStatus
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].AxisStatus"
+    - Name: ServoActionStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].ServoActionStatus"
+    - Name: DriveEnableStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].DriveEnableStatus"
+    - Name: MotionStatus
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MotionStatus"
+    - Name: JogStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].JogStatus"
+    - Name: MoveStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MoveStatus"
+    - Name: HomingStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].HomingStatus"
+    - Name: StoppingStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].StoppingStatus"
+    - Name: AxisHomedStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].AxisHomedStatus"
+    - Name: PVAStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].PVAStatus"
+    - Name: ActualPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].ActualPosition"
+    - Name: CommandPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CommandPosition"
+    - Name: PositionError
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].PositionError"
+    - Name: ActualVelocity
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].ActualVelocity"
+    - Name: CurrentFeedback
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CurrentFeedback"
+    - Name: ErrorID
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].ErrorID"
+    - Name: TorqueLimitPositive
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].TorqueLimitPositive"
+    - Name: TorqueLimitNegative
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].TorqueLimitNegative"
+    - Name: PositionScalingNumerator
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].PositionScalingNumerator"
+    - Name: PositionScalingDenominator
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].PositionScalingDenominator"
+    - Name: TimeStampDrvToCtrl
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].TimeStampDrvToCtrl"
+    - Name: TimeStampCtrlToDrv
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].TimeStampCtrlToDrv"
+    - Name: TimeOffsetDrvToCtrl
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].TimeOffsetDrvToCtrl"
+    - Name: TimeOffsetCtrlToDrv
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].TimeOffsetCtrlToDrv"
+    - Name: MonChannelConfigID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].MonChannelConfigID"
+    - Name: ParChannelConfigID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].ParChannelConfigID"
+    - Name: CfgRWActive
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[0].CfgRWActive"
+  - Name: 1
+    Type: tstLM_Axis
+    DataType: tstLM_Axis
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+    - Name: ControlWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].ControlWord"
+    - Name: MCHeader
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCHeader"
+    - Name: MCParaWord0
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord0"
+    - Name: MCParaWord1
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord1"
+    - Name: MCParaWord2
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord2"
+    - Name: MCParaWord3
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord3"
+    - Name: MCParaWord4
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord4"
+    - Name: MCParaWord5
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord5"
+    - Name: MCParaWord6
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord6"
+    - Name: MCParaWord7
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord7"
+    - Name: MCParaWord8
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord8"
+    - Name: MCParaWord9
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord9"
+    - Name: MCParaWord10
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord10"
+    - Name: MCParaWord11
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord11"
+    - Name: MCParaWord12
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord12"
+    - Name: MCParaWord13
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord13"
+    - Name: MCParaWord14
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord14"
+    - Name: MCParaWord15
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MCParaWord15"
+    - Name: StatusWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].StatusWord"
+    - Name: StateVar
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].StateVar"
+    - Name: WarnWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].WarnWord"
+    - Name: CfgControl
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgControl"
+    - Name: CfgIndexOut
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgIndexOut"
+    - Name: CfgValueOut
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgValueOut"
+    - Name: CfgStatus
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgStatus"
+    - Name: CfgIndexIn
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgIndexIn"
+    - Name: CfgValueIn
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgValueIn"
+    - Name: DriveConnectionFaulted
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].DriveConnectionFaulted"
+    - Name: AxisFault
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].AxisFault"
+    - Name: PhysicalAxisFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].PhysicalAxisFault"
+    - Name: AxisStatus
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].AxisStatus"
+    - Name: ServoActionStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].ServoActionStatus"
+    - Name: DriveEnableStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].DriveEnableStatus"
+    - Name: MotionStatus
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MotionStatus"
+    - Name: JogStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].JogStatus"
+    - Name: MoveStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MoveStatus"
+    - Name: HomingStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].HomingStatus"
+    - Name: StoppingStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].StoppingStatus"
+    - Name: AxisHomedStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].AxisHomedStatus"
+    - Name: PVAStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].PVAStatus"
+    - Name: ActualPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].ActualPosition"
+    - Name: CommandPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CommandPosition"
+    - Name: PositionError
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].PositionError"
+    - Name: ActualVelocity
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].ActualVelocity"
+    - Name: CurrentFeedback
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CurrentFeedback"
+    - Name: ErrorID
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].ErrorID"
+    - Name: TorqueLimitPositive
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].TorqueLimitPositive"
+    - Name: TorqueLimitNegative
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].TorqueLimitNegative"
+    - Name: PositionScalingNumerator
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].PositionScalingNumerator"
+    - Name: PositionScalingDenominator
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].PositionScalingDenominator"
+    - Name: TimeStampDrvToCtrl
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].TimeStampDrvToCtrl"
+    - Name: TimeStampCtrlToDrv
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].TimeStampCtrlToDrv"
+    - Name: TimeOffsetDrvToCtrl
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].TimeOffsetDrvToCtrl"
+    - Name: TimeOffsetCtrlToDrv
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].TimeOffsetCtrlToDrv"
+    - Name: MonChannelConfigID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].MonChannelConfigID"
+    - Name: ParChannelConfigID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].ParChannelConfigID"
+    - Name: CfgRWActive
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[1].CfgRWActive"
+  - Name: 2
+    Type: tstLM_Axis
+    DataType: tstLM_Axis
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+    - Name: ControlWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].ControlWord"
+    - Name: MCHeader
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCHeader"
+    - Name: MCParaWord0
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord0"
+    - Name: MCParaWord1
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord1"
+    - Name: MCParaWord2
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord2"
+    - Name: MCParaWord3
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord3"
+    - Name: MCParaWord4
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord4"
+    - Name: MCParaWord5
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord5"
+    - Name: MCParaWord6
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord6"
+    - Name: MCParaWord7
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord7"
+    - Name: MCParaWord8
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord8"
+    - Name: MCParaWord9
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord9"
+    - Name: MCParaWord10
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord10"
+    - Name: MCParaWord11
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord11"
+    - Name: MCParaWord12
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord12"
+    - Name: MCParaWord13
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord13"
+    - Name: MCParaWord14
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord14"
+    - Name: MCParaWord15
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MCParaWord15"
+    - Name: StatusWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].StatusWord"
+    - Name: StateVar
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].StateVar"
+    - Name: WarnWord
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].WarnWord"
+    - Name: CfgControl
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgControl"
+    - Name: CfgIndexOut
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgIndexOut"
+    - Name: CfgValueOut
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgValueOut"
+    - Name: CfgStatus
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgStatus"
+    - Name: CfgIndexIn
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgIndexIn"
+    - Name: CfgValueIn
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgValueIn"
+    - Name: DriveConnectionFaulted
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].DriveConnectionFaulted"
+    - Name: AxisFault
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].AxisFault"
+    - Name: PhysicalAxisFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].PhysicalAxisFault"
+    - Name: AxisStatus
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].AxisStatus"
+    - Name: ServoActionStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].ServoActionStatus"
+    - Name: DriveEnableStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].DriveEnableStatus"
+    - Name: MotionStatus
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MotionStatus"
+    - Name: JogStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].JogStatus"
+    - Name: MoveStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MoveStatus"
+    - Name: HomingStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].HomingStatus"
+    - Name: StoppingStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].StoppingStatus"
+    - Name: AxisHomedStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].AxisHomedStatus"
+    - Name: PVAStatus
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].PVAStatus"
+    - Name: ActualPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].ActualPosition"
+    - Name: CommandPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CommandPosition"
+    - Name: PositionError
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].PositionError"
+    - Name: ActualVelocity
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].ActualVelocity"
+    - Name: CurrentFeedback
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CurrentFeedback"
+    - Name: ErrorID
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].ErrorID"
+    - Name: TorqueLimitPositive
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].TorqueLimitPositive"
+    - Name: TorqueLimitNegative
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].TorqueLimitNegative"
+    - Name: PositionScalingNumerator
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].PositionScalingNumerator"
+    - Name: PositionScalingDenominator
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].PositionScalingDenominator"
+    - Name: TimeStampDrvToCtrl
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].TimeStampDrvToCtrl"
+    - Name: TimeStampCtrlToDrv
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].TimeStampCtrlToDrv"
+    - Name: TimeOffsetDrvToCtrl
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].TimeOffsetDrvToCtrl"
+    - Name: TimeOffsetCtrlToDrv
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [2]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].TimeOffsetCtrlToDrv"
+    - Name: MonChannelConfigID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].MonChannelConfigID"
+    - Name: ParChannelConfigID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].ParChannelConfigID"
+    - Name: CfgRWActive
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis[2].CfgRWActive"
+- Name: LMAxis_FaultReset
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis_FaultReset"
+- Name: LMAxis_Home
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis_Home"
+- Name: LMAxis_Move
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis_Move"
+- Name: LMAxis_ReadEDS
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_LMDriveAOP_Read_IP
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis_ReadEDS"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_LMDriveAOP_Read_IP
+    DataType: LM_LMDriveAOP_Read_IP
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[0].EnableOut"
+  - Name: 1
+    Type: LM_LMDriveAOP_Read_IP
+    DataType: LM_LMDriveAOP_Read_IP
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[1].EnableOut"
+  - Name: 2
+    Type: LM_LMDriveAOP_Read_IP
+    DataType: LM_LMDriveAOP_Read_IP
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_ReadEDS[2].EnableOut"
+- Name: LMAxis_ServoOn
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis_ServoOn"
+- Name: LMAxis_WriteEDS
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_LMDriveAOP_Write_IP
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.LMAxis_WriteEDS"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_LMDriveAOP_Write_IP
+    DataType: LM_LMDriveAOP_Write_IP
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[0].EnableOut"
+  - Name: 1
+    Type: LM_LMDriveAOP_Write_IP
+    DataType: LM_LMDriveAOP_Write_IP
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[1].EnableOut"
+  - Name: 2
+    Type: LM_LMDriveAOP_Write_IP
+    DataType: LM_LMDriveAOP_Write_IP
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.LMAxis_WriteEDS[2].EnableOut"
+- Name: MI_LMAxisMAFR
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_MAFR
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.MI_LMAxisMAFR"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_MAFR
+    DataType: LM_MAFR
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[0].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[0].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[0].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[0].ER"
+  - Name: 1
+    Type: LM_MAFR
+    DataType: LM_MAFR
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[1].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[1].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[1].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[1].ER"
+  - Name: 2
+    Type: LM_MAFR
+    DataType: LM_MAFR
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[2].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[2].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[2].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAFR[2].ER"
+- Name: MI_LMAxisMAH
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_MAH
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.MI_LMAxisMAH"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_MAH
+    DataType: LM_MAH
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[0].PC"
+  - Name: 1
+    Type: LM_MAH
+    DataType: LM_MAH
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[1].PC"
+  - Name: 2
+    Type: LM_MAH
+    DataType: LM_MAH
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMAH[2].PC"
+- Name: MI_LMAxisMSF
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_MSF
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.MI_LMAxisMSF"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_MSF
+    DataType: LM_MSF
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMSF[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[0].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[0].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[0].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[0].ER"
+  - Name: 1
+    Type: LM_MSF
+    DataType: LM_MSF
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMSF[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[1].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[1].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[1].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[1].ER"
+  - Name: 2
+    Type: LM_MSF
+    DataType: LM_MSF
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMSF[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[2].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[2].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[2].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSF[2].ER"
+- Name: MI_LMAxisMSO
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_MSO
+  ValueRank: OneDimension
+  ArrayDimensions: [3]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.MI_LMAxisMSO"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_MSO
+    DataType: LM_MSO
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMSO[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[0].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[0].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[0].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[0].ER"
+  - Name: 1
+    Type: LM_MSO
+    DataType: LM_MSO
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMSO[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[1].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[1].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[1].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[1].ER"
+  - Name: 2
+    Type: LM_MSO
+    DataType: LM_MSO
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxisMSO[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[2].EnableOut"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[2].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[2].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxisMSO[2].ER"
+- Name: MI_LMAxis_MAM
+  Type: RAEtherNetIPTagStructure
+  DataType: LM_MAM
+  ValueRank: OneDimension
+  ArrayDimensions: [5]
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:Linmot_FGuide.MI_LMAxis_MAM"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: 0
+    Type: LM_MAM
+    DataType: LM_MAM
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].EnableOut"
+    - Name: MoveType
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].MoveType"
+    - Name: Position
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].Position"
+    - Name: Speed
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].Speed"
+    - Name: AccelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].AccelRate"
+    - Name: DecelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].DecelRate"
+    - Name: Profile
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].Profile"
+    - Name: JerkRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].JerkRate"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].PC"
+    - Name: ERR
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[0].ERR"
+  - Name: 1
+    Type: LM_MAM
+    DataType: LM_MAM
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].EnableOut"
+    - Name: MoveType
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].MoveType"
+    - Name: Position
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].Position"
+    - Name: Speed
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].Speed"
+    - Name: AccelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].AccelRate"
+    - Name: DecelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].DecelRate"
+    - Name: Profile
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].Profile"
+    - Name: JerkRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].JerkRate"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].PC"
+    - Name: ERR
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[1].ERR"
+  - Name: 2
+    Type: LM_MAM
+    DataType: LM_MAM
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].EnableOut"
+    - Name: MoveType
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].MoveType"
+    - Name: Position
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].Position"
+    - Name: Speed
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].Speed"
+    - Name: AccelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].AccelRate"
+    - Name: DecelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].DecelRate"
+    - Name: Profile
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].Profile"
+    - Name: JerkRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].JerkRate"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].PC"
+    - Name: ERR
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[2].ERR"
+  - Name: 3
+    Type: LM_MAM
+    DataType: LM_MAM
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].EnableOut"
+    - Name: MoveType
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].MoveType"
+    - Name: Position
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].Position"
+    - Name: Speed
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].Speed"
+    - Name: AccelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].AccelRate"
+    - Name: DecelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].DecelRate"
+    - Name: Profile
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].Profile"
+    - Name: JerkRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].JerkRate"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].PC"
+    - Name: ERR
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[3].ERR"
+  - Name: 4
+    Type: LM_MAM
+    DataType: LM_MAM
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4]"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+    - Name: EnableIn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].EnableIn"
+    - Name: EnableOut
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].EnableOut"
+    - Name: MoveType
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].MoveType"
+    - Name: Position
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].Position"
+    - Name: Speed
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].Speed"
+    - Name: AccelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].AccelRate"
+    - Name: DecelRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].DecelRate"
+    - Name: Profile
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].Profile"
+    - Name: JerkRate
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].JerkRate"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].EN"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].DN"
+    - Name: ER
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].ER"
+    - Name: IP
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].IP"
+    - Name: PC
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].PC"
+    - Name: ERR
+      Type: RAEtherNetIPTag
+      DataType: Int16
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:Linmot_FGuide.MI_LMAxis_MAM[4].ERR"

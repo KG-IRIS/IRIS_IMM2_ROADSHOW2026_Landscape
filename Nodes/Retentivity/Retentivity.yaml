@@ -1,0 +1,84 @@
+Name: Retentivity
+Type: RetentivityCategoryFolder
+Children:
+- Name: SecurityRetentivityStorage
+  Type: RetentivityStorage
+  Children:
+  - Name: Nodes
+    Type: BaseObjectType
+    Children:
+    - Name: Node1
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Security"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+      - Name: NodeClass
+        Type: PropertyType
+        DataType: NodePointerNodeClass
+        Value: 2
+  - Name: WriteDelay
+    Type: BaseDataVariableType
+    DataType: Duration
+    ReferenceType: HasProperty
+  - Name: DeltaObserverEnabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    ReferenceType: HasProperty
+    Value: true
+- Name: AlarmsRetentivityStorage
+  Type: RetentivityStorage
+  Children:
+  - Name: Nodes
+    Type: BaseObjectType
+    Children:
+    - Name: Node1
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Alarms"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+      - Name: NodeClass
+        Type: PropertyType
+        DataType: NodePointerNodeClass
+        Value: 2
+  - Name: WriteDelay
+    Type: BaseDataVariableType
+    DataType: Duration
+    ReferenceType: HasProperty
+  - Name: DeltaObserverEnabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    ReferenceType: HasProperty
+    Value: true
+- Name: RetentivityStorage1
+  Type: RetentivityStorage
+  Children:
+  - Name: Nodes
+    Type: BaseObjectType
+    Children:
+    - Name: Node1
+      Type: NodePointer
+      DataType: NodeId
+      Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/Recipe"
+      Children:
+      - Name: Kind
+        Type: PropertyType
+        DataType: NodeId
+      - Name: NodeClass
+        Type: PropertyType
+        DataType: NodePointerNodeClass
+        Value: 2
+  - Name: WriteDelay
+    Type: BaseDataVariableType
+    DataType: Duration
+    ReferenceType: HasProperty
+  - Name: DeltaObserverEnabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    ReferenceType: HasProperty
+    Value: true

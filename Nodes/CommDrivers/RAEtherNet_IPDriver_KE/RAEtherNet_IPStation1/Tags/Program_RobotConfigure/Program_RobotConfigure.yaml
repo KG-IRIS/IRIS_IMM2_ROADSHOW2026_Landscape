@@ -1,0 +1,1256 @@
+Name: 'Program:RobotConfigure'
+Type: FolderType
+Children:
+- Name: Cmd_Robot_ConfigureCartesian
+  Type: RAEtherNetIPTag
+  DataType: Boolean
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:RobotConfigure.Cmd_Robot_ConfigureCartesian"
+- Name: Robot_ConfigureCartesian_Coupling
+  Type: raM_UDT_Robot_Opr_CouplingMatrix
+  DataType: raM_UDT_Robot_Opr_CouplingMatrix
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: _11
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._11"
+  - Name: _12
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._12"
+  - Name: _13
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._13"
+  - Name: _14
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._14"
+  - Name: _15
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._15"
+  - Name: _16
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._16"
+  - Name: _21
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._21"
+  - Name: _22
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._22"
+  - Name: _23
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._23"
+  - Name: _24
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._24"
+  - Name: _25
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._25"
+  - Name: _26
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._26"
+  - Name: _31
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._31"
+  - Name: _32
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._32"
+  - Name: _33
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._33"
+  - Name: _34
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._34"
+  - Name: _35
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._35"
+  - Name: _36
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._36"
+  - Name: _41
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._41"
+  - Name: _42
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._42"
+  - Name: _43
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._43"
+  - Name: _44
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._44"
+  - Name: _45
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._45"
+  - Name: _46
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._46"
+  - Name: _51
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._51"
+  - Name: _52
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._52"
+  - Name: _53
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._53"
+  - Name: _54
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._54"
+  - Name: _55
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._55"
+  - Name: _56
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._56"
+  - Name: _61
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._61"
+  - Name: _62
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._62"
+  - Name: _63
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._63"
+  - Name: _64
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._64"
+  - Name: _65
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._65"
+  - Name: _66
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure.Robot_ConfigureCartesian_Coupling._66"
+- Name: _Robot_ConfigureCartesian
+  Type: raM_Robot_Opr_ConfigureCartesian
+  DataType: raM_Robot_Opr_ConfigureCartesian
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:RobotConfigure._Robot_ConfigureCartesian"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: EnableIn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.EnableIn"
+  - Name: EnableOut
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.EnableOut"
+  - Name: Cfg_UserDefinedCoupling
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_UserDefinedCoupling"
+  - Name: Cfg_JointPositionErrorLimit
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_JointPositionErrorLimit"
+  - Name: Cfg_OnPathTolerance
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_OnPathTolerance"
+  - Name: Cfg_FaultStopDeceleration
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_FaultStopDeceleration"
+  - Name: Cfg_EnableZ
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_EnableZ"
+  - Name: Cfg_EnableRy
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_EnableRy"
+  - Name: Cfg_EnableRz
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_EnableRz"
+  - Name: Cfg_Type
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Type"
+  - Name: Cfg_BaseOffset_Xb
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_BaseOffset_Xb"
+  - Name: Cfg_BaseOffset_Yb
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_BaseOffset_Yb"
+  - Name: Cfg_BaseOffset_Zb
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_BaseOffset_Zb"
+  - Name: Cfg_SwingArmOffset_A4
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_SwingArmOffset_A4"
+  - Name: Cfg_EndEffectorOffset_Xe
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_EndEffectorOffset_Xe"
+  - Name: Cfg_EndEffectorOffset_Ye
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_EndEffectorOffset_Ye"
+  - Name: Cfg_EndEffectorOffset_Ze
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_EndEffectorOffset_Ze"
+  - Name: Cfg_Joint1Min
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint1Min"
+  - Name: Cfg_Joint1Max
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint1Max"
+  - Name: Cfg_Joint2Min
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint2Min"
+  - Name: Cfg_Joint2Max
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint2Max"
+  - Name: Cfg_Joint3Min
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint3Min"
+  - Name: Cfg_Joint3Max
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint3Max"
+  - Name: Cfg_Joint5Min
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint5Min"
+  - Name: Cfg_Joint5Max
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint5Max"
+  - Name: Cfg_Joint6Min
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint6Min"
+  - Name: Cfg_Joint6Max
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Cfg_Joint6Max"
+  - Name: Sts_MtdID
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_MtdID"
+  - Name: Sts_EO
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_EO"
+  - Name: Sts_EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_EN"
+  - Name: Sts_ER
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_ER"
+  - Name: Sts_ERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_ERR"
+  - Name: Sts_IP
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_IP"
+  - Name: Sts_PC
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._Robot_ConfigureCartesian.Sts_PC"
+- Name: _sts
+  Type: RAEtherNetIPTag
+  DataType: Int32
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:RobotConfigure._sts"
+- Name: _RobotStatus
+  Type: raM_UDT_Robot_Dvc_Status
+  DataType: raM_UDT_Robot_Dvc_Status
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:RobotConfigure._RobotStatus"
+  - Name: BlockRead
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: Physical
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Physical"
+  - Name: Virtual
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Virtual"
+  - Name: TestMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.TestMode"
+  - Name: Initializing
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Initializing"
+  - Name: Disconnected
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Disconnected"
+  - Name: Disconnecting
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Disconnecting"
+  - Name: Connecting
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Connecting"
+  - Name: Connected
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Connected"
+  - Name: Idle
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Idle"
+  - Name: Configuring
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Configuring"
+  - Name: Available
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Available"
+  - Name: Ready
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Ready"
+  - Name: SafetyEnabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.SafetyEnabled"
+  - Name: Energized
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Energized"
+  - Name: OnPath
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.OnPath"
+  - Name: TransformEnabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.TransformEnabled"
+  - Name: LoadProtectionEnabled
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.LoadProtectionEnabled"
+  - Name: Singularity
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Singularity"
+  - Name: Stopping
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Stopping"
+  - Name: Stopped
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Stopped"
+  - Name: Standstill
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Standstill"
+  - Name: PathPlannerActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.PathPlannerActive"
+  - Name: TrackingActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.TrackingActive"
+  - Name: LoadProtectionActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.LoadProtectionActive"
+  - Name: MtdRegistryFull
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.MtdRegistryFull"
+  - Name: Faulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Faulted"
+  - Name: SafetyError
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.SafetyError"
+  - Name: Warning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Warning"
+  - Name: ERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.ERR"
+  - Name: EXERR
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.EXERR"
+  - Name: FaultMessage
+    Type: RAEtherNetIPTag
+    DataType: String
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.FaultMessage"
+  - Name: FirstFault
+    Type: raM_UDT_Opr_EventCreate_Members
+    DataType: raM_UDT_Opr_EventCreate_Members
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.FirstFault"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+    - Name: Type
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.Type"
+    - Name: ID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.ID"
+    - Name: Category
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.Category"
+    - Name: Action
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.Action"
+    - Name: Value
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.Value"
+    - Name: Message
+      Type: RAEtherNetIPTag
+      DataType: String
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.Message"
+    - Name: EventTime_L
+      Type: RAEtherNetIPTag
+      DataType: Int64
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.EventTime_L"
+    - Name: EventTime_D
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [7]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstFault.EventTime_D"
+  - Name: FirstAlarm
+    Type: raM_UDT_Opr_EventCreate_Members
+    DataType: raM_UDT_Opr_EventCreate_Members
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.FirstAlarm"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+    - Name: Type
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.Type"
+    - Name: ID
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.ID"
+    - Name: Category
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.Category"
+    - Name: Action
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.Action"
+    - Name: Value
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.Value"
+    - Name: Message
+      Type: RAEtherNetIPTag
+      DataType: String
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.Message"
+    - Name: EventTime_L
+      Type: RAEtherNetIPTag
+      DataType: Int64
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.EventTime_L"
+    - Name: EventTime_D
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      ValueRank: OneDimension
+      ArrayDimensions: [7]
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.FirstAlarm.EventTime_D"
+  - Name: Pose
+    Type: raM_UDT_Robot_Opr_EulerPose
+    DataType: raM_UDT_Robot_Opr_EulerPose
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Pose"
+    - Name: BlockRead
+      Type: BaseDataVariableType
+      DataType: Boolean
+      Value: true
+    - Name: x
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.Pose.x"
+    - Name: y
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.Pose.y"
+    - Name: z
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.Pose.z"
+    - Name: Rx
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.Pose.Rx"
+    - Name: Ry
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.Pose.Ry"
+    - Name: Rz
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Program:RobotConfigure._RobotStatus.Pose.Rz"
+  - Name: RobotConfiguration
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.RobotConfiguration"
+  - Name: Joints
+    Type: RAEtherNetIPTag
+    DataType: Float
+    ValueRank: OneDimension
+    ArrayDimensions: [6]
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.Joints"
+  - Name: ActiveReferenceFrame
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.ActiveReferenceFrame"
+  - Name: ActiveReferenceFrameID
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.ActiveReferenceFrameID"
+  - Name: ActiveTool
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.ActiveTool"
+  - Name: ActiveMoveID
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.ActiveMoveID"
+  - Name: ActiveMovePerc
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.ActiveMovePerc"
+  - Name: BlendingMoveID
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.BlendingMoveID"
+  - Name: BlendingMovePerc
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.BlendingMovePerc"
+  - Name: FeedrateSetpoint
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.FeedrateSetpoint"
+  - Name: FeedrateActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.FeedrateActual"
+  - Name: LinearVelocity
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.LinearVelocity"
+  - Name: LinearAcceleration
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.LinearAcceleration"
+  - Name: AngularVelocity
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.AngularVelocity"
+  - Name: AngularAcceleration
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.AngularAcceleration"
+  - Name: AccelerationLimit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.AccelerationLimit"
+  - Name: PeakTorqueLimit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.PeakTorqueLimit"
+  - Name: PeakVelocityLimit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.PeakVelocityLimit"
+  - Name: RMSTorqueLimit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.RMSTorqueLimit"
+  - Name: RMSVelocityLimit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.RMSVelocityLimit"
+  - Name: AxisExeedingLimit
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Program:RobotConfigure._RobotStatus.AxisExeedingLimit"
+- Name: ConfigureONS
+  Type: RAEtherNetIPTag
+  DataType: Boolean
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:RobotConfigure.ConfigureONS"

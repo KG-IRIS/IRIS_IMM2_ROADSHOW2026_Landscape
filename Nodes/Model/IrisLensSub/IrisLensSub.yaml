@@ -1,0 +1,119 @@
+Name: IrisLensSub
+Id: g=f48e4adfdd09fd1eacbb1cc4ed6c558a
+Type: FolderType
+Children:
+- Name: frcurruser
+  Id: g=e45545371ec5125856427d2584e0bcec
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "https://www.msn.com/en-us/weather/forecast/in-Holland,MI?loc=eyJsIjoiSG9sbGFuZCIsInIiOiJNaWNoaWdhbiIsImMiOiJVbml0ZWQgU3RhdGVzIiwiaSI6IlVTIiwiZyI6ImVuLXVzIiwieCI6Ii04Ni4xMTAwMzg3NTczMjQyMiIsInkiOiI0Mi43Njc0NzEzMTM0NzY1NiJ9&weadegreetype=F&ocid=winp2fptaskbarent&cvid=e216d681584b4a33ec102f11003eacf4&content=SevereWeather_wxswyaq"
+- Name: frcurrpass
+  Id: g=99d55d2b4a90a3da9e758e9c35afba1c
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "https://www.msn.com/en-us/weather/forecast/in-Holland,MI?loc=eyJsIjoiSG9sbGFuZCIsInIiOiJNaWNoaWdhbiIsImMiOiJVbml0ZWQgU3RhdGVzIiwiaSI6IlVTIiwiZyI6ImVuLXVzIiwieCI6Ii04Ni4xMTAwMzg3NTczMjQyMiIsInkiOiI0Mi43Njc0NzEzMTM0NzY1NiJ9&weadegreetype=F&ocid=winp2fptaskbarent&cvid=e216d681584b4a33ec102f11003eacf4&content=SevereWeather_wxswyaq"
+- Name: frstatus
+  Id: g=32bf929d4dbfbcfac99f34b93dc0b370
+  Type: BaseDataVariableType
+  DataType: Int32
+- Name: frstatusTransitioned
+  Type: VariableTransitionEventDispatcher
+  Children:
+  - Name: Value
+    Type: BaseVariableType
+    DataType: Double
+    Value: 2.0
+  - Name: Transition
+    Type: BaseVariableType
+    DataType: VariableTransition
+  - Name: VariableNodePath
+    Type: BaseVariableType
+    DataType: NodePath
+    Value: "../frstatus"
+  - Name: VariableTransitionEventHandler1
+    Type: EventHandler
+    Children:
+    - Name: ListenEventType
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Types/EventTypes/BaseEventType/VariableConditionEvent/VariableTransitionEvent"
+    - Name: MethodsToCall
+      Type: BaseObjectType
+      Children:
+      - Name: MethodContainer1
+        Type: BaseObjectType
+        Children:
+        - Name: ns=7;ObjectPointer
+          Type: NodePointer
+          DataType: NodeId
+          Children:
+          - Name: Kind
+            Type: PropertyType
+            DataType: NodeId
+            Value: "/Types/ObjectTypes/BaseObjectType"
+          - Name: DynamicLink
+            Type: DynamicLink
+            DataType: NodePath
+            Value: "../../../../../../../../Commands/VariableCommands@NodeId"
+            Children:
+            - Name: Mode
+              Type: BaseVariableType
+              DataType: DynamicLinkMode
+              Value: 2
+        - Name: ns=7;Method
+          Type: BaseDataVariableType
+          DataType: String
+          Value: "Set"
+        - Name: InputArguments
+          Type: BaseObjectType
+          Children:
+          - Name: VariableToModify
+            Type: BaseDataVariableType
+            DataType: VariablePointer
+            Description: {"NamespaceIndex":7,"TextId":"SetVariableToModifyDescription"}
+            Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/IrisLensPub/loginreq"
+          - Name: Value
+            Type: BaseDataVariableType
+            DataType: Boolean
+            Description: {"NamespaceIndex":7,"TextId":"SetValueDescription"}
+          - Name: ArrayIndex
+            Type: BaseDataVariableType
+            DataType: UInt32
+            Description: {"NamespaceIndex":7,"TextId":"SetArrayIndexDescription"}
+            ValueRank: ScalarOrOneDimension
+    - Name: EventArguments
+      Type: VariableTransitionEvent
+      Children:
+      - Name: VariableNodeId
+        Type: BaseVariableType
+        DataType: NodeId
+      - Name: NewValue
+        Type: BaseVariableType
+        DataType: BaseDataType
+      - Name: OldValue
+        Type: BaseVariableType
+        DataType: BaseDataType
+      - Name: EventId
+        Type: PropertyType
+        DataType: ByteString
+      - Name: EventType
+        Type: PropertyType
+        DataType: NodeId
+      - Name: SourceNode
+        Type: PropertyType
+        DataType: NodeId
+      - Name: SourceName
+        Type: PropertyType
+        DataType: String
+      - Name: Time
+        Type: PropertyType
+        DataType: UtcTime
+      - Name: ReceiveTime
+        Type: PropertyType
+        DataType: UtcTime
+      - Name: Message
+        Type: PropertyType
+        DataType: LocalizedText
+      - Name: Severity
+        Type: PropertyType
+        DataType: UInt16

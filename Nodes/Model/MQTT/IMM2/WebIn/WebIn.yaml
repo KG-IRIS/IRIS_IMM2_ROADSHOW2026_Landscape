@@ -1,0 +1,16 @@
+Name: WebIn
+Id: g=99e83b446a516dbc6c5e1885178c7062
+Type: FolderType
+Children:
+- Name: In_EStop
+  Type: BaseDataVariableType
+  DataType: Boolean
+- Name: In_Reset
+  Type: BaseDataVariableType
+  DataType: Boolean
+- Name: In_Pause
+  Type: BaseDataVariableType
+  DataType: Boolean
+- Name: In_CycleStart
+  Type: BaseDataVariableType
+  DataType: Boolean

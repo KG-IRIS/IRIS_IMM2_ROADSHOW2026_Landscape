@@ -1,0 +1,4325 @@
+Name: VariableTypes
+Type: FolderType
+Children:
+- Name: 'AB:5000_DO8_Diag:C:0'
+  Id: g=4df272e3d9b7d933f821e023f5e4bb97
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DO8_Diag:C:0'
+  ValueRank: Any
+  Children:
+  - Name: Pt00
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt01
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt02
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt03
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt04
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt05
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt06
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+  - Name: Pt07
+    Type: 'AB:5000_DO_Diag_Channel:C:0'
+    DataType: 'AB:5000_DO_Diag_Channel:C:0'
+    Children:
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: NoLoadEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoadEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+- Name: IMM_SETPOINTS_TEMPS
+  Id: g=edab1ddfe65300e7052483e16f0febf4
+  Supertype: RAEtherNetIPTagStructure
+  DataType: IMM_SETPOINTS_TEMPS
+  ValueRank: Any
+  Children:
+  - Name: Z1Temp
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z1Temp"
+  - Name: Z2Temp
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z2Temp"
+  - Name: Z3Temp
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z3Temp"
+  - Name: Z4Temp
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z4Temp"
+  - Name: MoldASideTemp
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "MoldASideTemp"
+  - Name: MoldBSideTemp
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "MoldBSideTemp"
+- Name: 'AB:800F_3PS_IL_Channel:I:0'
+  Id: g=8e4f9ec3d0d3ffa45a2502d95219d203
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_3PS_IL_Channel:I:0'
+  ValueRank: Any
+  Children:
+  - Name: Fault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Fault"
+  - Name: Uncertain
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Uncertain"
+  - Name: ContactLeft
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ContactLeft"
+  - Name: ContactCenter
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ContactCenter"
+  - Name: ContactRight
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ContactRight"
+  - Name: Illuminated
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Illuminated"
+  - Name: Blinking
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Blinking"
+  - Name: Dimmed
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Dimmed"
+  - Name: Color
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Color"
+  - Name: PanelComponentNotDetected
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PanelComponentNotDetected"
+  - Name: PeerCommFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PeerCommFault"
+  - Name: InternalFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InternalFault"
+  - Name: OperationsAlarm
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperationsAlarm"
+  - Name: OperatingHoursAlarm
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperatingHoursAlarm"
+- Name: IMM_ACTUALS
+  Id: g=de271202f42701339bde73356e501940
+  Supertype: RAEtherNetIPTagStructure
+  DataType: IMM_ACTUALS
+  ValueRank: Any
+  Children:
+  - Name: Z1TempActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z1TempActual"
+  - Name: Z2TempActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z2TempActual"
+  - Name: Z3TempActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z3TempActual"
+  - Name: Z4TempActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Z4TempActual"
+  - Name: MoldASideTempActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "MoldASideTempActual"
+  - Name: MoldBSideTempActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "MoldBSideTempActual"
+  - Name: InjPressureActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InjPressureActual"
+  - Name: HoldPressureActual
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "HoldPressureActual"
+  - Name: ScrewPosition
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ScrewPosition"
+  - Name: Cushion
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Cushion"
+  - Name: ShotsPerHour
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ShotsPerHour"
+- Name: 'AB:5000_DI16:C:0'
+  Id: g=a809c4f402d43f59991ac0c66543b87b
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DI16:C:0'
+  ValueRank: Any
+  Children:
+  - Name: Pt00
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt01
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt02
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt03
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt04
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt05
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt06
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt07
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt08
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt09
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt10
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt11
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt12
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt13
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt14
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+  - Name: Pt15
+    Type: 'AB:5000_DI_Channel:C:0'
+    DataType: 'AB:5000_DI_Channel:C:0'
+    Children:
+    - Name: InputOffOnFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOffOnFilter"
+    - Name: InputOnOffFilter
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InputOnOffFilter"
+- Name: IMM_SETPOINTS_CYCLE
+  Id: g=1994e8891f204869e6edb0bf97b00f6c
+  Supertype: RAEtherNetIPTagStructure
+  DataType: IMM_SETPOINTS_CYCLE
+  ValueRank: Any
+  Children:
+  - Name: InjectionTime
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InjectionTime"
+  - Name: HoldTime
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "HoldTime"
+  - Name: CoolingTime
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "CoolingTime"
+  - Name: PlasticationTime
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PlasticationTime"
+  - Name: EjectTime
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "EjectTime"
+- Name: 'AB:800F_3PS_IL:I:0'
+  Id: g=016f70ddf1feb5f470711aed9766abd3
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_3PS_IL:I:0'
+  ValueRank: Any
+  Children:
+  - Name: RunMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RunMode"
+  - Name: ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ConnectionFaulted"
+  - Name: DiagnosticActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticActive"
+  - Name: DiagnosticSequenceCount
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticSequenceCount"
+  - Name: SelectorSwitch
+    Type: 'AB:800F_3PS_IL_Channel:I:0'
+    DataType: 'AB:800F_3PS_IL_Channel:I:0'
+    Children:
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: ContactLeft
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ContactLeft"
+    - Name: ContactCenter
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ContactCenter"
+    - Name: ContactRight
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ContactRight"
+    - Name: Illuminated
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Illuminated"
+    - Name: Blinking
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Blinking"
+    - Name: Dimmed
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Dimmed"
+    - Name: Color
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Color"
+    - Name: PanelComponentNotDetected
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PanelComponentNotDetected"
+    - Name: PeerCommFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PeerCommFault"
+    - Name: InternalFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InternalFault"
+    - Name: OperationsAlarm
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperationsAlarm"
+    - Name: OperatingHoursAlarm
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperatingHoursAlarm"
+- Name: 'AB:800F_PB_IL_Channel:I:0'
+  Id: g=a1926d79d690190795677e5bdf5c2315
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_PB_IL_Channel:I:0'
+  ValueRank: Any
+  Children:
+  - Name: Fault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Fault"
+  - Name: Uncertain
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Uncertain"
+  - Name: Contact
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Contact"
+  - Name: Illuminated
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Illuminated"
+  - Name: Blinking
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Blinking"
+  - Name: Dimmed
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Dimmed"
+  - Name: Color
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Color"
+  - Name: PanelComponentNotDetected
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PanelComponentNotDetected"
+  - Name: PeerCommFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PeerCommFault"
+  - Name: InternalFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InternalFault"
+  - Name: OperationsAlarm
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperationsAlarm"
+  - Name: OperatingHoursAlarm
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperatingHoursAlarm"
+- Name: 'AB:5000_DO8:O:0'
+  Id: g=09425fdac046ec6e46cbec63f3ef8520
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DO8:O:0'
+  ValueRank: Any
+  Children:
+  - Name: Pt00
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt01
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt02
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt03
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt04
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt05
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt06
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+  - Name: Pt07
+    Type: 'CHANNEL_DO:O:0'
+    DataType: 'CHANNEL_DO:O:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+- Name: 'AB:800F_IL_TL_Channel:O:0'
+  Id: g=f7c0720823948584b7f74e8ee07f0e3e
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_IL_TL_Channel:O:0'
+  ValueRank: Any
+  Children:
+  - Name: Illuminate
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Illuminate"
+  - Name: Blink
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Blink"
+  - Name: Dim
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Dim"
+  - Name: Color
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Color"
+- Name: 'AB:800F_IL_TL:O:0'
+  Id: g=efcf4bbdafccccf087beaf04b579b5e7
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_IL_TL:O:0'
+  ValueRank: Any
+  Children:
+  - Name: Command
+    Type: 'AB:800F_IL_TL_Channel:O:0'
+    DataType: 'AB:800F_IL_TL_Channel:O:0'
+    Children:
+    - Name: Illuminate
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Illuminate"
+    - Name: Blink
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Blink"
+    - Name: Dim
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Dim"
+    - Name: Color
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Color"
+- Name: 'AB:800F_PB_IL_Channel:C:0'
+  Id: g=02b5e92646051961b7d56d9ce9595bda
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_PB_IL_Channel:C:0'
+  ValueRank: Any
+  Children:
+  - Name: OperationsAlarmEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperationsAlarmEn"
+  - Name: OperatingHoursAlarmEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperatingHoursAlarmEn"
+  - Name: RemainingOperationsAlarmLimit
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RemainingOperationsAlarmLimit"
+  - Name: RemainingOperatingHoursAlarmLimit
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RemainingOperatingHoursAlarmLimit"
+  - Name: FaultMode
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultMode"
+  - Name: FaultValue
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultValue"
+  - Name: ProgMode
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgMode"
+  - Name: ProgValue
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgValue"
+  - Name: FaultFinalMode
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultFinalMode"
+  - Name: FaultFinalState
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultFinalState"
+  - Name: ProgramToFaultEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgramToFaultEn"
+  - Name: FaultValueStateDuration
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultValueStateDuration"
+  - Name: BlinkRate
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "BlinkRate"
+  - Name: DimmingLevel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DimmingLevel"
+- Name: 'AB:5000_DO_Diag_Channel:C:0'
+  Id: g=c315122aad5d10532a622094a8b5eb17
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DO_Diag_Channel:C:0'
+  ValueRank: Any
+  Children:
+  - Name: FaultMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultMode"
+  - Name: FaultValue
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultValue"
+  - Name: ProgMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgMode"
+  - Name: ProgValue
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgValue"
+  - Name: FaultFinalState
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultFinalState"
+  - Name: ProgramToFaultEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgramToFaultEn"
+  - Name: NoLoadEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NoLoadEn"
+  - Name: FaultValueStateDuration
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultValueStateDuration"
+- Name: 'AB:5000_DO8_Diag:I:0'
+  Id: g=038bcaa1651d80dab32481897da42710
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DO8_Diag:I:0'
+  ValueRank: Any
+  Children:
+  - Name: RunMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RunMode"
+  - Name: ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ConnectionFaulted"
+  - Name: DiagnosticActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticActive"
+  - Name: DiagnosticSequenceCount
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticSequenceCount"
+  - Name: Pt00
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt01
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt02
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt03
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt04
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt05
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt06
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+  - Name: Pt07
+    Type: 'CHANNEL_DO_DIAG:I:0'
+    DataType: 'CHANNEL_DO_DIAG:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: NoLoad
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "NoLoad"
+    - Name: ShortCircuit
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShortCircuit"
+- Name: 'AB:1834_AENTR:O:0'
+  Id: g=96501264716f1c6bf98fc7e312997ac6
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:1834_AENTR:O:0'
+  ValueRank: Any
+  Children:
+  - Name: DisableSwitchedPower
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DisableSwitchedPower"
+  - Name: ResetNetworkPowerTrip
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ResetNetworkPowerTrip"
+  - Name: ResetSwitchedPowerTrip
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ResetSwitchedPowerTrip"
+- Name: 'AB:1834_AENTR:I:0'
+  Id: g=e4238e4f16d40ce415111fcfb5c5ac70
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:1834_AENTR:I:0'
+  ValueRank: Any
+  Children:
+  - Name: RunMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RunMode"
+  - Name: ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ConnectionFaulted"
+  - Name: DiagnosticActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticActive"
+  - Name: DiagnosticSequenceCount
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticSequenceCount"
+  - Name: Fault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Fault"
+  - Name: Uncertain
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Uncertain"
+  - Name: NetworkPowerActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerActive"
+  - Name: SwitchedPowerActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerActive"
+  - Name: TripPresent
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "TripPresent"
+  - Name: WarningPresent
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "WarningPresent"
+  - Name: NetworkPowerVoltageTrip
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerVoltageTrip"
+  - Name: NetworkPowerOverCurrentTrip
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerOverCurrentTrip"
+  - Name: SwitchedPowerVoltageTrip
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerVoltageTrip"
+  - Name: SwitchedPowerOverCurrentTrip
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerOverCurrentTrip"
+  - Name: NetworkPowerVoltageWarning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerVoltageWarning"
+  - Name: NetworkPowerOverCurrentWarning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerOverCurrentWarning"
+  - Name: SwitchedPowerVoltageWarning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerVoltageWarning"
+  - Name: SwitchedPowerOverCurrentWarning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerOverCurrentWarning"
+  - Name: SecurityLogWarning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SecurityLogWarning"
+  - Name: ReferenceTopologyWarning
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ReferenceTopologyWarning"
+  - Name: InternalFault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InternalFault"
+  - Name: OperatingHoursAlarm
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperatingHoursAlarm"
+  - Name: NetworkPowerVoltage
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerVoltage"
+  - Name: SwitchedPowerVoltage
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerVoltage"
+  - Name: NetworkPowerCurrent
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerCurrent"
+  - Name: SwitchedPowerCurrent
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerCurrent"
+- Name: 'CHANNEL_DI:I:0'
+  Id: g=dc1eac321b32fa8efb60216a8b6113f6
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'CHANNEL_DI:I:0'
+  ValueRank: Any
+  Children:
+  - Name: Data
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Data"
+  - Name: Fault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Fault"
+  - Name: Uncertain
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Uncertain"
+- Name: IMM_STATUS
+  Id: g=2075888d3b99ee17091138cdd5a5f4b0
+  Supertype: RAEtherNetIPTagStructure
+  DataType: IMM_STATUS
+  ValueRank: Any
+  Children:
+  - Name: Running
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Running"
+  - Name: Paused
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Paused"
+  - Name: EStopped
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "EStopped"
+  - Name: Idle
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Idle"
+  - Name: MachineState
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "MachineState"
+  - Name: PhaseIndex
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PhaseIndex"
+  - Name: PhaseProgress
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PhaseProgress"
+  - Name: CycleElapsed
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "CycleElapsed"
+  - Name: TotalCycleTime
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "TotalCycleTime"
+  - Name: ShotCount
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ShotCount"
+  - Name: RejectCount
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RejectCount"
+- Name: 'CHANNEL_DO:O:0'
+  Id: g=3861a80438181f572db4e421ac4bdcac
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'CHANNEL_DO:O:0'
+  ValueRank: Any
+  Children:
+  - Name: Data
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Data"
+- Name: IMM_MACHINE
+  Id: g=ef39ce3bf7d1a538e88c6178b30a5065
+  Supertype: RAEtherNetIPTagStructure
+  DataType: IMM_MACHINE
+  ValueRank: Any
+  Children:
+  - Name: Status
+    Type: IMM_STATUS
+    DataType: IMM_STATUS
+    Children:
+    - Name: Running
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Running"
+    - Name: Paused
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Paused"
+    - Name: EStopped
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "EStopped"
+    - Name: Idle
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Idle"
+    - Name: MachineState
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "MachineState"
+    - Name: PhaseIndex
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PhaseIndex"
+    - Name: PhaseProgress
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PhaseProgress"
+    - Name: CycleElapsed
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "CycleElapsed"
+    - Name: TotalCycleTime
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "TotalCycleTime"
+    - Name: ShotCount
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShotCount"
+    - Name: RejectCount
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "RejectCount"
+  - Name: Setpoints_Temps
+    Type: IMM_SETPOINTS_TEMPS
+    DataType: IMM_SETPOINTS_TEMPS
+    Children:
+    - Name: Z1Temp
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z1Temp"
+    - Name: Z2Temp
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z2Temp"
+    - Name: Z3Temp
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z3Temp"
+    - Name: Z4Temp
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z4Temp"
+    - Name: MoldASideTemp
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "MoldASideTemp"
+    - Name: MoldBSideTemp
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "MoldBSideTemp"
+  - Name: Setpoints_Pres
+    Type: IMM_SETPOINTS_PRES
+    DataType: IMM_SETPOINTS_PRES
+    Children:
+    - Name: InjectionPressure
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InjectionPressure"
+    - Name: HoldPressure
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "HoldPressure"
+    - Name: BackPressure
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "BackPressure"
+    - Name: ClampForce
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ClampForce"
+    - Name: ScrewRPM
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ScrewRPM"
+  - Name: Setpoints_Cycle
+    Type: IMM_SETPOINTS_CYCLE
+    DataType: IMM_SETPOINTS_CYCLE
+    Children:
+    - Name: InjectionTime
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InjectionTime"
+    - Name: HoldTime
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "HoldTime"
+    - Name: CoolingTime
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "CoolingTime"
+    - Name: PlasticationTime
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PlasticationTime"
+    - Name: EjectTime
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "EjectTime"
+  - Name: Actuals
+    Type: IMM_ACTUALS
+    DataType: IMM_ACTUALS
+    Children:
+    - Name: Z1TempActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z1TempActual"
+    - Name: Z2TempActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z2TempActual"
+    - Name: Z3TempActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z3TempActual"
+    - Name: Z4TempActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Z4TempActual"
+    - Name: MoldASideTempActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "MoldASideTempActual"
+    - Name: MoldBSideTempActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "MoldBSideTempActual"
+    - Name: InjPressureActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InjPressureActual"
+    - Name: HoldPressureActual
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "HoldPressureActual"
+    - Name: ScrewPosition
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ScrewPosition"
+    - Name: Cushion
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Cushion"
+    - Name: ShotsPerHour
+      Type: RAEtherNetIPTag
+      DataType: Float
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ShotsPerHour"
+  - Name: Cmd_Run
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Cmd_Run"
+  - Name: Cmd_Pause
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Cmd_Pause"
+  - Name: Cmd_EStop
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Cmd_EStop"
+  - Name: Cmd_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Cmd_Reset"
+  - Name: In_EStop
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "In_EStop"
+  - Name: In_Reset
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "In_Reset"
+  - Name: In_Pause
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "In_Pause"
+  - Name: In_CycleStart
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "In_CycleStart"
+- Name: 'AB:1834_AENTR:C:0'
+  Id: g=f330c4f8bc58be12678f401a13157ee3
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:1834_AENTR:C:0'
+  ValueRank: Any
+  Children:
+  - Name: NetworkPowerVoltageWarningEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerVoltageWarningEn"
+  - Name: NetworkPowerOverCurrentWarningEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NetworkPowerOverCurrentWarningEn"
+  - Name: SwitchedPowerVoltageWarningEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerVoltageWarningEn"
+  - Name: SwitchedPowerOverCurrentWarningEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "SwitchedPowerOverCurrentWarningEn"
+  - Name: ReferenceTopologyWarningEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ReferenceTopologyWarningEn"
+  - Name: OperatingHoursAlarmEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperatingHoursAlarmEn"
+  - Name: RemainingOperatingHoursAlarmLimit
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RemainingOperatingHoursAlarmLimit"
+- Name: 'CHANNEL_DO_DIAG:I:0'
+  Id: g=8ce17eb8416ef3a0e2970b2d5cc6a45f
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'CHANNEL_DO_DIAG:I:0'
+  ValueRank: Any
+  Children:
+  - Name: Data
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Data"
+  - Name: Fault
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Fault"
+  - Name: Uncertain
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "Uncertain"
+  - Name: NoLoad
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "NoLoad"
+  - Name: ShortCircuit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ShortCircuit"
+- Name: 'AB:5000_DI_Channel:C:0'
+  Id: g=a3674afd56d0fafb3f1196ec20c134ea
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DI_Channel:C:0'
+  ValueRank: Any
+  Children:
+  - Name: InputOffOnFilter
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InputOffOnFilter"
+  - Name: InputOnOffFilter
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InputOnOffFilter"
+- Name: 'AB:800F_PB_IL:C:0'
+  Id: g=db683994f9d72b9102ad6a9ec0c6a65c
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_PB_IL:C:0'
+  ValueRank: Any
+  Children:
+  - Name: PushButton
+    Type: 'AB:800F_PB_IL_Channel:C:0'
+    DataType: 'AB:800F_PB_IL_Channel:C:0'
+    Children:
+    - Name: OperationsAlarmEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperationsAlarmEn"
+    - Name: OperatingHoursAlarmEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperatingHoursAlarmEn"
+    - Name: RemainingOperationsAlarmLimit
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "RemainingOperationsAlarmLimit"
+    - Name: RemainingOperatingHoursAlarmLimit
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "RemainingOperatingHoursAlarmLimit"
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalMode
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalMode"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+    - Name: BlinkRate
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "BlinkRate"
+    - Name: DimmingLevel
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "DimmingLevel"
+- Name: 'AB:5000_DI16:I:0'
+  Id: g=21226902309cbf491ce62bff284baeec
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:5000_DI16:I:0'
+  ValueRank: Any
+  Children:
+  - Name: RunMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RunMode"
+  - Name: ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ConnectionFaulted"
+  - Name: DiagnosticActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticActive"
+  - Name: DiagnosticSequenceCount
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticSequenceCount"
+  - Name: Pt00
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt01
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt02
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt03
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt04
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt05
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt06
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt07
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt08
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt09
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt10
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt11
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt12
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt13
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt14
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+  - Name: Pt15
+    Type: 'CHANNEL_DI:I:0'
+    DataType: 'CHANNEL_DI:I:0'
+    Children:
+    - Name: Data
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Data"
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+- Name: 'AB:800F_3PS_IL_Channel:C:0'
+  Id: g=db0142d063f498eaa1dbd9e6d3fcef33
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_3PS_IL_Channel:C:0'
+  ValueRank: Any
+  Children:
+  - Name: OperationsAlarmEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperationsAlarmEn"
+  - Name: OperatingHoursAlarmEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "OperatingHoursAlarmEn"
+  - Name: RemainingOperationsAlarmLimit
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RemainingOperationsAlarmLimit"
+  - Name: RemainingOperatingHoursAlarmLimit
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RemainingOperatingHoursAlarmLimit"
+  - Name: FaultMode
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultMode"
+  - Name: FaultValue
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultValue"
+  - Name: ProgMode
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgMode"
+  - Name: ProgValue
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgValue"
+  - Name: FaultFinalMode
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultFinalMode"
+  - Name: FaultFinalState
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultFinalState"
+  - Name: ProgramToFaultEn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ProgramToFaultEn"
+  - Name: FaultValueStateDuration
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "FaultValueStateDuration"
+  - Name: BlinkRate
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "BlinkRate"
+  - Name: DimmingLevel
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DimmingLevel"
+- Name: 'AB:800F_3PS_IL:C:0'
+  Id: g=defa565efbf65a8f342cbe4c144b1bf0
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_3PS_IL:C:0'
+  ValueRank: Any
+  Children:
+  - Name: SelectorSwitch
+    Type: 'AB:800F_3PS_IL_Channel:C:0'
+    DataType: 'AB:800F_3PS_IL_Channel:C:0'
+    Children:
+    - Name: OperationsAlarmEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperationsAlarmEn"
+    - Name: OperatingHoursAlarmEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperatingHoursAlarmEn"
+    - Name: RemainingOperationsAlarmLimit
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "RemainingOperationsAlarmLimit"
+    - Name: RemainingOperatingHoursAlarmLimit
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "RemainingOperatingHoursAlarmLimit"
+    - Name: FaultMode
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultMode"
+    - Name: FaultValue
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValue"
+    - Name: ProgMode
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgMode"
+    - Name: ProgValue
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgValue"
+    - Name: FaultFinalMode
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalMode"
+    - Name: FaultFinalState
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultFinalState"
+    - Name: ProgramToFaultEn
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ProgramToFaultEn"
+    - Name: FaultValueStateDuration
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "FaultValueStateDuration"
+    - Name: BlinkRate
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "BlinkRate"
+    - Name: DimmingLevel
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "DimmingLevel"
+- Name: 'AB:800F_PB_IL:I:0'
+  Id: g=9c766baf2465cc7d93dfdb08485e2019
+  Supertype: RAEtherNetIPTagStructure
+  DataType: 'AB:800F_PB_IL:I:0'
+  ValueRank: Any
+  Children:
+  - Name: RunMode
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "RunMode"
+  - Name: ConnectionFaulted
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ConnectionFaulted"
+  - Name: DiagnosticActive
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticActive"
+  - Name: DiagnosticSequenceCount
+    Type: RAEtherNetIPTag
+    DataType: SByte
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DiagnosticSequenceCount"
+  - Name: PushButton
+    Type: 'AB:800F_PB_IL_Channel:I:0'
+    DataType: 'AB:800F_PB_IL_Channel:I:0'
+    Children:
+    - Name: Fault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Fault"
+    - Name: Uncertain
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Uncertain"
+    - Name: Contact
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Contact"
+    - Name: Illuminated
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Illuminated"
+    - Name: Blinking
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Blinking"
+    - Name: Dimmed
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Dimmed"
+    - Name: Color
+      Type: RAEtherNetIPTag
+      DataType: SByte
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "Color"
+    - Name: PanelComponentNotDetected
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PanelComponentNotDetected"
+    - Name: PeerCommFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PeerCommFault"
+    - Name: InternalFault
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "InternalFault"
+    - Name: OperationsAlarm
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperationsAlarm"
+    - Name: OperatingHoursAlarm
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "OperatingHoursAlarm"
+- Name: Pulse_AOI
+  Id: g=b81044331049619aab52d6492a278012
+  Supertype: RAEtherNetIPTagStructure
+  DataType: Pulse_AOI
+  ValueRank: Any
+  Children:
+  - Name: EnableIn
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "EnableIn"
+  - Name: EnableOut
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "EnableOut"
+  - Name: TimeOn
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "TimeOn"
+  - Name: TimeOff
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "TimeOff"
+  - Name: PulseBit
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PulseBit"
+  - Name: TimerOff
+    Type: TIMER
+    DataType: TIMER
+    Children:
+    - Name: PRE
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PRE"
+    - Name: ACC
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ACC"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "EN"
+    - Name: TT
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "TT"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "DN"
+  - Name: TimerOn
+    Type: TIMER
+    DataType: TIMER
+    Children:
+    - Name: PRE
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "PRE"
+    - Name: ACC
+      Type: RAEtherNetIPTag
+      DataType: Int32
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "ACC"
+    - Name: EN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "EN"
+    - Name: TT
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "TT"
+    - Name: DN
+      Type: RAEtherNetIPTag
+      DataType: Boolean
+      Children:
+      - Name: SymbolName
+        Type: BaseDataVariableType
+        DataType: String
+        Value: "DN"
+- Name: IMM_SETPOINTS_PRES
+  Id: g=e12d112141924aeb25846dfce2ff7959
+  Supertype: RAEtherNetIPTagStructure
+  DataType: IMM_SETPOINTS_PRES
+  ValueRank: Any
+  Children:
+  - Name: InjectionPressure
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "InjectionPressure"
+  - Name: HoldPressure
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "HoldPressure"
+  - Name: BackPressure
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "BackPressure"
+  - Name: ClampForce
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ClampForce"
+  - Name: ScrewRPM
+    Type: RAEtherNetIPTag
+    DataType: Float
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ScrewRPM"
+- Name: TIMER
+  Id: g=42c148ef475d1878fbdc0cfe7a5296f6
+  Supertype: RAEtherNetIPTagStructure
+  DataType: TIMER
+  ValueRank: Any
+  Children:
+  - Name: PRE
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "PRE"
+  - Name: ACC
+    Type: RAEtherNetIPTag
+    DataType: Int32
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "ACC"
+  - Name: EN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "EN"
+  - Name: TT
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "TT"
+  - Name: DN
+    Type: RAEtherNetIPTag
+    DataType: Boolean
+    Children:
+    - Name: SymbolName
+      Type: BaseDataVariableType
+      DataType: String
+      Value: "DN"

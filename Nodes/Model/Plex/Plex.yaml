@@ -1,0 +1,149 @@
+Name: Plex
+Type: FolderType
+Children:
+- Name: PlexJob
+  Id: g=8d8d65814592b1615c170e16999e004a
+  Supertype: BaseObjectType
+  Children:
+  - Name: Job
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Workcenter
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: PartNumber
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: PartName
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Operation
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: JobStatus
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: TargetQuantity
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: QuantityCompleted
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Priority
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Target
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: DueDate
+    Type: BaseDataVariableType
+    DataType: String
+- Name: PlexJob1
+  Id: g=bb5d29ffe518e42eac23abec24310e03
+  Type: PlexJob
+  Children:
+  - Name: Job
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Workcenter
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: PartNumber
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: PartName
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Operation
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: JobStatus
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: TargetQuantity
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: QuantityCompleted
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Priority
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Target
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: DueDate
+    Type: BaseDataVariableType
+    DataType: String
+- File: Jobs/Jobs.yaml
+- File: BOMs1/BOMs1.yaml
+- File: BOMs2/BOMs2.yaml
+- File: Inventory1/Inventory1.yaml
+- File: Inventory2/Inventory2.yaml
+- File: Workcenters/Workcenters.yaml
+- File: Suppliers/Suppliers.yaml
+- File: Operator/Operator.yaml
+- File: Settings/Settings.yaml
+- Name: PlexWebVisibility
+  Type: BaseDataVariableType
+  DataType: Boolean
+  Children:
+  - Name: ExpressionEvaluator1
+    Type: ExpressionEvaluator
+    Children:
+    - Name: Expression
+      Type: BaseDataVariableType
+      DataType: String
+      ReferenceType: HasParameter
+      Value: "{0}==3"
+    - Name: ns=7;Source0
+      Type: BaseDataVariableType
+      DataType: BaseDataType
+      ReferenceType: HasSource
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../../../HostSettings/ScreenSelector"
+- Name: IMM_CP_Visibility
+  Type: BaseDataVariableType
+  DataType: Boolean
+  Children:
+  - Name: ExpressionEvaluator1
+    Type: ExpressionEvaluator
+    Children:
+    - Name: Expression
+      Type: BaseDataVariableType
+      DataType: String
+      ReferenceType: HasParameter
+      Value: "{0}==2"
+    - Name: ns=7;Source0
+      Type: BaseDataVariableType
+      DataType: BaseDataType
+      ReferenceType: HasSource
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../../../HostSettings/ScreenSelector"
+- Name: IRIS_CMD_Visibility
+  Type: BaseDataVariableType
+  DataType: Boolean
+  Children:
+  - Name: ExpressionEvaluator1
+    Type: ExpressionEvaluator
+    Children:
+    - Name: Expression
+      Type: BaseDataVariableType
+      DataType: String
+      ReferenceType: HasParameter
+      Value: "{0}==1"
+    - Name: ns=7;Source0
+      Type: BaseDataVariableType
+      DataType: BaseDataType
+      ReferenceType: HasSource
+      Children:
+      - Name: DynamicLink
+        Type: DynamicLink
+        DataType: NodePath
+        Value: "../../../../HostSettings/ScreenSelector"

@@ -1,0 +1,32 @@
+Name: Recipe
+Id: g=6aa83c910867c03cb98295b4834bfdd1
+Type: FolderType
+Children:
+- Name: Bottle_Recipe
+  Id: g=41957df249ab3b576867b9bbbace3447
+  Type: BaseDataVariableType
+  DataType: Structure
+  Value: 
+   {
+    "Type": 22,
+    "Body": {
+     "TypeId": {
+      "IdType": 0,
+      "Id": 0,
+      "Namespace": -1
+     },
+     "Body":    {}
+    }
+   }
+  Children:
+  - Name: DynamicLink
+    Id: g=caaca93da45a0431ee0a0ec155837fe9
+    Type: DynamicLink
+    DataType: NodePath
+    Value: "../../../CommDrivers/RAEtherNet_IPDriver1/RAEtherNet_IPStation1/Tags/Controller Tags/RecipeDemo"
+    Children:
+    - Name: Mode
+      Id: g=8100109a378f7e566039290861b7be1e
+      Type: BaseVariableType
+      DataType: DynamicLinkMode
+      Value: 2

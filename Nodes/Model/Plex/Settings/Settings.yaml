@@ -1,0 +1,35 @@
+Name: Settings
+Type: FolderType
+Children:
+- File: Types/Types.yaml
+- Name: Molding1
+  Type: PlexWorkcenter
+  Children:
+  - Name: WorkcenterId
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "2505052f-24cf-453d-aa1a-8bc661bd105e"
+  - Name: Workcenter_Key
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 85866
+  - Name: WorkcenterName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Molding1"
+- Name: Molding2
+  Id: g=96332fcff7403e6cb25a74f18b1a7f35
+  Type: PlexWorkcenter
+  Children:
+  - Name: WorkcenterId
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "6a8bef3d-1a6b-4b51-bc93-e9e37273df65"
+  - Name: Workcenter_Key
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: 85954
+  - Name: WorkcenterName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Molding2"

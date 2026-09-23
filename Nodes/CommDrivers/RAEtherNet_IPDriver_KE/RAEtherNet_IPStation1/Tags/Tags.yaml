@@ -1,0 +1,14 @@
+Name: Tags
+Type: FolderType
+Children:
+- File: Controller_Tags/Controller_Tags.yaml
+- File: Program_Doosan/Program_Doosan.yaml
+- File: Program_Linmot_FGuide/Program_Linmot_FGuide.yaml
+- File: Program_P02_DemoMode/Program_P02_DemoMode.yaml
+- File: Program_Pallet_Calcs/Program_Pallet_Calcs.yaml
+- File: Program_RobotConfigure/Program_RobotConfigure.yaml
+- File: Program_Robot_1_DH/Program_Robot_1_DH.yaml
+- File: Program_Robot_Status_And_Control/Program_Robot_Status_And_Control.yaml
+- File: Program_Robot_rOS/Program_Robot_rOS.yaml
+- File: Program_SafetyProgram/Program_SafetyProgram.yaml
+- File: Program_raM_Dvc_DH_SysIni/Program_raM_Dvc_DH_SysIni.yaml

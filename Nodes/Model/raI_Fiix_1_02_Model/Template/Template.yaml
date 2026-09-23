@@ -1,0 +1,598 @@
+Name: Template
+Type: FolderType
+Children:
+- Name: FiixGatewayDesigntimeLogic
+  Type: NetLogic
+  Children:
+  - Name: BehaviourStartPriority
+    Type: BehaviourStartPriorityVariableType
+    DataType: Byte
+    Value: 180
+  - Name: Cfg_AccessKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Description: {"LocaleId":"en-US","Text":"Retrieved from Fiix MA Connect API Application settings"}
+    Value: "macmmsaakp3844411b8df0b169168221fe006ce5b661f1456350564ebdb3cd9b7"
+  - Name: Cfg_AppKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Description: {"LocaleId":"en-US","Text":"Retrieved from Fiix MA Connect API Application settings"}
+    Value: "macmmsackp384a6c2c6932015d3cb546eea56c8a759bacd5abb7ff7ac553a05"
+  - Name: Cfg_FiixURL
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Base URL of the Fiix instance, for example: https://abc.macmms.com"}
+    Value: "https://kendallelectricptu.macmms.com"
+  - Name: Cfg_SecretKey
+    Type: BaseDataVariableType
+    DataType: Password
+    Description: {"LocaleId":"en-US","Text":"Retrieved from Fiix MA Connect API Application settings"}
+    Value: "macmmsaskp3843e19cb426dfe229e8b34166119e94f07b46bff20fe325cd7b74c1a2d7b802e2d"
+  - Name: Set_FilterSiteNames
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Part of name(s) used to filter Site, under which the assets are to be synced, seperated with comma."}
+    Value: "Iris Factory"
+  - Name: Set_DeleteExtraNodes
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Description: {"LocaleId":"en-US","Text":"When an asset in Optix does not have corresponding Fiix one during synronization, this boolean flag decides if the asset should be removed from Optix data model. Turn off when you are doing a partial sync."}
+    Value: true
+  - Name: Sts_LastExecutionResult
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "1 new and 0 synced sites; 13 new and 0 synced assets"
+  - Name: Sts_LastExecutionDatetime
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Value: "2026-07-17T19:04:11.5269806"
+  - Name: Set_FilterAssetNames
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Part of name(s) used to filter the assets (not include location, facility) which are to be synced from Fiix to Optix, seperated with comma."}
+    Value: "Department A, Department B, Barrel, Mold, Hopper"
+  - Name: Set_FilterEnabledAssetCategoryOnly
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Description: {"LocaleId":"en-US","Text":"When this is set to True, Optix will sync only the assets with its AssetCategory being enabled. User can flag an Asset Category as Enabled by locating the Asset Category in the “AssetCategories” folder under the gateway folder. then set the “Cfg_enabled” property to True."}
+  - Class: Method
+    Name: SyncAssets
+  - Class: Method
+    Name: SyncCategoriesTypesUnits
+  - Name: Cfg_ARP_URL
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "https://api.fiix.software/arp-data-ingestion/sensordata"
+  - Name: Cfg_ARP_ApiKey
+    Type: BaseDataVariableType
+    DataType: Password
+  - Name: Cfg_ARP_ApiSecret
+    Type: BaseDataVariableType
+    DataType: Password
+- Name: FiixGatewayRuntimeLogic
+  Type: NetLogic
+  Children:
+  - Name: Sts_LastExecutionResult
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Sts_LastExecutionDatetime
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Value: "2024-01-01T00:00:00.0000000"
+  - Name: Cfg_DataLogger
+    Type: NodePointer
+    DataType: NodeId
+    Description: {"LocaleId":"en-US","Text":"Reference to the MeterReadingDataLogger object in the same folder."}
+    Value: "/Objects/IRIS_IMM2_ROADSHOW2026_Landscape/Model/raI_Fiix_1_02_Model/MeterReadingDataLogger"
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: "/Types/ObjectTypes/BaseObjectType/DataLogger"
+  - Name: Cfg_PushFullSample
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Description: {"LocaleId":"en-US","Text":"Enable pushing all logged tags values even some have no update. Not in use with Fiix integration"}
+  - Name: Cfg_PreserveDataLoggerHistory
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Description: {"LocaleId":"en-US","Text":"If True, the data is sent and historicized. If False, every time the data is transferred to the auxiliary store, the data is deleted from the data logger."}
+    Value: true
+  - Name: Cfg_MaximumStoreCapacity
+    Type: BaseDataVariableType
+    DataType: Int32
+    Description: {"LocaleId":"en-US","Text":"The maximum capacity of the auxiliary store used by the Push Agent."}
+    Value: 10000
+  - Name: Cfg_MaximumItemsPerPacket
+    Type: BaseDataVariableType
+    DataType: Int32
+    Description: {"LocaleId":"en-US","Text":"The number of records encapsulated in a packet. by line transfer mode sends only one line per packet."}
+    Value: 20
+  - Name: Cfg_DataLoggerPullTime
+    Type: BaseDataVariableType
+    DataType: Duration
+    Description: {"LocaleId":"en-US","Text":"The time interval after which data is taken from the data logger and stored in the auxiliary store. If PreserveDataLoggerHistory is set to True, the original data is deleted from the data logger after copying it to the auxiliary store."}
+    Value: "0:00:00:10.0000000"
+  - Name: Cfg_MaximumPublishTime
+    Type: BaseDataVariableType
+    DataType: Duration
+    Description: {"LocaleId":"en-US","Text":"The maximum time interval after which data is taken from the auxiliary store and sent to the cloud. The interval is used when the auxiliary store has fewer records than MaximumItemsPerPacket."}
+    Value: "0:00:00:10.0000000"
+  - Name: Cfg_MinimumPublishTime
+    Type: BaseDataVariableType
+    DataType: Duration
+    Description: {"LocaleId":"en-US","Text":"The minimum time interval after which data is taken from the auxiliary store and sent to the cloud. The interval is used when the auxiliary store has more records than MaximumItemsPerPacket. You may want to increase the sending frequency to download the queue of the store."}
+    Value: "0:00:00:02.0000000"
+  - Class: Method
+    Name: SyncAssets
+  - Name: Set_MeterReadingStoreAndSend
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Description: {"LocaleId":"en-US","Text":"When true, Optix will turn on the Push agent sending of meter readings when runtime start."}
+  - Class: Method
+    Name: ClearPushAgentTempStore
+  - Name: Set_AssetStatusAutoUpdate
+    Type: BaseDataVariableType
+    DataType: Duration
+    Description: {"LocaleId":"en-US","Text":"When this duration is not set to 0, assets status and information are updated in the background with the defined duration as time interval."}
+    Value: "0:00:00:10.0000000"
+  - Name: Sts_AssetStatusUpdatePause
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: Sts_PushAgentLastSendDatetime
+    Type: BaseDataVariableType
+    DataType: DateTime
+    Value: "2024-01-01T00:00:00.0000000"
+  - Name: Sts_PushAgentLastSendResult
+    Type: BaseDataVariableType
+    DataType: String
+  - Class: Method
+    Name: ClearDataLoggerStore
+  - Name: Cfg_ARP_enabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Description: {"LocaleId":"en-US","Text":"Send ARP data in MeterReadingDataLogger to Fiix usinng V6 API when true. Will overwrite Cfg_PreserveDataLoggerHistory's value to True if enabled."}
+  - Name: Cfg_ARP_SendInterval
+    Type: BaseDataVariableType
+    DataType: Int32
+    Description: {"LocaleId":"en-US","Text":"Periodic task interval to send ARP summary to Fiix ARP in seconds."}
+    Value: 3600
+  - Class: Method
+    Name: ARPSummaryTask
+  - Name: Cfg_ARP_MachineRunning_AggregateRule
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Aggregation rule in 1 min calculation for context data. Use SQLite aggregate function name or FIRST, LAST for the earliest and last record of the data."}
+    Value: "MAX"
+  - Name: Cfg_ARP_Recipe_AggregateRule
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Aggregation rule in 1 min calculation for context data. Use SQLite aggregate function name or FIRST, LAST for the earliest and last record of the data."}
+    Value: "LAST"
+  - Name: Cfg_ARP_Fault_AggregateRule
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Aggregation rule in 1 min calculation for context data. Use SQLite aggregate function name or FIRST, LAST for the earliest and last record of the data."}
+    Value: "FIRST"
+  - Name: Cfg_ARP_Message_AggregateRule
+    Type: BaseDataVariableType
+    DataType: String
+    Description: {"LocaleId":"en-US","Text":"Aggregation rule in 1 min calculation for context data. Use SQLite aggregate function name or FIRST, LAST for the earliest and last record of the data."}
+- Name: Asset
+  Id: g=b7c9a9534b68199a0ba0dc2c95bc8386
+  Supertype: BaseObjectType
+  Children:
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strCode
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strAddressParsed
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strTimezone
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: intCategoryID
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: intSuperCategorySysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: intSiteID
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: intAssetLocationID
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Class: Method
+    Name: AddEvent
+    Id: g=e2b85b23706ab6f11864f0a08a4c454d
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"eventTypeID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"additionalDescription","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Name: strDescription
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strMake
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strModel
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strInventoryCode
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strBinNumber
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strSerialNumber
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strRow
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: bolIsOnline
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: dtUpdated
+    Type: BaseDataVariableType
+    DataType: DateTime
+  - Class: Method
+    Name: SwitchOffline
+    Id: g=1283f0a6adc482891af7093753c20578
+  - Class: Method
+    Name: SwitchOnline
+    Id: g=2a8b48f5ba58a2c75d326e6f67d5f63a
+  - Name: Sts_LastActionResult
+    Type: BaseDataVariableType
+    DataType: String
+  - Class: Method
+    Name: AddMeterReading
+    Id: g=0b34393109b429b50c8f27971cd2bd8f
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"analogVariableName","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Name: Sts_LastActionDatetime
+    Type: BaseDataVariableType
+    DataType: DateTime
+  - Class: Method
+    Name: GetAssetEvents
+    Id: g=d123a047f99a4bf67c88050bbc9516c9
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"startDT","DataType":{"Id":13},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"endDT","DataType":{"Id":13},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Class: Method
+    Name: GetMeterReadings
+    Id: g=655f13e383609e16765e8aacf2ba700d
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"startDT","DataType":{"Id":13},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"endDT","DataType":{"Id":13},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Name: strAisle
+    Type: BaseDataVariableType
+    DataType: String
+  - Class: Method
+    Name: UpdateRuntimeAsset
+    Id: g=b1dca4c8f80d29103f4437f9e1799aea
+  - Class: Method
+    Name: AddOfflineTracker
+    Id: g=a7853852e6de8a9e3e34ad0e7908b17f
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"reasonOfflineID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"workOrderID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"additionalInfo","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Name: AssetDesignTimeLogic
+    Type: NetLogic
+    Children:
+    - Name: BehaviourStartPriority
+      Type: BehaviourStartPriorityVariableType
+      DataType: Byte
+      Value: 180
+    - Class: Method
+      Name: AddVariablesToDataLogger
+      Id: g=5e5d91bd9f0cdde00b83e7dec07a6b86
+  - Class: Method
+    Name: CloseOfflineTracker
+    Id: g=796b424689705ece683271b81757b470
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"reasonOnlineID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"additionalInfo","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"hoursAffected","DataType":{"Id":11},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Name: Sts_OpenWorkOrderCount
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Class: Method
+    Name: AddWorkOrder
+    Id: g=de243540012c67eb52e27492f6347827
+    Children:
+    - Name: ns=0;InputArguments
+      Type: BaseVariableType
+      DataType: Argument
+      ReferenceType: HasProperty
+      ValueRank: OneDimension
+      ArrayDimensions: [0]
+      Value: [{"TypeId":{"Id":296},"Body":{"Name":"WorkOrderStatusID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"PriorityID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"MaintenanceTypeID","DataType":{"Id":6},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"Description","DataType":{"Id":12},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"SuggestedStartDate","DataType":{"Id":13},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}},{"TypeId":{"Id":296},"Body":{"Name":"SuggestedCompleteDate","DataType":{"Id":13},"ValueRank":-1,"ArrayDimensions":[],"Description":{"NamespaceIndex":-1,"LocaleId":"","Text":""}}}]
+  - Name: intAssetParentID
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: bolIsSite
+    Type: BaseDataVariableType
+    DataType: Boolean
+  - Name: bolIsRegion
+    Type: BaseDataVariableType
+    DataType: Boolean
+- Name: AssetCategory
+  Id: g=edadfeb43822901b4675271520c32122
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: intParentID
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: Cfg_enabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+- Name: AssetEventType
+  Id: g=d56cdcd2e7233b545f66ff60a2368473
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strUniqueKey
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+- Name: AssetOfflineReason
+  Id: g=78ebdea39569e4a81f54b9f5fdc6d6f6
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: dtUpdated
+    Type: BaseDataVariableType
+    DataType: DateTime
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+- Name: AssetEvent
+  Id: g=604b56407146e453620ab2b9e981ca0d
+  Supertype: BaseObjectType
+  Description: {"LocaleId":"en-US","Text":"This type is for model of Data display UI components."}
+  Children:
+  - Name: strEventName
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: dtmDateSubmitted
+    Type: BaseDataVariableType
+    DataType: DateTime
+  - Name: strAdditionalDescription
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strEventCode
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strEventDescription
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strSubmittedByUser
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: intWorkOrderID
+    Type: BaseDataVariableType
+    DataType: Int32
+    Value: -1
+- Name: MeterReading
+  Id: g=d13f58263a63890ed2e44b44068ad476
+  Supertype: BaseObjectType
+  Children:
+  - Name: dblMeterReading
+    Type: BaseDataVariableType
+    DataType: Double
+  - Name: dtmDateSubmitted
+    Type: BaseDataVariableType
+    DataType: DateTime
+  - Name: strUnitName
+    Type: BaseDataVariableType
+    DataType: String
+- Name: ARPData
+  Id: g=d031405477d73b4c2bb55b3126ecd92e
+  Supertype: BaseObjectType
+  Children:
+  - Name: bolIsMachineRunning
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: strRecipe
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strFault
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strMessage
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Set_ARPSend_enabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: Cfg_RawDataSend_enabled
+    Type: BaseDataVariableType
+    DataType: Boolean
+    Value: true
+  - Name: dataReading
+    Type: AnalogItemType
+    DataType: Float
+    Children:
+    - Name: EURange
+      Type: RangeType
+      DataType: Range
+      Children:
+      - Name: Low
+        Type: BaseDataVariableType
+        DataType: Double
+      - Name: High
+        Type: BaseDataVariableType
+        DataType: Double
+  - Name: Out_JSON
+    Type: BaseDataVariableType
+    DataType: String
+- Name: Priority
+  Id: g=43ee93009e4d5d301d035be0f6370daf
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: intOrder
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+- Name: WOStatus
+  Id: g=aff1a112057714ff7d81c56294bcb82c
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: intControlID
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+- Name: MaintenanceType
+  Id: g=e1c9ed82125bb81d08a9923df2204987
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strUuid
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strColor
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: intSysCode
+    Type: BaseDataVariableType
+    DataType: Int32
+- Name: WorkOrder
+  Id: g=5ba04aade12158dc1cc3ece0b15f0e77
+  Supertype: BaseObjectType
+  Children:
+  - Name: id
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: strPriority
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strWorkOrderStatus
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: strAssets
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strDescription
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: strCode
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"
+  - Name: dtCreated
+    Type: BaseDataVariableType
+    DataType: DateTime
+  - Name: strMaintenanceType
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"

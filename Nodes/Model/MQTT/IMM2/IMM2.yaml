@@ -1,0 +1,7 @@
+Name: IMM2
+Type: FolderType
+Children:
+- File: Status/Status.yaml
+- File: Setpoints/Setpoints.yaml
+- File: Actuals/Actuals.yaml
+- File: WebIn/WebIn.yaml

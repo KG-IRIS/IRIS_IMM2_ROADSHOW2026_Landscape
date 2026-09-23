@@ -1,0 +1,19 @@
+Name: 'Program:MainProgram'
+Type: FolderType
+Children:
+- Name: IMM2_Sim_PhaseFound
+  Type: RAEtherNetIPTag
+  DataType: Boolean
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:MainProgram.IMM2_Sim_PhaseFound"
+- Name: IMM2_Sim_Remaining
+  Type: RAEtherNetIPTag
+  DataType: Float
+  Children:
+  - Name: SymbolName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "Program:MainProgram.IMM2_Sim_Remaining"

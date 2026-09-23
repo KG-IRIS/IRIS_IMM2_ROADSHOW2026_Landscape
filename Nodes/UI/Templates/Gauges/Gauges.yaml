@@ -1,0 +1,18 @@
+Name: Gauges
+Type: FolderType
+Children:
+- Name: Rectangle1
+  Id: g=20a45b4629677abb79f50fdfb01a8e3a
+  Supertype: Rectangle
+  ReferenceType: HasComponent
+  Children:
+  - Name: Width
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 310.0
+  - Name: Height
+    Type: BaseVariableType
+    DataType: Size
+    ModellingRule: Optional
+    Value: 240.0

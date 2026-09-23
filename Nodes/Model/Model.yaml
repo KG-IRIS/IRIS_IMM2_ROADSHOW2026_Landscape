@@ -1,0 +1,63 @@
+Name: Model
+Type: ModelCategoryFolder
+Children:
+- File: raI_Fiix_1_02_Model/raI_Fiix_1_02_Model.yaml
+- Name: MenuToggle
+  Type: BaseDataVariableType
+  DataType: Boolean
+- File: Recipe/Recipe.yaml
+- Name: ModelTag_Index4
+  Type: BaseDataVariableType
+  DataType: Int32
+  Children:
+  - Name: DynamicLink
+    Type: DynamicLink
+    DataType: NodePath
+    Value: "../../CommDrivers/RAEtherNet_IPDriver1/RAEtherNet_IPStation1/Tags/Controller Tags/TestArray[4]"
+    Children:
+    - Name: Mode
+      Type: BaseVariableType
+      DataType: DynamicLinkMode
+      Value: 2
+- File: Alarm_Test_Bits/Alarm_Test_Bits.yaml
+- Name: Object1
+  Type: BaseObjectType
+  Children:
+  - Name: Alias1
+    Type: Alias
+    DataType: NodeId
+    Children:
+    - Name: Kind
+      Type: PropertyType
+      DataType: NodeId
+      Value: {"IdType":2,"Id":"1cb7249aaeca985fbe51efa26613612d","Namespace":42}
+- Name: webURL
+  Id: g=b1e9b8d1da7457b32fdc5270701541e0
+  Type: BaseDataVariableType
+  DataType: ResourceUri
+  Value: "http://192.168.1.54:9000"
+- File: IrisLensPub/IrisLensPub.yaml
+- File: IrisLensSub/IrisLensSub.yaml
+- File: Barcode/Barcode.yaml
+- File: Plex/Plex.yaml
+- Name: IrisLensURL
+  Type: BaseDataVariableType
+  DataType: String
+  Value: "http://192.168.173.123"
+- File: InjectionMolding/InjectionMolding.yaml
+- File: MQTT/MQTT.yaml
+- File: HostSettings/HostSettings.yaml
+- Name: PlexWorkcenter
+  Id: g=a38d93ee4b8805306dc511ab17bd1873
+  Supertype: BaseObjectType
+  Children:
+  - Name: WorkcenterId
+    Type: BaseDataVariableType
+    DataType: String
+  - Name: Workcenter_Key
+    Type: BaseDataVariableType
+    DataType: Int32
+  - Name: WorkcenterName
+    Type: BaseDataVariableType
+    DataType: String
+    Value: "0"

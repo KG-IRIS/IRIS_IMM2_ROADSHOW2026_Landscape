@@ -1,0 +1,13 @@
+Name: Roles
+Id: g=168315c4ba704e70bb13e35de715eb03
+Type: RolesCategoryFolder
+Children:
+- Name: Operator
+  Id: g=c3612102b8524bd4329ffeba6c075379
+  Type: ns=1;RoleType
+- Name: Administrator
+  Id: g=3106f694c47099bed523d02029d352e4
+  Type: ns=1;RoleType
+- Name: Super User
+  Id: g=8f01ee9e54c9c65ce65ee0434446292a
+  Type: ns=1;RoleType
